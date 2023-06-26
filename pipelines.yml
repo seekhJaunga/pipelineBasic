@@ -1,0 +1,22 @@
+pipelines:
+  - name: single_test
+    steps:
+      - name: trigger_1
+        type: Bash
+        configuration:
+          affinityGroup: trigger
+        execution:
+          onExecute:
+            - printenv
+            - echo "done"
+      - name: trigger_2
+        type: Bash
+        configuration:
+          chronological: true
+          affinityGroup: trigger
+          inputSteps: 
+            - name: trigger_1
+        execution:
+          onExecute:
+            - printenv
+            - echo "Running second trigger done"
