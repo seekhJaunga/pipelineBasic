@@ -8,7 +8,7 @@ pipelines:
           environmentVariables:
             env1: "test_p1"
             env2: "test_p2"
-            env3: "test_p3"
+            env3:
               default: "test_p2"
               description: "testing"
               values: ["random_1", "random_2", "random_3", "random_4"]
