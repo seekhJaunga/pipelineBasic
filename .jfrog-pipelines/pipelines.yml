@@ -10,6 +10,7 @@ pipelines:
             description: "testing"
             values: ["random_1", "random_2", "random_3", "random_4"]
             allowCustom: false
+            allowMulti: true
     steps:
       - name: trigger_1
         type: Bash
