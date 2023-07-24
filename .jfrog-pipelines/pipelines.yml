@@ -6,7 +6,6 @@ pipelines:
           env1: "test_p1"
           env2: "test_p2"
           env3:
-            default: "random_1"
             description: "testing"
             values: ["random_1", "random_2", "random_3", "random_4"]
             allowCustom: false
