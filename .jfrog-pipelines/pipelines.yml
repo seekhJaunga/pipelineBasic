@@ -20,7 +20,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - step_configuration_environmentVariables
+            - echo env3
             - echo "done"
       - name: trigger_2
         type: Bash
