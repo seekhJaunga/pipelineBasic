@@ -20,7 +20,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - echo env1
+            - echo "Value of env1: $env1"
             - echo "done"
       - name: trigger_2
         type: Bash
@@ -32,5 +32,5 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - echo env3
+            - echo "Value of env3: $env3"
             - echo "Running second trigger done"
