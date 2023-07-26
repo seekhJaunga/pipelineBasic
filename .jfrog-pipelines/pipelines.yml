@@ -6,9 +6,9 @@ pipelines:
           env1: "test_p1"
           env2: "test_p2"
           env3:
-            multiDefault: ["random_1", "random_4"]
+            multiDefault: ["r,andom_1", "r,andom_4"]
             description: "testing"
-            values: ["random_1", "random_2", "random_3", "random_4"]
+            values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
             allowCustom: false
             allowMulti: true
     steps:
