@@ -32,4 +32,5 @@ pipelines:
           onExecute:
             - printenv
             - echo $env3
+            - echo ${#env3[@]}
             - echo "Running second trigger done"
