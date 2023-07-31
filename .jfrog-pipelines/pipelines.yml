@@ -1,6 +1,9 @@
 pipelines:
   - name: single_test
     configuration:
+      retentionPolicy:
+        maxAgeDays: 30
+        minRuns: 5
       environmentVariables:
         readOnly:
           env1: "test_p1"
