@@ -3,7 +3,7 @@ pipelines:
     configuration:
       retentionPolicy:
         maxAgeDays: 30
-        minRuns: 5
+        minRuns: 15
       environmentVariables:
         readOnly:
           env1: "test_p1"
