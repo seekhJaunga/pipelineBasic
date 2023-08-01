@@ -1,24 +1,18 @@
 pipelines:
   - name: single_test
     configuration:
-      retentionPolicy:
-        maxAgeDays: 30
-        minRuns: 15
       environmentVariables:
         readOnly:
           env1: "test_p1"
           env2: "test_p2"
+          env3:
+            multiDefault: ["r,andom_1 f", "f r,andom_4"]
+            description: "testing"
+            values: ["r,andom_1 f", "r,andom_2", "r,andom_3", "f r,andom_4"]
+            allowCustom: false
+            allowMulti: true
     steps:
       - name: trigger_1
-        type: Bash
-        configuration:
-          affinityGroup: trigger
-        execution:
-          onExecute:
-            - printenv
-            - echo $env1
-            - echo "done"
-      - name: trigger_2
         type: Bash
         configuration:
           chronological: true
