@@ -6,11 +6,11 @@ pipelines:
           env1: "test_p1"
           env2: "test_p2"
           env3:
-            multiDefault: ["r,andom_1 f", "f r,andom_4"]
+            defaultMultipleValues: ["r,andom_1 f", "f r,andom_4"]
             description: "testing"
             values: ["r,andom_1 f", "r,andom_2", "r,andom_3", "f r,andom_4"]
             allowCustom: false
-            allowMulti: true
+            allowMultipleValues: true
     steps:
       - name: trigger_1
         type: Bash
