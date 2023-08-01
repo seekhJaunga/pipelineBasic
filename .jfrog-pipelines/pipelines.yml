@@ -3,10 +3,13 @@ pipelines:
     configuration:
       environmentVariables:
         readOnly:
-          env1: "test_p1"
+          env1: 
+            default: "single test"
+            values: ["single test", "testing"]
+            allowCustom: false
           env2: "test_p2"
           env3:
-            defaultMulti: ["r,andom_1", "r,andom_4"]
+            defaultMultipleValues: ["r,an dom_1", "r,an dom_4"]
             description: "testing"
             values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
             allowCustom: false
