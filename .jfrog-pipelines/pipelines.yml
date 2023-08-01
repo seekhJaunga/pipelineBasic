@@ -8,7 +8,7 @@ pipelines:
           env3:
             defaultMultipleValues: ["r,andom_1 f", "f r,andom_4"]
             description: "testing"
-            values: ["r,andom_1 f", "r,andom_2", "r,andom_3", "f r,andom_4"]
+            values: ["r,andom_1f", "r,andom_2", "r,andom_3", "fr,andom_4"]
             allowCustom: false
             allowMultipleValues: true
     steps:
