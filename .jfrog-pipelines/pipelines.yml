@@ -4,14 +4,14 @@ pipelines:
       environmentVariables:
         readOnly:
           env1: 
-            default: "single'test"
-            values: ["single'test", "testing"]
+            default: "singletest"
+            values: ["singletest", "testing"]
             allowCustom: false
           env2: "test_p2"
           env3:
-            defaultMultipleValues: ["r,an'dom_1", "r,an'dom_4"]
+            defaultMultipleValues: ["r,andom_1", "r,andom_4"]
             description: "testing"
-            values: ["r,an'dom_1", "r,andom_2", "r,andom_3", "r,an'dom_4"]
+            values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
             allowCustom: false
             allowMultipleValues: true
     steps:
