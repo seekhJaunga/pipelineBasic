@@ -15,10 +15,7 @@ pipelines:
       - name: trigger_1
         type: Bash
         configuration:
-          chronological: true
           affinityGroup: trigger
-          inputSteps: 
-            - name: trigger_1
         execution:
           onExecute:
             - printenv
