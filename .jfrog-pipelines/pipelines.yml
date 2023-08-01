@@ -6,9 +6,9 @@ pipelines:
           env1: "test_p1"
           env2: "test_p2"
           env3:
-            defaultMultipleValues: ["r,andom_1f", "fr,andom_4"]
+            defaultMultipleValues: ["r,andom_1", "r,andom_4"]
             description: "testing"
-            values: ["r,andom_1f", "r,andom_2", "r,andom_3", "fr,andom_4"]
+            values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
             allowCustom: false
             allowMultipleValues: true
     steps:
@@ -19,7 +19,19 @@ pipelines:
         execution:
           onExecute:
             - printenv
+            - echo $env1
+            - echo "done"
+      - name: trigger_2
+        type: Bash
+        configuration:
+          chronological: true
+          affinityGroup: trigger
+          inputSteps: 
+            - name: trigger_1
+        execution:
+          onExecute:
+            - printenv
             - echo $env3
             - echo ${#env3[@]}
-            - echo ${env3[2]}
+            - echo $env3[2]
             - echo "Running second trigger done"
