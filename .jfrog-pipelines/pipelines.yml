@@ -11,7 +11,7 @@ pipelines:
           env3:
             defaultMultipleValues: ["r,an dom_1", "r,an dom_4"]
             description: "testing"
-            values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
+            values: ["r,an dom_1", "r,andom_2", "r,andom_3", "r,an dom_4"]
             allowCustom: false
             allowMultipleValues: true
     steps:
