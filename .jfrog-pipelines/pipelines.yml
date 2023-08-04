@@ -2,7 +2,7 @@ resources:
   - name: gitcheck
     type: GitRepo
     configuration:
-      gitProvider: git
+      gitProvider: test
       path: seekhJaunga/pipelineBasic
 pipelines:
   - name: single_test
