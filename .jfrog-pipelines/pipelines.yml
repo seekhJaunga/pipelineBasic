@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/pipelineTest
+      path: seekhJaunga/pipelineBasic
 pipelines:
   - name: single_test
     configuration:
@@ -19,10 +19,13 @@ pipelines:
         type: Bash
         configuration:
           affinityGroup: trigger
+          inputResources:
+            - name: gitcheck
         execution:
           onExecute:
             - printenv
             - echo $env1
+            - echo res_test_path
             - echo "done"
       - name: trigger_2
         type: Bash
