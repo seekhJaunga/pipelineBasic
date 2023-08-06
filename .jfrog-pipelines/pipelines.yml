@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/pipelinesTest
+      path: seekhJaunga/pipelinesBasic
 pipelines:
   - name: single_test
     configuration:
