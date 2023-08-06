@@ -1,9 +1,9 @@
 resources:
-  - name: gitcheckk
+  - name: gitcheck
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/pipelineBasic
+      path: seekhJaunga/Ekart
 pipelines:
   - name: single_test
     configuration:
@@ -20,7 +20,7 @@ pipelines:
         configuration:
           affinityGroup: trigger
           inputResources:
-            - name: gitcheckk
+            - name: gitcheck
         execution:
           onExecute:
             - printenv
