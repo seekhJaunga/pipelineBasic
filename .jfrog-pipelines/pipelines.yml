@@ -2,7 +2,7 @@ resources:
   - name: gitcheck
     type: GitRepo
     configuration:
-      gitProvider: test
+      gitProvider: devTest
       path: seekhJaunga/Ekart
 pipelines:
   - name: single_test
