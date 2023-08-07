@@ -1,5 +1,5 @@
 resources:
-  - name: gitcheck
+  - name: gitchec
     type: GitRepo
     configuration:
       gitProvider: test
@@ -20,7 +20,7 @@ pipelines:
         configuration:
           affinityGroup: trigger
           inputResources:
-            - name: gitcheck
+            - name: gitchec
         execution:
           onExecute:
             - printenv
