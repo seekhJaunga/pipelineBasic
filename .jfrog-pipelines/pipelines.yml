@@ -1,9 +1,9 @@
 resources:
-  - name: gitcheck
+  - name: gitchec
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/AntiTheft
+      path: seekhJaunga/pipelineBasic
 pipelines:
   - name: single_test
     configuration:
@@ -26,7 +26,7 @@ pipelines:
         configuration:
           affinityGroup: trigger
           inputResources:
-            - name: gitcheck
+            - name: pipelineBasic
         execution:
           onExecute:
             - printenv
