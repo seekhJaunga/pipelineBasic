@@ -1,4 +1,4 @@
-resources:
+# resources:
   - name: gitcheck
     type: GitRepo
     configuration:
@@ -49,5 +49,5 @@ pipelines:
           onExecute:
             - printenv
             - echo ${#env3[@]}
-            - echo ${env3[2]}
+            # - echo ${env3[2]}
             - echo "Running second trigger done"
