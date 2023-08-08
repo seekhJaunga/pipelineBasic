@@ -4,7 +4,7 @@ resources:
     configuration:
       gitProvider: test
       path: seekhJaunga/Ekart
- - name: gitcheck1
+  - name: gitcheck1
     type: GitRepo
     configuration:
       gitProvider: test
