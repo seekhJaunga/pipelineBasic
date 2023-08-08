@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/AntiTheft
+      path: seekhJaunga/Ekart
   - name: gitcheck1
     type: GitRepo
     configuration:
