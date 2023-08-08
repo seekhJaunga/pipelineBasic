@@ -1,4 +1,4 @@
-# resources:
+resources:
   - name: gitcheck
     type: GitRepo
     configuration:
