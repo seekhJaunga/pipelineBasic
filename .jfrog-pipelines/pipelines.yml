@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/AnitTheft
+      path: seekhJaunga/Ekart
 pipelines:
   - name: single_test
     configuration:
