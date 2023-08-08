@@ -4,6 +4,11 @@ resources:
     configuration:
       gitProvider: test
       path: seekhJaunga/Ekart
+ - name: gitcheck1
+    type: GitRepo
+    configuration:
+      gitProvider: test
+      path: seekhJaunga/AntiTheft
 pipelines:
   - name: single_test
     configuration:
