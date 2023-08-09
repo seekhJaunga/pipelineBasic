@@ -4,6 +4,7 @@ resources:
     configuration:
       gitProvider: test
       path: seekhJaunga/pipelineBasic
+      cloneProtocol: https
 pipelines:
   - name: single_test
     configuration:
