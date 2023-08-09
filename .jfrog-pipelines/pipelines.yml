@@ -1,10 +1,10 @@
 resources:
-  - name: gitcheck
+  - name: gitcheck2
     type: GitRepo
     configuration:
       gitProvider: test
       path: seekhJaunga/pipelineBasic
-  - name: gitcheck1
+  - name: gitcheck3
     type: GitRepo
     configuration:
       gitProvider: test
