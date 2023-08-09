@@ -15,12 +15,12 @@ pipelines:
             values: ["singletest", "testing"]
             allowCustom: false
           env2: "test_p2"
-          # env3:
-          #   defaultMultipleValues: ["r,andom_1"]
-          #   description: "testing"
-          #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
-          #   allowCustom: false
-          #   allowMultipleValues: true
+          env3:
+            defaultMultipleValues: ["r,andom_1"]
+            description: "testing"
+            values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
+            allowCustom: false
+            allowMultipleValues: true
     steps:
       - name: trigger_1
         type: Bash
