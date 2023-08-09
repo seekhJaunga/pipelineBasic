@@ -5,7 +5,7 @@ resources:
       gitProvider: test
       path: seekhJaunga/AntiTheft
       cloneProtocol: https
-  - name: gitcheck
+  - name: gitcheck1
     type: GitRepo
     configuration:
       gitProvider: test
