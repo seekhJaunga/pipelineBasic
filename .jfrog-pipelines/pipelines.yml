@@ -1,5 +1,5 @@
 resources:
-  - name: gitcheck1
+  - name: gitcheck7
     type: GitRepo
     configuration:
       gitProvider: test
