@@ -1,9 +1,4 @@
 resources:
-  - name: gitcheck4
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/pipelineBasic
   - name: gitcheck5
     type: GitRepo
     configuration:
