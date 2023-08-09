@@ -31,7 +31,7 @@ pipelines:
         configuration:
           affinityGroup: trigger
           inputResources:
-            - name: gitcheck
+            - name: gitcheck2
         execution:
           onExecute:
             - printenv
