@@ -1,10 +1,10 @@
 resources:
-  - name: gitcheck2
+  - name: gitcheck4
     type: GitRepo
     configuration:
       gitProvider: test
       path: seekhJaunga/pipelineBasic
-  - name: gitcheck3
+  - name: gitcheck5
     type: GitRepo
     configuration:
       gitProvider: test
@@ -31,7 +31,7 @@ pipelines:
         configuration:
           affinityGroup: trigger
           inputResources:
-            - name: gitcheck2
+            - name: gitcheck5
         execution:
           onExecute:
             - printenv
