@@ -15,7 +15,7 @@ pipelines:
             allowCustom: false
           env2: "test_p2"
           env3:
-            default: "r,andom_1"
+            defaultMultipleValues: ["r,andom_1"]
             description: "testing"
             values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
             allowCustom: false
