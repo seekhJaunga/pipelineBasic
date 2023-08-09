@@ -36,7 +36,7 @@ pipelines:
           onExecute:
             - printenv
             - echo $env1
-            - echo res_test_path
+            - echo $res_test_path
             - echo "done"
       - name: trigger_2
         type: Bash
