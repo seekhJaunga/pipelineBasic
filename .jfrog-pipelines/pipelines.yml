@@ -5,7 +5,7 @@ resources:
       gitProvider: test
       path: seekhJaunga/Ekart
       cloneProtocol: https
-  - name: gitcheck1
+  - name: gitcheck2
     type: GitRepo
     configuration:
       gitProvider: test
