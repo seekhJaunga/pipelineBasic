@@ -1,9 +1,9 @@
-resources:
-  - name: gitcheck6
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/pipelineBasic
+# resources:
+#   - name: gitcheck6
+#     type: GitRepo
+#     configuration:
+#       gitProvider: test
+#       path: seekhJaunga/pipelineBasic
 pipelines:
   - name: single_test
     configuration:
@@ -14,19 +14,19 @@ pipelines:
             values: ["singletest", "testing"]
             allowCustom: false
           env2: "test_p2"
-          # env3:
-          #   defaultMultipleValues: ["r,andom_1", "r,andom_4"]
-          #   description: "testing"
-          #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
-          #   allowCustom: false
-          #   allowMultipleValues: true
+          env3:
+            defaultMultipleValues: ["r,andom_1", "r,andom_2"],
+            description: "testing"
+            values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
+            allowCustom: false
+            allowMultipleValues: true
     steps:
       - name: trigger_1
         type: Bash
         configuration:
           affinityGroup: trigger
-          inputResources:
-            - name: gitcheck6
+          # inputResources:
+          #   - name: gitcheck6
         execution:
           onExecute:
             - printenv
@@ -44,5 +44,5 @@ pipelines:
           onExecute:
             - printenv
             - echo ${#env3[@]}
-            # - echo ${env3[2]}
+            - echo ${env3[2]}
             - echo "Running second trigger done"
