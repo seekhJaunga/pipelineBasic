@@ -1,9 +1,9 @@
-# resources:
-#   - name: gitcheck6
-#     type: GitRepo
-#     configuration:
-#       gitProvider: test
-#       path: seekhJaunga/pipelineBasic
+resources:
+  - name: gitcheck6
+    type: GitRepo
+    configuration:
+      gitProvider: test
+      path: seekhJaunga/pipelineBasic
 pipelines:
   - name: single_test
     configuration:
@@ -25,8 +25,8 @@ pipelines:
         type: Bash
         configuration:
           affinityGroup: trigger
-          # inputResources:
-          #   - name: gitcheck6
+          inputResources:
+            - name: gitcheck6
         execution:
           onExecute:
             - printenv
