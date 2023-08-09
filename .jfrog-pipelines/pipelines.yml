@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/Ekart
+      path: seekhJaunga/AntiTheft
       cloneProtocol: https
 pipelines:
   - name: single_test
