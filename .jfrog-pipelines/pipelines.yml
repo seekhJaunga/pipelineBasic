@@ -59,6 +59,7 @@ pipelines:
           affinityGroup: trigger
           inputSteps: 
             - name: trigger_1
+            - name: step_1
         execution:
           onExecute:
             - printenv
