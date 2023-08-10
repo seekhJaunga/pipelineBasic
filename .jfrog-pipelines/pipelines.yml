@@ -7,12 +7,12 @@
 #       cloneProtocol: https
 #       buildOn:
 #          commit: true
-  - name: gitcheck2
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/AntiTheft
-      cloneProtocol: https
+  # - name: gitcheck2
+  #   type: GitRepo
+  #   configuration:
+  #     gitProvider: test
+  #     path: seekhJaunga/AntiTheft
+  #     cloneProtocol: https
 pipelines:
   - name: single_test
     configuration:
