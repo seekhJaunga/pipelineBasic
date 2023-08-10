@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/Ekart
+      path: seekhJaunga/pipelineBasic
       cloneProtocol: https
       buildOn:
          commit: true
@@ -11,7 +11,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/AntiTheft
+      path: seekhJaunga/pipelineBasic
       cloneProtocol: https
 pipelines:
   - name: single_test
@@ -51,7 +51,7 @@ pipelines:
             - printenv
             - echo $env1
             - echo $res_resource_1_path
-            - echo $res_resource_2_resourcePath
+            - echo $res_resource_2_path
             - echo "done"
       - name: trigger_2
         type: Bash
