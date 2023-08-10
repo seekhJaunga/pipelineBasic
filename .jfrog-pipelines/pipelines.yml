@@ -1,12 +1,12 @@
-resources:
-  - name: gitcheck7
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/AntiTheft
-      cloneProtocol: https
-      buildOn:
-         commit: true
+# resources:
+#   - name: gitcheck7
+#     type: GitRepo
+#     configuration:
+#       gitProvider: test
+#       path: seekhJaunga/AntiTheft
+#       cloneProtocol: https
+#       buildOn:
+#          commit: true
   - name: gitcheck2
     type: GitRepo
     configuration:
@@ -43,9 +43,9 @@ pipelines:
         type: Bash
         configuration:
           affinityGroup: trigger
-          inputResources:
-            - name: gitcheck7
-            - name: gitcheck2
+          # inputResources:
+          #   - name: gitcheck7
+          #   - name: gitcheck2
         execution:
           onExecute:
             - printenv
