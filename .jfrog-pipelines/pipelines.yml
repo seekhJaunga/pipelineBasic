@@ -30,15 +30,15 @@ pipelines:
             allowCustom: false
             allowMultipleValues: true
     steps:
-      # - name: step_1
-      #   type: Bash
-      #   configuration:
-      #     integrations:
-      #       - name: myCredentials
-      #   execution:
-      #     onExecute:
-      #     - printenv $int_myCredentials_username
-      #     - printenv $int_myCredentials_password
+      - name: step_1
+        type: Bash
+        configuration:
+          integrations:
+            - name: testing
+        execution:
+          onExecute:
+          - printenv $int_testing_username
+          - printenv $int_testing_password
       - name: trigger_1
         type: Bash
         configuration:
