@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/Ekart
+      path: seekhJaunga/AntiTheft
       cloneProtocol: https
       buildOn:
          commit: true
@@ -12,6 +12,12 @@ resources:
     configuration:
       gitProvider: test
       path: seekhJaunga/AntiTheft
+      cloneProtocol: https
+  - name: gitcheck1
+    type: GitRepo
+    configuration:
+      gitProvider: test
+      path: seekhJaunga/Ekart
       cloneProtocol: https
 pipelines:
   - name: single_test
