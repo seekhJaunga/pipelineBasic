@@ -50,7 +50,8 @@ pipelines:
           onExecute:
             - printenv
             - echo $env1
-            - echo $res_test_path
+            - echo $res_resource_1_path
+            - echo $res_resource_1_resourcePath
             - echo "done"
       - name: trigger_2
         type: Bash
