@@ -37,8 +37,8 @@ pipelines:
             - name: testing
         execution:
           onExecute:
-            - printenv $int_testing_username
-            - printenv $int_testing_password
+            - echo $int_testing_username
+            - echo $int_testing_password
       - name: trigger_1
         type: Bash
         configuration:
