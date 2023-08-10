@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/pipelineBasic
+      path: seekhJaunga/Ekart
       cloneProtocol: https
       buildOn:
          commit: true
@@ -11,7 +11,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/pipelineBasic
+      path: seekhJaunga/Ekart
       cloneProtocol: https
 pipelines:
   - name: single_test
