@@ -45,7 +45,7 @@ pipelines:
           affinityGroup: trigger
           inputResources:
             - name: resource_1 
-            - name: resource_2
+            - name: resource_3
         execution:
           onExecute:
             - printenv
