@@ -6,7 +6,7 @@ resources:
       path: seekhJaunga/Ekart
       cloneProtocol: https
       buildOn:
-         commit: true
+         commit: false
   - name: resource_3
     type: GitRepo
     configuration:
