@@ -7,11 +7,11 @@ resources:
       cloneProtocol: https
       buildOn:
          commit: true
-  - name: resource_2
+  - name: resource_3
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/Ekart
+      path: seekhJaunga/AntiThef
       cloneProtocol: https
 pipelines:
   - name: single_test
