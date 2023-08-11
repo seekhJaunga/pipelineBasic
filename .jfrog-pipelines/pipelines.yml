@@ -1,16 +1,16 @@
-resources:
-  - name: resource_1
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/Ekart
-      buildOn:
-         commit: false
-  - name: resource_3
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/AntiTheft
+# resources:
+#   - name: resource_1
+#     type: GitRepo
+#     configuration:
+#       gitProvider: test
+#       path: seekhJaunga/Ekart
+#       buildOn:
+#          commit: false
+#   - name: resource_3
+#     type: GitRepo
+#     configuration:
+#       gitProvider: test
+#       path: seekhJaunga/AntiTheft
 pipelines:
   - name: single_test
     configuration:
@@ -21,29 +21,29 @@ pipelines:
             values: ["singletest", "testing"]
             allowCustom: false
           env2: "test_p2"
-          env3:
-            defaultMultipleValues: ["r,andom_1"]
-            description: "testing"
-            values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
-            allowCustom: false
-            allowMultipleValues: true
+          # env3:
+          #   defaultMultipleValues: ["r,andom_1"]
+          #   description: "testing"
+          #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
+          #   allowCustom: false
+          #   allowMultipleValues: true
     steps:
-      # - name: step_1
-      #   type: Bash
-      #   configuration:
-      #     integrations:
-      #       - name: testing
-      #   execution:
-      #     onExecute:
-      #       - echo $int_testing_test1
-      #       - echo $int_testing_test2
+      - name: step_1
+        type: Bash
+        configuration:
+          integrations:
+            - name: testing
+        execution:
+          onExecute:
+            - echo $int_testing_val1
+            - echo $int_testing_val2
       - name: trigger_1
         type: Bash
         configuration:
           affinityGroup: trigger
-          inputResources:
-            - name: resource_1 
-            - name: resource_3
+          # inputResources:
+          #   - name: resource_1 
+          #   - name: resource_3
         execution:
           onExecute:
             - printenv
@@ -58,7 +58,7 @@ pipelines:
           affinityGroup: trigger
           inputSteps: 
             - name: trigger_1
-            # - name: step_1
+            - name: step_1
         execution:
           onExecute:
             - printenv
