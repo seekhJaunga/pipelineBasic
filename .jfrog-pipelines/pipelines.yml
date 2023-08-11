@@ -4,7 +4,6 @@ resources:
     configuration:
       gitProvider: test
       path: seekhJaunga/Ekart
-      cloneProtocol: https
       buildOn:
          commit: false
   - name: resource_3
@@ -12,7 +11,6 @@ resources:
     configuration:
       gitProvider: test
       path: seekhJaunga/AntiTheft
-      cloneProtocol: https
 pipelines:
   - name: single_test
     configuration:
