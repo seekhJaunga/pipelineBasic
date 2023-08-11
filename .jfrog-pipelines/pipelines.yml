@@ -37,6 +37,12 @@ pipelines:
           onExecute:
             - echo $int_testing_val1
             - echo $int_testing_val2
+            - |
+              if [ $int_testing_val1 != "password1" ]; then
+                echo matched
+              else
+                echo NotMatched
+              fi
       - name: trigger_1
         type: Bash
         configuration:
