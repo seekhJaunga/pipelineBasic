@@ -11,6 +11,13 @@
 #     configuration:
 #       gitProvider: test
 #       path: seekhJaunga/AntiTheft
+
+resources:
+  - name: propertyBag_1
+    type: PropertyBag
+    configuration:
+      property/1: "jfrog"
+      property2: "pipelines"
 pipelines:
   - name: single_test
     configuration:
