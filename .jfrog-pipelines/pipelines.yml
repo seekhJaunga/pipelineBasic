@@ -16,7 +16,7 @@ resources:
   - name: propertyBag_1
     type: PropertyBag
     configuration:
-      property1: "jfrog"
+      proper/ty1: "jfrog"
       property2: "pipelines"
 pipelines:
   - name: single_test
