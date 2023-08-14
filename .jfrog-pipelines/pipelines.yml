@@ -60,8 +60,8 @@ pipelines:
         type: Bash
         configuration:
           affinityGroup: trigger
-          # inputResources:
-          #   - name: resource_1 
+          inputResources:
+            - name: propertyBag_1
           #   - name: resource_3
         execution:
           onExecute:
@@ -73,6 +73,8 @@ pipelines:
       - name: trigger_2
         type: Bash
         configuration:
+          inputResources:
+            - name: propertyBag_1
           chronological: true
           affinityGroup: trigger
           inputSteps: 
