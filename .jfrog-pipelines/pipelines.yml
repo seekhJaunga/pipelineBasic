@@ -34,7 +34,7 @@ pipelines:
             description: "testing"
             values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
             allowCustom: false
-            allowMultipleValues: false
+            # allowMultipleValues: false
     steps:
       # - name: step_1
       #   type: Bash
