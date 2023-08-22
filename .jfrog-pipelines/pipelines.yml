@@ -10,7 +10,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/pipelineBasic
+      path: seekhJaunga/Ekart
 
 # resources:
 #   - name: propertyBag_1
