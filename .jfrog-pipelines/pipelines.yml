@@ -63,7 +63,7 @@ pipelines:
           affinityGroup: trigger
           inputResources:
             # - name: propertyBag_1
-            - name: resource_3
+            - name: resource_4
             - name: resource_1
         execution:
           onExecute:
