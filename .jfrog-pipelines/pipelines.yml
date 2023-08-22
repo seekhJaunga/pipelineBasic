@@ -57,7 +57,7 @@ pipelines:
       #         else
       #           echo NotMatched
       #         fi
-      - name: trigger_1
+      - name: trigger_3
         type: PowerShell
         configuration:
           affinityGroup: trigger
@@ -72,7 +72,7 @@ pipelines:
             - echo $res_resource_1_path
             - echo $res_resource_3_path
             - echo "done"
-      - name: trigger_2
+      - name: trigger_4
         type: PowerShell
         configuration:
           # inputResources:
@@ -80,7 +80,7 @@ pipelines:
           chronological: true
           affinityGroup: trigger
           inputSteps: 
-            - name: trigger_1
+            - name: trigger_3
             # - name: step_1
         execution:
           onExecute:
