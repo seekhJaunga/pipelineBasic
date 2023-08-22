@@ -1,23 +1,23 @@
-# resources:
-#   - name: resource_1
-#     type: GitRepo
-#     configuration:
-#       gitProvider: test
-#       path: seekhJaunga/Ekart
-#       buildOn:
-#          commit: false
-#   - name: resource_3
-#     type: GitRepo
-#     configuration:
-#       gitProvider: test
-#       path: seekhJaunga/AntiTheft
-
 resources:
-  - name: propertyBag_1
-    type: PropertyBag
+  - name: resource_1
+    type: GitRepo
     configuration:
-      property1: "jfrog"
-      property2: "pipelines"
+      gitProvider: test
+      path: seekhJaunga/Ekart
+      buildOn:
+         commit: false
+  - name: resource_3
+    type: GitRepo
+    configuration:
+      gitProvider: test
+      path: seekhJaunga/AntiTheft
+
+# resources:
+#   - name: propertyBag_1
+#     type: PropertyBag
+#     configuration:
+#       property1: "jfrog"
+#       property2: "pipelines"
 pipelines:
   - name: single_test
     configuration:
@@ -62,8 +62,9 @@ pipelines:
         configuration:
           affinityGroup: trigger
           inputResources:
-            - name: propertyBag_1
-          #   - name: resource_3
+            # - name: propertyBag_1
+            - name: resource_3
+            - name: resource_1
         execution:
           onExecute:
             - printenv
@@ -74,8 +75,8 @@ pipelines:
       - name: trigger_2
         type: Bash
         configuration:
-          inputResources:
-            - name: propertyBag_1
+          # inputResources:
+          #   # - name: propertyBag_1
           chronological: true
           affinityGroup: trigger
           inputSteps: 
