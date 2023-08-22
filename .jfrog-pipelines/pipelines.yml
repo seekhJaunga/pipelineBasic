@@ -3,14 +3,14 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/Ekart
+      path: seekhJaunga/pipelineBasic
       buildOn:
          commit: false
   - name: resource_3
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/AntiTheft
+      path: seekhJaunga/pipelineBasic
 
 # resources:
 #   - name: propertyBag_1
