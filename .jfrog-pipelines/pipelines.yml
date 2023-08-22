@@ -88,11 +88,11 @@ pipelines:
             - echo ${#env3[@]}
             - echo ${env3[2]}
             - echo "Running second trigger done"
-            - $env3.Length
+            - $env3.Count
             - $env3
             - $env2
             - $env
-            - $env2.length
+            - $env2.Count
             - $env3[0]
             - $env3[1]
             - $env3[2]
