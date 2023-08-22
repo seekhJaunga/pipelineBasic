@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/pipelineBasic
+      path: seekhJaunga/Ekart
       buildOn:
          commit: false
   - name: resource_3
