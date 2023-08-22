@@ -90,6 +90,9 @@ pipelines:
             - echo "Running second trigger done"
             - $env3.Length
             - $env3
+            - $env2
+            - $env
+            - $env2.length
             - $env3[0]
             - $env3[1]
             - $env3[2]
