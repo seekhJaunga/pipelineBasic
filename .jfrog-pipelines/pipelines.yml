@@ -1,16 +1,16 @@
-resources:
-  - name: resource_1
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/Ekart
-      buildOn:
-         commit: false
-  - name: resource_4
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/Ekart
+# resources:
+#   - name: resource_1
+#     type: GitRepo
+#     configuration:
+#       gitProvider: test
+#       path: seekhJaunga/Ekart
+#       buildOn:
+#          commit: false
+#   - name: resource_4
+#     type: GitRepo
+#     configuration:
+#       gitProvider: test
+#       path: seekhJaunga/Ekart
 
 # resources:
 #   - name: propertyBag_1
@@ -61,10 +61,10 @@ pipelines:
         type: Bash
         configuration:
           affinityGroup: trigger
-          inputResources:
-            # - name: propertyBag_1
-            - name: resource_4
-            - name: resource_1
+          # inputResources:
+          #   # - name: propertyBag_1
+          #   - name: resource_4
+          #   - name: resource_1
         execution:
           onExecute:
             - printenv
