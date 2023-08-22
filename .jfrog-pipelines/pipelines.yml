@@ -88,5 +88,7 @@ pipelines:
             - echo ${#env3[@]}
             - echo ${env3[2]}
             - echo "Running second trigger done"
+            - $env3.Length
+            - $env3
             # - echo $int_testing_
             # - echo $int_testing_
