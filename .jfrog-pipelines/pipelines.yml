@@ -88,7 +88,7 @@ pipelines:
             - echo ${#env3[@]}
             - echo ${env3[2]}
             - echo "Running second trigger done"
-            - $env2
+            # - $env2
 
 
   # pipelines:
