@@ -58,7 +58,7 @@ pipelines:
       #           echo NotMatched
       #         fi
       - name: trigger_3
-        type: PowerShell
+        type: Bash
         configuration:
           affinityGroup: trigger
           # inputResources:
@@ -73,7 +73,7 @@ pipelines:
             - echo $res_resource_3_path
             - echo "done"
       - name: trigger_4
-        type: PowerShell
+        type: Bash
         configuration:
           # inputResources:
           #   # - name: propertyBag_1
