@@ -122,6 +122,7 @@
               # - if [ "$S_Bash_3852_001_1" != "yes" ]; then return 1; fi
               - echo "done"
               - echo $S_Bash_3852_001_1
+              - echo $pipevar1
   #       - name: S_Bash_3852_001_2
   #         type: Bash
   #         configuration:
