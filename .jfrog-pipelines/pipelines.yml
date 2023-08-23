@@ -1,161 +1,161 @@
-# resources:
-#   - name: resource_1
-#     type: GitRepo
-#     configuration:
-#       gitProvider: test
-#       path: seekhJaunga/Ekart
-#       buildOn:
-#          commit: false
-#   - name: resource_4
-#     type: GitRepo
-#     configuration:
-#       gitProvider: test
-#       path: seekhJaunga/Ekart
+resources:
+  - name: resource_1
+    type: GitRepo
+    configuration:
+      gitProvider: test
+      path: seekhJaunga/Ekart
+      buildOn:
+         commit: false
+  - name: resource_4
+    type: GitRepo
+    configuration:
+      gitProvider: test
+      path: seekhJaunga/Ekart
 
-# resources:
-#   - name: propertyBag_1
-#     type: PropertyBag
-#     configuration:
-#       property1: "jfrog"
-#       property2: "pipelines"
-# pipelines:
-#   - name: single_test
-#     configuration:
-#       environmentVariables:
-#         readOnly:
-#           env: 
-#             default: "singletest"
-#             values: ["singletest", "testing"]
-#             allowCustom: false
-#           env2: "test_p2"
-#           env3:
-#             defaultMultipleValues: ["r,andom_1"]
-#             # default: "r,andom_2"
-#             description: "testing"
-#             values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
-#             allowCustom: false
-#             allowMultipleValues: true
-#     steps:
-#       # - name: step_1
-#       #   type: Bash
-#       #   configuration:
-#       #     integrations:
-#       #       - name: testing
-#       #   execution:
-#       #     onExecute:
-#       #       - echo $int_testing_val1
-#       #       - echo $int_testing_val2
-#       #       - |
-#       #         if [ $int_testing_val1 = "password1" ]; then
-#       #           echo matched
-#       #         else
-#       #           echo NotMatched
-#       #         fi
-#       #       - |
-#       #         if [ $int_testing_val2 = "password2" ]; then
-#       #           echo matched
-#       #         else
-#       #           echo NotMatched
-#       #         fi
-#       - name: trigger_3
-#         type: PowerShell
-#         configuration:
-#           affinityGroup: trigger
-#           # inputResources:
-#           #   # - name: propertyBag_1
-#           #   - name: resource_4
-#           #   - name: resource_1
-#         execution:
-#           onExecute:
-#             # - printenv
-#             - echo $env1
-#             - echo $res_resource_1_path
-#             - echo $res_resource_3_path
-#             - echo "done"
-#       - name: trigger_4
-#         type: PowerShell
-#         configuration:
-#           # inputResources:
-#           #   # - name: propertyBag_1
-#           chronological: true
-#           affinityGroup: trigger
-#           inputSteps: 
-#             - name: trigger_3
-#             # - name: step_1
-#         execution:
-#           onExecute:
-#             # - printenv
-#             - echo ${#env3[@]}
-#             - echo ${env3[2]}
-#             - echo "Running second trigger done"
-#             - $env3.Count
-#             - $env3
-#             - $env2
-#             - $env
-#             - $env2.Count
-#             - $env3[0]
-#             - $env3[1]
-#             - $env3[2]
-#             - $env3[3]
-#             - $env3[4]
-#             # - echo $int_testing_
+resources:
+  - name: propertyBag_1
+    type: PropertyBag
+    configuration:
+      property1: "jfrog"
+      property2: "pipelines"
+pipelines:
+  - name: single_test
+    configuration:
+      environmentVariables:
+        readOnly:
+          env: 
+            default: "singletest"
+            values: ["singletest", "testing"]
+            allowCustom: false
+          env2: "test_p2"
+          env3:
+            defaultMultipleValues: ["r,andom_1"]
+            # default: "r,andom_2"
+            description: "testing"
+            values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
+            allowCustom: false
+            allowMultipleValues: true
+    steps:
+      # - name: step_1
+      #   type: Bash
+      #   configuration:
+      #     integrations:
+      #       - name: testing
+      #   execution:
+      #     onExecute:
+      #       - echo $int_testing_val1
+      #       - echo $int_testing_val2
+      #       - |
+      #         if [ $int_testing_val1 = "password1" ]; then
+      #           echo matched
+      #         else
+      #           echo NotMatched
+      #         fi
+      #       - |
+      #         if [ $int_testing_val2 = "password2" ]; then
+      #           echo matched
+      #         else
+      #           echo NotMatched
+      #         fi
+      - name: trigger_3
+        type: PowerShell
+        configuration:
+          affinityGroup: trigger
+          # inputResources:
+          #   # - name: propertyBag_1
+          #   - name: resource_4
+          #   - name: resource_1
+        execution:
+          onExecute:
+            # - printenv
+            - echo $env1
+            - echo $res_resource_1_path
+            - echo $res_resource_3_path
+            - echo "done"
+      - name: trigger_4
+        type: PowerShell
+        configuration:
+          # inputResources:
+          #   # - name: propertyBag_1
+          chronological: true
+          affinityGroup: trigger
+          inputSteps: 
+            - name: trigger_3
+            # - name: step_1
+        execution:
+          onExecute:
+            # - printenv
+            - echo ${#env3[@]}
+            - echo ${env3[2]}
+            - echo "Running second trigger done"
+            - $env3.Count
+            - $env3
+            - $env2
+            - $env
+            - $env2.Count
+            - $env3[0]
+            - $env3[1]
+            - $env3[2]
+            - $env3[3]
+            - $env3[4]
             # - echo $int_testing_
+            - echo $int_testing_
 
 
 
-  pipelines:
-    - name: S_Bash_3852_001
-      configuration:
-        environmentVariables:
-          readOnly:
-            pipevar1: 1
-            pipevar2: 2
-      steps:
-        - name: S_Bash_3852_001_1
-          type: Bash
-          configuration:
-            environmentVariables:
-              S_Bash_3852_001_1: "yes"
-            affinityGroup: 'group'
-          execution:
-            onExecute:
-              - if [ "$S_Bash_3852_001_1" != "yes" ]; then return 1; fi
-              - echo "done"
-        - name: S_Bash_3852_001_2
-          type: Bash
-          configuration:
-            environmentVariables:
-              S_Bash_3852_001_2: 'yes'
-            affinityGroup: 'group'
-            inputSteps:
-              - name: S_Bash_3852_001_1
-          execution:
-            onExecute:
-              - if [ "$S_Bash_3852_001_2" != "yes" ]; then return 1; fi
-              - echo "done"
-        - name: S_Bash_3852_001_3
-          type: Bash
-          configuration:
-            environmentVariables:
-              S_Bash_3852_001_3: 'yes'
-            affinityGroup: 'group'
-            inputSteps:
-              - name: S_Bash_3852_001_1
-          execution:
-            onExecute:
-              - if [ "$S_Bash_3852_001_3" != "yes" ]; then return 1; fi
-              - echo "done"
-        - name: S_Bash_3852_001_4
-          type: Bash
-          configuration:
-            environmentVariables:
-              S_Bash_3852_001_4: 'yes'
-            affinityGroup: 'group'
-            inputSteps:
-              - name: S_Bash_3852_001_2
-              - name: S_Bash_3852_001_3
-          execution:
-            onExecute:
-              - if [ "$S_Bash_3852_001_4" != "yes" ]; then return 1; fi
-              - echo "done"
+  # pipelines:
+  #   - name: S_Bash_3852_001
+  #     configuration:
+  #       environmentVariables:
+  #         readOnly:
+  #           pipevar1: 1
+  #           pipevar2: 2
+  #     steps:
+  #       - name: S_Bash_3852_001_1
+  #         type: Bash
+  #         configuration:
+  #           environmentVariables:
+  #             S_Bash_3852_001_1: "yes"
+  #           affinityGroup: 'group'
+  #         execution:
+  #           onExecute:
+  #             - if [ "$S_Bash_3852_001_1" != "yes" ]; then return 1; fi
+  #             - echo "done"
+  #       - name: S_Bash_3852_001_2
+  #         type: Bash
+  #         configuration:
+  #           environmentVariables:
+  #             S_Bash_3852_001_2: 'yes'
+  #           affinityGroup: 'group'
+  #           inputSteps:
+  #             - name: S_Bash_3852_001_1
+  #         execution:
+  #           onExecute:
+  #             - if [ "$S_Bash_3852_001_2" != "yes" ]; then return 1; fi
+  #             - echo "done"
+  #       - name: S_Bash_3852_001_3
+  #         type: Bash
+  #         configuration:
+  #           environmentVariables:
+  #             S_Bash_3852_001_3: 'yes'
+  #           affinityGroup: 'group'
+  #           inputSteps:
+  #             - name: S_Bash_3852_001_1
+  #         execution:
+  #           onExecute:
+  #             - if [ "$S_Bash_3852_001_3" != "yes" ]; then return 1; fi
+  #             - echo "done"
+  #       - name: S_Bash_3852_001_4
+  #         type: Bash
+  #         configuration:
+  #           environmentVariables:
+  #             S_Bash_3852_001_4: 'yes'
+  #           affinityGroup: 'group'
+  #           inputSteps:
+  #             - name: S_Bash_3852_001_2
+  #             - name: S_Bash_3852_001_3
+  #         execution:
+  #           onExecute:
+  #             - if [ "$S_Bash_3852_001_4" != "yes" ]; then return 1; fi
+  #             - echo "done"
   
