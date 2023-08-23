@@ -68,7 +68,7 @@ pipelines:
         execution:
           onExecute:
             - printenv
-            - echo $env1
+            - echo $env
             - echo $res_resource_1_path
             - echo $res_resource_3_path
             - echo "done"
