@@ -1,23 +1,23 @@
-resources:
-  - name: resource_1
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/Ekart
-      buildOn:
-         commit: false
-  - name: resource_4
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/Ekart
+# resources:
+#   - name: resource_1
+#     type: GitRepo
+#     configuration:
+#       gitProvider: test
+#       path: seekhJaunga/Ekart
+#       buildOn:
+#          commit: false
+#   - name: resource_4
+#     type: GitRepo
+#     configuration:
+#       gitProvider: test
+#       path: seekhJaunga/Ekart
 
-resources:
-  - name: propertyBag_1
-    type: PropertyBag
-    configuration:
-      property1: "jfrog"
-      property2: "pipelines"
+# resources:
+#   - name: propertyBag_1
+#     type: PropertyBag
+#     configuration:
+#       property1: "jfrog"
+#       property2: "pipelines"
 pipelines:
   - name: single_test
     configuration:
