@@ -69,6 +69,8 @@ pipelines:
           onExecute:
             - printenv
             - echo $env
+            - echo $env2
+            - echo $env3
             - echo $res_resource_1_path
             - echo $res_resource_3_path
             - echo "done"
@@ -87,8 +89,10 @@ pipelines:
             - printenv
             - echo ${#env3[@]}
             - echo ${env3[2]}
+            - echo $env
+            - echo $env2
+            - echo $env3
             - echo "Running second trigger done"
-            # - $env2
 
 
   # pipelines:
