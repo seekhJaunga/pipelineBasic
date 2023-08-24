@@ -11,6 +11,10 @@ resources:
   #   configuration:
   #     gitProvider: test
   #     path: seekhJaunga/Ekart
+  - name: myResource
+    type: PropertyBag
+    configuration:
+      runNumber: 0
 
 # resources:
 #   - name: propertyBag_1
@@ -65,6 +69,8 @@ pipelines:
             # - name: propertyBag_1
           #   - name: resource_4
             - name: resource_1
+          outputResources:
+            - name: myResource
         execution:
           onExecute:
             - printenv
@@ -73,12 +79,15 @@ pipelines:
             - echo $env3
             - echo $res_resource_1_path
             - echo $res_resource_3_path
+            - write_output myResource runNumber=${run_number}
+            - echo ${run_number}
             - echo "done"
       - name: trigger_2
         type: Bash
         configuration:
-          # inputResources:
-          #   # - name: propertyBag_1
+          inputResources:
+            - name: myResource
+              newVersionOnly: true
           chronological: true
           affinityGroup: trigger
           inputSteps: 
