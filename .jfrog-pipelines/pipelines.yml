@@ -79,10 +79,10 @@ pipelines:
         configuration:
           # inputResources:
           #   # - name: propertyBag_1
-          # chronological: true
+          chronological: true
           affinityGroup: trigger
-          # inputSteps: 
-            # - name: trigger_3
+          inputSteps: 
+            - name: trigger_1
             # - name: step_1
         execution:
           onExecute:
