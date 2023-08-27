@@ -1,20 +1,20 @@
-resources:
-  - name: resource_1
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/pipelineBasic
-      buildOn:
-         commit: false
+# resources:
+#   - name: resource_1
+#     type: GitRepo
+#     configuration:
+#       gitProvider: test
+#       path: seekhJaunga/pipelineBasic
+#       buildOn:
+         # commit: false
   # - name: resource_4
   #   type: GitRepo
   #   configuration:
   #     gitProvider: test
   #     path: seekhJaunga/Ekart
-  - name: myResource
-    type: PropertyBag
-    configuration:
-      runNumber: 0
+  # - name: myResource
+  #   type: PropertyBag
+  #   configuration:
+  #     runNumber: 0
 
 # resources:
 #   - name: propertyBag_1
