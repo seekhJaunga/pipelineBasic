@@ -64,50 +64,50 @@ pipelines:
       - name: trigger_1
         status:
           - cancelled
-        type: Bash
-        configuration:
-          affinityGroup: trigger
-          inputResources:
-            # - name: propertyBag_1
-          #   - name: resource_4
-            - name: resource_1
-          outputResources:
-            - name: myResource
-        execution:
-          onExecute:
-            - printenv
-            - echo $env
-            - echo $env2
-            - echo $env3
-            - echo $res_resource_1_path
-            - echo $res_resource_3_path
-            - write_output myResource runNumber=${run_number}
-            - echo ${run_number}
-            - echo "done"
-      - name: trigger_2
-        type: Bash
-        configuration:
-          inputResources:
-            - name: myResource
-              newVersionOnly: true
-          chronological: true
-          affinityGroup: trigger
-          inputSteps: 
-            - name: trigger_1
-            # - name: step_1
-        execution:
-          onExecute:
-            - printenv
-            # - echo ${#env3[@]}
-            # - echo ${env3[2]}
-            # - echo $env
-            # - echo $env2
-            # - echo ${env3[0]}
-            - echo "Running second trigger done"
-            # - $env3[0]
-            # - $env3.Count
-            # - $env2
-            # - $env
+      #   type: Bash
+      #   configuration:
+      #     affinityGroup: trigger
+      #     inputResources:
+      #       # - name: propertyBag_1
+      #     #   - name: resource_4
+      #       - name: resource_1
+      #     outputResources:
+      #       - name: myResource
+      #   execution:
+      #     onExecute:
+      #       - printenv
+      #       - echo $env
+      #       - echo $env2
+      #       - echo $env3
+      #       - echo $res_resource_1_path
+      #       - echo $res_resource_3_path
+      #       - write_output myResource runNumber=${run_number}
+      #       - echo ${run_number}
+      #       - echo "done"
+      # - name: trigger_2
+      #   type: Bash
+      #   configuration:
+      #     inputResources:
+      #       - name: myResource
+      #         newVersionOnly: true
+      #     chronological: true
+      #     affinityGroup: trigger
+      #     inputSteps: 
+      #       - name: trigger_1
+      #       # - name: step_1
+      #   execution:
+      #     onExecute:
+      #       - printenv
+      #       # - echo ${#env3[@]}
+      #       # - echo ${env3[2]}
+      #       # - echo $env
+      #       # - echo $env2
+      #       # - echo ${env3[0]}
+      #       - echo "Running second trigger done"
+      #       # - $env3[0]
+      #       # - $env3.Count
+      #       # - $env2
+      #       # - $env
 
 
   # pipelines:
