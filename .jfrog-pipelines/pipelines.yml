@@ -63,7 +63,7 @@ pipelines:
       #         fi
       - name: trigger_1
         status:
-          - canceled
+          - cancelled
         type: Bash
         configuration:
           affinityGroup: trigger
