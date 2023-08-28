@@ -16,7 +16,7 @@ resources:
     configuration:
       runNumber: 0
       x: 5
-      # xx: 5
+      xx: 5
       # xxx: 5
       # xxxx: 5
       # xxxxx: 5
@@ -26,7 +26,7 @@ resources:
       # yy: 5
       # yyy: 5
       # yyyy: 5
-      # yyyyy: 5
+      yyyyy: 5
       # yyyyyy: 5
 
 # resources:
