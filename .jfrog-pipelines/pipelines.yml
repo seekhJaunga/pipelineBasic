@@ -1,4 +1,4 @@
-# # resources:
+resources:
 # #   - name: resource_1
 # #     type: GitRepo
 # #     configuration:
@@ -11,35 +11,35 @@
 #   #   configuration:
 #   #     gitProvider: test
 #   #     path: seekhJaunga/Ekart
-#   # - name: myResource
-#   #   type: PropertyBag
-#   #   configuration:
-#   #     runNumber: 0
+  - name: myResource
+    type: PropertyBag
+    configuration:
+      runNumber: 0
 
-# # resources:
-# #   - name: propertyBag_1
-# #     type: PropertyBag
-# #     configuration:
-# #       property1: "jfrog"
-# #       property2: "pipelines"
-# pipelines:
-#   - name: single_test
+# resources:
+#   - name: propertyBag_1
+#     type: PropertyBag
 #     configuration:
-#       environmentVariables:
-#         readOnly:
-#           env: 
-#             default: "singletest"
-#             values: ["singletest", "testing"]
-#             allowCustom: false
-#           env2: "test_p2"
-#           # env3:
-#           #   defaultMultipleValues: ["r,andom_1"]
-#           #   # default: "r,andom_2"
-#           #   description: "testing"
-#           #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
-#           #   allowCustom: false
-#           #   allowMultipleValues: true
-#     steps:
+#       property1: "jfrog"
+#       property2: "pipelines"
+pipelines:
+  - name: single_test
+    configuration:
+      environmentVariables:
+        readOnly:
+          env: 
+            default: "singletest"
+            values: ["singletest", "testing"]
+            allowCustom: false
+          env2: "test_p2"
+          # env3:
+          #   defaultMultipleValues: ["r,andom_1"]
+          #   # default: "r,andom_2"
+          #   description: "testing"
+          #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
+          #   allowCustom: false
+          #   allowMultipleValues: true
+    steps:
 #       # - name: step_1
 #       #   type: Bash
 #       #   configuration:
@@ -61,49 +61,47 @@
 #       #         else
 #       #           echo NotMatched
 #       #         fi
-#       - name: trigger_1
-#         status:
-#           - cancelled
-#       #   type: Bash
-#       #   configuration:
-#       #     affinityGroup: trigger
-#       #     inputResources:
-#       #       # - name: propertyBag_1
-#       #     #   - name: resource_4
-#       #       - name: resource_1
-#       #     outputResources:
-#       #       - name: myResource
-#       #   execution:
-#       #     onExecute:
-#       #       - printenv
-#       #       - echo $env
-#       #       - echo $env2
+      - name: trigger_1
+        type: Bash
+        configuration:
+          affinityGroup: trigger
+          # inputResources:
+            # - name: propertyBag_1
+          #   - name: resource_4
+            # - name: resource_1
+          outputResources:
+            - name: myResource
+        execution:
+          onExecute:
+            - printenv
+            - echo $env
+            - echo $env2
 #       #       - echo $env3
 #       #       - echo $res_resource_1_path
 #       #       - echo $res_resource_3_path
 #       #       - write_output myResource runNumber=${run_number}
 #       #       - echo ${run_number}
 #       #       - echo "done"
-#       # - name: trigger_2
-#       #   type: Bash
-#       #   configuration:
-#       #     inputResources:
-#       #       - name: myResource
-#       #         newVersionOnly: true
-#       #     chronological: true
+      - name: trigger_2
+        type: Bash
+        configuration:
+          inputResources:
+            - name: myResource
+              newVersionOnly: true
+          chronological: true
 #       #     affinityGroup: trigger
-#       #     inputSteps: 
-#       #       - name: trigger_1
+          inputSteps: 
+            - name: trigger_1
 #       #       # - name: step_1
-#       #   execution:
-#       #     onExecute:
+        execution:
+          onExecute:
 #       #       - printenv
 #       #       # - echo ${#env3[@]}
 #       #       # - echo ${env3[2]}
 #       #       # - echo $env
 #       #       # - echo $env2
 #       #       # - echo ${env3[0]}
-#       #       - echo "Running second trigger done"
+            - echo "Running second trigger done"
 #       #       # - $env3[0]
 #       #       # - $env3.Count
 #       #       # - $env2
@@ -168,27 +166,27 @@
 #   #             - if [ "$S_Bash_3852_001_4" != "yes" ]; then return 1; fi
 #   #             - echo "done"
   
-pipelines:
-  - name: PIPE_9455_Workflow_03
-    steps:
-      - name: step1
-        type: Bash
-        execution:
-          onExecute:
-            - echo 'step1'
-      - name: step2
-        type: Bash
-        configuration:
-          allowFailure: true
-          inputSteps:
-          - name: step1
-            status:
-              - success
-              - error
-              - failure
-              - timeout
-              - canceled
-        execution:
-          onExecute:
-            - echo 'success'
-            - exit 1
+# pipelines:
+#   - name: PIPE_9455_Workflow_03
+#     steps:
+#       - name: step1
+#         type: Bash
+#         execution:
+#           onExecute:
+#             - echo 'step1'
+#       - name: step2
+#         type: Bash
+#         configuration:
+#           allowFailure: true
+#           inputSteps:
+#           - name: step1
+#             status:
+#               - success
+#               - error
+#               - failure
+#               - timeout
+#               - canceled
+#         execution:
+#           onExecute:
+#             - echo 'success'
+#             - exit 1
