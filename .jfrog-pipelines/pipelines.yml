@@ -1,11 +1,11 @@
 resources:
-# #   - name: resource_1
-# #     type: GitRepo
-# #     configuration:
-# #       gitProvider: test
-# #       path: seekhJaunga/pipelineBasic
-# #       buildOn:
-#          # commit: false
+  - name: resource_1
+    type: GitRepo
+    configuration:
+      gitProvider: test
+      path: seekhJaunga/pipelineBasic
+      buildOn:
+         commit: false
 #   # - name: resource_4
 #   #   type: GitRepo
 #   #   configuration:
@@ -65,10 +65,10 @@ pipelines:
         type: Bash
         configuration:
           affinityGroup: trigger
-          # inputResources:
+          inputResources:
             # - name: propertyBag_1
           #   - name: resource_4
-            # - name: resource_1
+            - name: resource_1
           outputResources:
             - name: myResource
         execution:
