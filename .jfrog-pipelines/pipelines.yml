@@ -76,6 +76,7 @@ pipelines:
             - printenv
             - echo $env
             - echo $env2
+            - write_output myResource runNumber=${run_number}
 #       #       - echo $env3
 #       #       - echo $res_resource_1_path
 #       #       - echo $res_resource_3_path
