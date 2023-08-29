@@ -33,7 +33,7 @@ resources:
     configuration:
       runNumber1: 0
       x1: 5
-      xx1: 5
+      # xx1: 5
       # xxx: 5
       # xxxx: 5
       # xxxxx: 5
@@ -43,7 +43,7 @@ resources:
       # yy: 5
       # yyy: 5
       # yyyy: 5
-      yyyyy1: 5
+      # yyyyy1: 5
       # yyyyyy: 5
   - name: myResource2
     type: PropertyBag
