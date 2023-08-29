@@ -108,7 +108,7 @@ pipelines:
             - echo $env
             - echo $env2
             - write_output myResource runNumber=${run_number}
-            - write_output myResource runNumber1=${run_number}
+            - write_output myResource1 runNumber1=${run_number}
 #       #       - echo $env3
 #       #       - echo $res_resource_1_path
 #       #       - echo $res_resource_3_path
