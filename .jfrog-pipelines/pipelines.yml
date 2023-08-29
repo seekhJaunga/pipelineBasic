@@ -28,6 +28,23 @@ resources:
       # yyyy: 5
       yyyyy: 5
       # yyyyyy: 5
+  - name: myResource1
+    type: PropertyBag
+    configuration:
+      runNumber1: 0
+      x1: 5
+      xx1: 5
+      # xxx: 5
+      # xxxx: 5
+      # xxxxx: 5
+      # xxxxxx: 5
+      # xxxxxxx: 5
+      # y: 5
+      # yy: 5
+      # yyy: 5
+      # yyyy: 5
+      yyyyy1: 5
+      # yyyyyy: 5
 
 # resources:
 #   - name: propertyBag_1
@@ -84,12 +101,14 @@ pipelines:
             - name: resource_1
           outputResources:
             - name: myResource
+            - name: myResource1
         execution:
           onExecute:
             - printenv
             - echo $env
             - echo $env2
             - write_output myResource runNumber=${run_number}
+            - write_output myResource runNumber1=${run_number}
 #       #       - echo $env3
 #       #       - echo $res_resource_1_path
 #       #       - echo $res_resource_3_path
@@ -101,6 +120,8 @@ pipelines:
         configuration:
           inputResources:
             - name: myResource
+              newVersionOnly: true
+            - name: myResource1
               newVersionOnly: true
           chronological: true
 #       #     affinityGroup: trigger
