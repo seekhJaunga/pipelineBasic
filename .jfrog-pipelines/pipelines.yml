@@ -254,7 +254,7 @@ pipelines:
       - name: jenkinsStep
         type: Jenkins
         configuration: 
-                  timeoutSeconds: 30 # uses Bash tag to set time limit, in seconds, for the step to complete
+                  # timeoutSeconds: 30 # uses Bash tag to set time limit, in seconds, for the step to complete
           jenkinsJobName: test
           integrations:
             - name: jenkinsIntegration
