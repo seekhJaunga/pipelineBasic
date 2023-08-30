@@ -1,248 +1,260 @@
-resources:
-  - name: resource_1
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/pipelineBasic
-      buildOn:
-         commit: false
-#   # - name: resource_4
-#   #   type: GitRepo
-#   #   configuration:
-#   #     gitProvider: test
-#   #     path: seekhJaunga/Ekart
-  - name: myResource
-    type: PropertyBag
-    configuration:
-      runNumber: 0
-      x: 5
-      xx: 5
-      # xxx: 5
-      # xxxx: 5
-      # xxxxx: 5
-      # xxxxxx: 5
-      # xxxxxxx: 5
-      # y: 5
-      # yy: 5
-      # yyy: 5
-      # yyyy: 5
-      yyyyy: 5
-      # yyyyyy: 5
-  - name: myResource1
-    type: PropertyBag
-    configuration:
-      runNumber1: 0
-      x1: 5
-      # xx1: 5
-      # xxx: 5
-      # xxxx: 5
-      # xxxxx: 5
-      # xxxxxx: 5
-      # xxxxxxx: 5
-      # y: 5
-      # yy: 5
-      # yyy: 5
-      # yyyy: 5
-      # yyyyy1: 5
-      # yyyyyy: 5
-  - name: myResource2
-    type: PropertyBag
-    configuration:
-      runNumber2: 0
-      x2: 5
-      xx2: 5
-      # xxx: 5
-      # xxxx: 5
-      # xxxxx: 5
-      # xxxxxx: 5
-      # xxxxxxx: 5
-      # y: 5
-      # yy: 5
-      # yyy: 5
-      # yyyy: 5
-      yyyyy2: 5
-      # yyyyyy: 5
-
 # resources:
-#   - name: propertyBag_1
+#   - name: resource_1
+#     type: GitRepo
+#     configuration:
+#       gitProvider: test
+#       path: seekhJaunga/pipelineBasic
+#       buildOn:
+#          commit: false
+# #   # - name: resource_4
+# #   #   type: GitRepo
+# #   #   configuration:
+# #   #     gitProvider: test
+# #   #     path: seekhJaunga/Ekart
+#   - name: myResource
 #     type: PropertyBag
 #     configuration:
-#       property1: "jfrog"
-#       property2: "pipelines"
-pipelines:
-  - name: single_test
-    configuration:
-      environmentVariables:
-        readOnly:
-          env: 
-            default: "singletest"
-            values: ["singletest", "testing"]
-            allowCustom: false
-          env2: "test_p2"
-          # env3:
-          #   defaultMultipleValues: ["r,andom_1"]
-          #   # default: "r,andom_2"
-          #   description: "testing"
-          #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
-          #   allowCustom: false
-          #   allowMultipleValues: true
-    steps:
-#       # - name: step_1
-#       #   type: Bash
-#       #   configuration:
-#       #     integrations:
-#       #       - name: testing
-#       #   execution:
-#       #     onExecute:
-#       #       - echo $int_testing_val1
-#       #       - echo $int_testing_val2
-#       #       - |
-#       #         if [ $int_testing_val1 = "password1" ]; then
-#       #           echo matched
-#       #         else
-#       #           echo NotMatched
-#       #         fi
-#       #       - |
-#       #         if [ $int_testing_val2 = "password2" ]; then
-#       #           echo matched
-#       #         else
-#       #           echo NotMatched
-#       #         fi
-      - name: trigger_1
-        type: Bash
-        configuration:
-          affinityGroup: trigger
-          inputResources:
-            # - name: propertyBag_1
-          #   - name: resource_4
-            - name: resource_1
-          outputResources:
-            - name: myResource
-            - name: myResource1
-            - name: myResource2
-        execution:
-          onExecute:
-            - printenv
-            - echo $env
-            - echo $env2
-            - write_output myResource runNumber=${run_number}
-            - write_output myResource1 runNumber1=${run_number}
-            - write_output myResource2 runNumber2=${run_number}
-#       #       - echo $env3
-#       #       - echo $res_resource_1_path
-#       #       - echo $res_resource_3_path
-#       #       - write_output myResource runNumber=${run_number}
-#       #       - echo ${run_number}
-#       #       - echo "done"
-      - name: trigger_2
-        type: Bash
-        configuration:
-          inputResources:
-            - name: myResource
-              newVersionOnly: true
-            - name: myResource1
-              newVersionOnly: true
-            - name: myResource2
-              newVersionOnly: true
-          chronological: true
-#       #     affinityGroup: trigger
-          inputSteps: 
-            - name: trigger_1
-#       #       # - name: step_1
-        execution:
-          onExecute:
-#       #       - printenv
-#       #       # - echo ${#env3[@]}
-#       #       # - echo ${env3[2]}
-#       #       # - echo $env
-#       #       # - echo $env2
-#       #       # - echo ${env3[0]}
-            - echo "Running second trigger done"
-#       #       # - $env3[0]
-#       #       # - $env3.Count
-#       #       # - $env2
-#       #       # - $env
+#       runNumber: 0
+#       x: 5
+#       xx: 5
+#       # xxx: 5
+#       # xxxx: 5
+#       # xxxxx: 5
+#       # xxxxxx: 5
+#       # xxxxxxx: 5
+#       # y: 5
+#       # yy: 5
+#       # yyy: 5
+#       # yyyy: 5
+#       yyyyy: 5
+#       # yyyyyy: 5
+#   - name: myResource1
+#     type: PropertyBag
+#     configuration:
+#       runNumber1: 0
+#       x1: 5
+#       # xx1: 5
+#       # xxx: 5
+#       # xxxx: 5
+#       # xxxxx: 5
+#       # xxxxxx: 5
+#       # xxxxxxx: 5
+#       # y: 5
+#       # yy: 5
+#       # yyy: 5
+#       # yyyy: 5
+#       # yyyyy1: 5
+#       # yyyyyy: 5
+#   - name: myResource2
+#     type: PropertyBag
+#     configuration:
+#       runNumber2: 0
+#       x2: 5
+#       xx2: 5
+#       # xxx: 5
+#       # xxxx: 5
+#       # xxxxx: 5
+#       # xxxxxx: 5
+#       # xxxxxxx: 5
+#       # y: 5
+#       # yy: 5
+#       # yyy: 5
+#       # yyyy: 5
+#       yyyyy2: 5
+#       # yyyyyy: 5
 
-
-#   # pipelines:
-#   #   - name: S_Bash_3852_001
-#   #     configuration:
-#   #       environmentVariables:
-#   #         readOnly:
-#   #           pipevar1: "1"
-#   #           pipevar2: "2"
-#   #     steps:
-#   #       - name: S_Bash_3852_001_1
-#   #         type: PowerShe,
-#   #         configuration:
-#   #           environmentVariables:
-#   #             S_Bash_3852_001_1: "yes"
-#   #           affinityGroup: 'group'
-#   #         execution:
-#   #           onExecute:
-#   #             - if [ "$S_Bash_3852_001_1" != "yes" ]; then return 1; fi
-#   #             - echo "done"
-#   #             - echo $S_Bash_3852_001_1
-#   #             - echo $pipevar1
-#   #       - name: S_Bash_3852_001_2
-#   #         type: Bash
-#   #         configuration:
-#   #           environmentVariables:
-#   #             S_Bash_3852_001_2: 'yes'
-#   #           affinityGroup: 'group'
-#   #           inputSteps:
-#   #             - name: S_Bash_3852_001_1
-#   #         execution:
-#   #           onExecute:
-#   #             - if [ "$S_Bash_3852_001_2" != "yes" ]; then return 1; fi
-#   #             - echo "done"
-#   #       - name: S_Bash_3852_001_3
-#   #         type: Bash
-#   #         configuration:
-#   #           environmentVariables:
-#   #             S_Bash_3852_001_3: 'yes'
-#   #           affinityGroup: 'group'
-#   #           # inputSteps:
-#   #           #   - name: S_Bash_3852_001_1
-#   #         execution:
-#   #           onExecute:
-#   #             - if [ "$S_Bash_3852_001_3" != "yes" ]; then return 1; fi
-#   #             - echo "done"
-#   #       - name: S_Bash_3852_001_4
-#   #         type: Bash
-#   #         configuration:
-#   #           environmentVariables:
-#   #             S_Bash_3852_001_4: 'yes'
-#   #           affinityGroup: 'group'
-#   #           inputSteps:
-#   #             - name: S_Bash_3852_001_2
-#   #             - name: S_Bash_3852_001_3
-#   #         execution:
-#   #           onExecute:
-#   #             - if [ "$S_Bash_3852_001_4" != "yes" ]; then return 1; fi
-#   #             - echo "done"
-  
+# # resources:
+# #   - name: propertyBag_1
+# #     type: PropertyBag
+# #     configuration:
+# #       property1: "jfrog"
+# #       property2: "pipelines"
 # pipelines:
-#   - name: PIPE_9455_Workflow_03
+#   - name: single_test
+#     configuration:
+#       environmentVariables:
+#         readOnly:
+#           env: 
+#             default: "singletest"
+#             values: ["singletest", "testing"]
+#             allowCustom: false
+#           env2: "test_p2"
+#           # env3:
+#           #   defaultMultipleValues: ["r,andom_1"]
+#           #   # default: "r,andom_2"
+#           #   description: "testing"
+#           #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
+#           #   allowCustom: false
+#           #   allowMultipleValues: true
 #     steps:
-#       - name: step1
-#         type: Bash
-#         execution:
-#           onExecute:
-#             - echo 'step1'
-#       - name: step2
+# #       # - name: step_1
+# #       #   type: Bash
+# #       #   configuration:
+# #       #     integrations:
+# #       #       - name: testing
+# #       #   execution:
+# #       #     onExecute:
+# #       #       - echo $int_testing_val1
+# #       #       - echo $int_testing_val2
+# #       #       - |
+# #       #         if [ $int_testing_val1 = "password1" ]; then
+# #       #           echo matched
+# #       #         else
+# #       #           echo NotMatched
+# #       #         fi
+# #       #       - |
+# #       #         if [ $int_testing_val2 = "password2" ]; then
+# #       #           echo matched
+# #       #         else
+# #       #           echo NotMatched
+# #       #         fi
+#       - name: trigger_1
 #         type: Bash
 #         configuration:
-#           allowFailure: true
-#           inputSteps:
-#           - name: step1
-#             status:
-#               - success
-#               - error
-#               - failure
-#               - timeout
-#               - canceled
+#           affinityGroup: trigger
+#           inputResources:
+#             # - name: propertyBag_1
+#           #   - name: resource_4
+#             - name: resource_1
+#           outputResources:
+#             - name: myResource
+#             - name: myResource1
+#             - name: myResource2
 #         execution:
 #           onExecute:
-#             - echo 'success'
-#             - exit 1
+#             - printenv
+#             - echo $env
+#             - echo $env2
+#             - write_output myResource runNumber=${run_number}
+#             - write_output myResource1 runNumber1=${run_number}
+#             - write_output myResource2 runNumber2=${run_number}
+# #       #       - echo $env3
+# #       #       - echo $res_resource_1_path
+# #       #       - echo $res_resource_3_path
+# #       #       - write_output myResource runNumber=${run_number}
+# #       #       - echo ${run_number}
+# #       #       - echo "done"
+#       - name: trigger_2
+#         type: Bash
+#         configuration:
+#           inputResources:
+#             - name: myResource
+#               newVersionOnly: true
+#             - name: myResource1
+#               newVersionOnly: true
+#             - name: myResource2
+#               newVersionOnly: true
+#           chronological: true
+# #       #     affinityGroup: trigger
+#           inputSteps: 
+#             - name: trigger_1
+# #       #       # - name: step_1
+#         execution:
+#           onExecute:
+# #       #       - printenv
+# #       #       # - echo ${#env3[@]}
+# #       #       # - echo ${env3[2]}
+# #       #       # - echo $env
+# #       #       # - echo $env2
+# #       #       # - echo ${env3[0]}
+#             - echo "Running second trigger done"
+# #       #       # - $env3[0]
+# #       #       # - $env3.Count
+# #       #       # - $env2
+# #       #       # - $env
+
+
+# #   # pipelines:
+# #   #   - name: S_Bash_3852_001
+# #   #     configuration:
+# #   #       environmentVariables:
+# #   #         readOnly:
+# #   #           pipevar1: "1"
+# #   #           pipevar2: "2"
+# #   #     steps:
+# #   #       - name: S_Bash_3852_001_1
+# #   #         type: PowerShe,
+# #   #         configuration:
+# #   #           environmentVariables:
+# #   #             S_Bash_3852_001_1: "yes"
+# #   #           affinityGroup: 'group'
+# #   #         execution:
+# #   #           onExecute:
+# #   #             - if [ "$S_Bash_3852_001_1" != "yes" ]; then return 1; fi
+# #   #             - echo "done"
+# #   #             - echo $S_Bash_3852_001_1
+# #   #             - echo $pipevar1
+# #   #       - name: S_Bash_3852_001_2
+# #   #         type: Bash
+# #   #         configuration:
+# #   #           environmentVariables:
+# #   #             S_Bash_3852_001_2: 'yes'
+# #   #           affinityGroup: 'group'
+# #   #           inputSteps:
+# #   #             - name: S_Bash_3852_001_1
+# #   #         execution:
+# #   #           onExecute:
+# #   #             - if [ "$S_Bash_3852_001_2" != "yes" ]; then return 1; fi
+# #   #             - echo "done"
+# #   #       - name: S_Bash_3852_001_3
+# #   #         type: Bash
+# #   #         configuration:
+# #   #           environmentVariables:
+# #   #             S_Bash_3852_001_3: 'yes'
+# #   #           affinityGroup: 'group'
+# #   #           # inputSteps:
+# #   #           #   - name: S_Bash_3852_001_1
+# #   #         execution:
+# #   #           onExecute:
+# #   #             - if [ "$S_Bash_3852_001_3" != "yes" ]; then return 1; fi
+# #   #             - echo "done"
+# #   #       - name: S_Bash_3852_001_4
+# #   #         type: Bash
+# #   #         configuration:
+# #   #           environmentVariables:
+# #   #             S_Bash_3852_001_4: 'yes'
+# #   #           affinityGroup: 'group'
+# #   #           inputSteps:
+# #   #             - name: S_Bash_3852_001_2
+# #   #             - name: S_Bash_3852_001_3
+# #   #         execution:
+# #   #           onExecute:
+# #   #             - if [ "$S_Bash_3852_001_4" != "yes" ]; then return 1; fi
+# #   #             - echo "done"
+  
+# # pipelines:
+# #   - name: PIPE_9455_Workflow_03
+# #     steps:
+# #       - name: step1
+# #         type: Bash
+# #         execution:
+# #           onExecute:
+# #             - echo 'step1'
+# #       - name: step2
+# #         type: Bash
+# #         configuration:
+# #           allowFailure: true
+# #           inputSteps:
+# #           - name: step1
+# #             status:
+# #               - success
+# #               - error
+# #               - failure
+# #               - timeout
+# #               - canceled
+# #         execution:
+# #           onExecute:
+# #             - echo 'success'
+# #             - exit 1
+
+
+pipelines: 
+  - name: jenkinsPipeline
+    steps:
+      - name: jenkinsStep
+        type: Jenkins
+        configuration: 
+                  timeoutSeconds: 30 # uses Bash tag to set time limit, in seconds, for the step to complete
+          jenkinsJobName: test
+          integrations:
+            - name: jenkinsIntegration
