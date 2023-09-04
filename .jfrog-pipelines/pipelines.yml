@@ -75,7 +75,7 @@ pipelines:
       environmentVariables:
         readOnly:
           env: 
-            # default: "singletest"
+            default: "singletest"
             values: ["singletest", "testing"]
             allowCustom: false
           env2: "test_p2"
