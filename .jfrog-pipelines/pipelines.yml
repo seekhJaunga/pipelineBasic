@@ -258,4 +258,4 @@ pipelines:
                   # timeoutSeconds: 30 # uses Bash tag to set time limit, in seconds, for the step to complete
           jenkinsJobName: testPunya
           integrations:
-            - name: jenkinsIntegration
+            - name: test
