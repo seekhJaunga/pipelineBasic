@@ -75,7 +75,7 @@ pipelines:
       environmentVariables:
         readOnly:
           env: 
-            default: "singletest"
+            # default: "singletest"
             values: ["singletest", "testing"]
             allowCustom: false
           env2: "test_p2"
@@ -85,7 +85,7 @@ pipelines:
             description: "testing"
             values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
             allowCustom: false
-            allowMultipleValues: true
+            allowMultipleValues: false
     steps:
 #       # - name: step_1
 #       #   type: Bash
