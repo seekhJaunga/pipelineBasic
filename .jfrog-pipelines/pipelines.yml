@@ -256,6 +256,6 @@ pipelines:
         type: Jenkins
         configuration: 
                   # timeoutSeconds: 30 # uses Bash tag to set time limit, in seconds, for the step to complete
-          jenkinsJobName: infra/job/testPunya
+          jenkinsJobName: infra/testPunya
           integrations:
             - name: test
