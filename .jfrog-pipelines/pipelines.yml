@@ -2,7 +2,7 @@ resources:
   - name: resource_1
     type: GitRepo
     configuration:
-      gitProvider: testgit
+      gitProvider: test
       path: seekhJaunga/Ekart
       buildOn:
          commit: false
