@@ -5,8 +5,8 @@ resources:
       gitProvider: test
       path: seekhJaunga/Ekart
       buildOn:
-         release: true
-         commit: false
+         releaseCreate: true
+         commit: true
   # - name: resource_4
   #   type: GitRepo
   #   configuration:
