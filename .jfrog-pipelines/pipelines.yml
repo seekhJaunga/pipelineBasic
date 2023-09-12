@@ -6,7 +6,7 @@ resources:
       path: seekhJaunga/Ekart
       buildOn:
          releaseCreate: true
-         commit: true
+         commit: false
   # - name: resource_4
   #   type: GitRepo
   #   configuration:
