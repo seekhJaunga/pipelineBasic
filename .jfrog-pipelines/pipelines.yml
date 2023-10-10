@@ -91,7 +91,7 @@ pipelines:
       - name: my_step
         type: Bash
         configuration:
-          timeoutSeconds: 5
+          timeoutSeconds: 1
         execution:
           onExecute:
             - echo "This is my step."
@@ -116,11 +116,11 @@ pipelines:
 #       #         else
 #       #           echo NotMatched
 #       #         fi
-      - name: trigger_1
-        type: Bash
-        configuration:
-          affinityGroup: trigger
-          timeoutSeconds: 5
+      # - name: trigger_1
+      #   type: Bash
+      #   configuration:
+      #     affinityGroup: trigger
+      #     timeoutSeconds: 5
           # inputResources:
             # - name: propertyBag_1
           #   - name: resource_4
@@ -129,25 +129,25 @@ pipelines:
           #   - name: myResource
           #   - name: myResource1
           #   - name: myResource2
-        execution:
-          onExecute:
-            - printenv
-            - echo $env
-            - echo $env2
+        # execution:
+        #   onExecute:
+        #     - printenv
+        #     - echo $env
+        #     - echo $env2
             # - write_output myResource runNumber=${run_number}
             # - write_output myResource1 runNumber1=${run_number}
             # - write_output myResource2 runNumber2=${run_number}
-            - echo $env3
-            - echo 
+            # - echo $env3
+            # - echo 
       #       - echo $res_resource_1_path
       #       - echo $res_resource_3_path
       #       - write_output myResource runNumber=${run_number}
       #       - echo ${run_number}
       #       - echo "done"
-      - name: trigger_2
-        type: Bash
-        configuration:
-          timeoutSeconds: 5
+      # - name: trigger_2
+      #   type: Bash
+      #   configuration:
+      #     timeoutSeconds: 5
           # inputResources:
           #   - name: myResource
           #     newVersionOnly: true
@@ -155,20 +155,20 @@ pipelines:
           #     newVersionOnly: true
           #   - name: myResource2
           #     newVersionOnly: true
-          chronological: true
+          # chronological: true
       #     affinityGroup: trigger
-          inputSteps: 
-            - name: trigger_1
+          # inputSteps: 
+          #   - name: trigger_1
             # - name: step_1
-        execution:
-          onExecute:
-            - printenv
-            - echo ${#env3[@]}
-            - echo ${env3[2]}
-            - echo $env
-            - echo $env2
-            - echo ${env3[0]}
-            - echo "Running second trigger done"
+        # execution:
+        #   onExecute:
+        #     - printenv
+        #     - echo ${#env3[@]}
+        #     - echo ${env3[2]}
+        #     - echo $env
+        #     - echo $env2
+        #     - echo ${env3[0]}
+            # - echo "Running second trigger done"
       #       # - $env3[0]
       #       # - $env3.Count
       #       # - $env2
