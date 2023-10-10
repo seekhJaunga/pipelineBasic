@@ -120,7 +120,7 @@ pipelines:
         type: Bash
         configuration:
           affinityGroup: trigger
-          timeoutSeconds: 1
+          timeoutSeconds: 5
           inputResources:
           #   - name: propertyBag_1
           #   - name: resource_4
