@@ -91,7 +91,7 @@ pipelines:
       - name: my_step
         type: Bash
         configuration:
-          timeoutSeconds: 1
+          timeoutSeconds: 0
         execution:
           onExecute:
             - echo "This is my step."
