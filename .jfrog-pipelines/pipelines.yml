@@ -88,6 +88,13 @@ pipelines:
           #   allowCustom: false
           #   allowMultipleValues: false
     steps:
+      - name: my_step
+        type: Bash
+        configuration:
+          timeoutSeconds: 300 //5 minutes
+        execution:
+          onExecute:
+            - echo "This is my step."
 #       # - name: step_1
 #       #   type: Bash
 #       #   configuration:
