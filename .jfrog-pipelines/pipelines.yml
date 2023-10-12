@@ -1,12 +1,12 @@
-resources:
-  - name: resource_1
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/Ekart
-      buildOn:
-         releaseCreate: true
-         commit: false
+# resources:
+#   - name: resource_1
+#     type: GitRepo
+#     configuration:
+#       gitProvider: test
+#       path: seekhJaunga/Ekart
+#       buildOn:
+#          releaseCreate: true
+#          commit: false
   # - name: resource_4
   #   type: GitRepo
   #   configuration:
@@ -80,6 +80,15 @@ pipelines:
             values: ["singletest", "testing"]
             allowCustom: false
           env2: "test_p2"
+          KEY1:
+            description: Your key will be used as reference to your secret
+            default: Your key will be used as reference to your secret
+            allowCustom: true
+          VALUE1:
+            description: Insert your secret value
+            default: '*****'
+            secure: true
+            allowCustom: true
           # env3:
           #   defaultMultipleValues: ["r,andom_1"]
           #   # default: "r,andom_2"
@@ -120,11 +129,11 @@ pipelines:
         type: Bash
         configuration:
           affinityGroup: trigger
-          timeoutSeconds: 5
-          inputResources:
+          # timeoutSeconds: 5
+          # inputResources:
           #   - name: propertyBag_1
           #   - name: resource_4
-            - name: resource_1
+            # - name: resource_1
           # outputResources:
           #   - name: myResource
           #   - name: myResource1
