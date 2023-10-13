@@ -70,25 +70,25 @@
 #     configuration:
 #       property1: "jfrog"
 #       property2: "pipelines"
-pipelines:
-  - name: single_test
-    configuration:
-      environmentVariables:
-        readOnly:
-          env: 
-            default: "singletest"
-            values: ["singletest", "testing"]
-            allowCustom: false
-          env2: "test_p2"
-          KEY1:
-            description: Your key will be used as reference to your secret
-            default: Your key will be used as reference to your secret
-            allowCustom: true
-          VALUE1:
-            description: Insert your secret value
-            default: '*****'
-            secure: true
-            allowCustom: true
+# pipelines:
+#   - name: single_test
+#     configuration:
+#       environmentVariables:
+#         readOnly:
+#           env: 
+#             default: "singletest"
+#             values: ["singletest", "testing"]
+#             allowCustom: false
+#           env2: "test_p2"
+#           KEY1:
+#             description: Your key will be used as reference to your secret
+#             default: Your key will be used as reference to your secret
+#             allowCustom: true
+#           VALUE1:
+#             description: Insert your secret value
+#             default: '*****'
+#             secure: true
+#             allowCustom: true
           # env3:
           #   defaultMultipleValues: ["r,andom_1"]
           #   # default: "r,andom_2"
@@ -96,7 +96,7 @@ pipelines:
           #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
           #   allowCustom: false
           #   allowMultipleValues: false
-    steps:
+    # steps:
       # - name: my_step
       #   type: Bash
       #   configuration:
@@ -125,10 +125,10 @@ pipelines:
 #       #         else
 #       #           echo NotMatched
 #       #         fi
-      - name: trigger_1
-        type: Bash
-        configuration:
-          affinityGroup: trigger
+      # - name: trigger_1
+      #   type: Bash
+      #   configuration:
+      #     affinityGroup: trigger
           # timeoutSeconds: 5
           # inputResources:
           #   - name: propertyBag_1
@@ -138,11 +138,11 @@ pipelines:
           #   - name: myResource
           #   - name: myResource1
           #   - name: myResource2
-        execution:
-          onExecute:
-            - printenv
-            - echo $env
-            - echo $env2
+        # execution:
+        #   onExecute:
+        #     - printenv
+        #     - echo $env
+        #     - echo $env2
             # - write_output myResource runNumber=${run_number}
             # - write_output myResource1 runNumber1=${run_number}
             # - write_output myResource2 runNumber2=${run_number}
@@ -278,3 +278,13 @@ pipelines:
 #           jenkinsJobName: infra/job/testPunya
 #           integrations:
 #             - name: test
+
+pipelines:
+  - name: PIPE_9455_Workflow_03
+    steps:
+      - name: step1
+        type: Bash
+        execution:
+          onExecute:
+            - echo 'step1'
+            - sleep 120 
