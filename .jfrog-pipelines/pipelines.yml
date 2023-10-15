@@ -70,11 +70,11 @@
 #     configuration:
 #       property1: "jfrog"
 #       property2: "pipelines"
-# pipelines:
-#   - name: single_test
-#     configuration:
-#       environmentVariables:
-#         readOnly:
+pipelines:
+  - name: single_test
+    configuration:
+      environmentVariables:
+        readOnly:
 #           env: 
 #             default: "singletest"
 #             values: ["singletest", "testing"]
@@ -84,11 +84,11 @@
 #             description: Your key will be used as reference to your secret
 #             default: Your key will be used as reference to your secret
 #             allowCustom: true
-#           VALUE1:
-#             description: Insert your secret value
-#             default: '*****'
-#             secure: true
-#             allowCustom: true
+          VALUE1:
+            description: Insert your secret value
+            default: '*****'
+            secure: true
+            allowCustom: true
           # env3:
           #   defaultMultipleValues: ["r,andom_1"]
           #   # default: "r,andom_2"
@@ -279,18 +279,18 @@
 #           integrations:
 #             - name: test
 
-pipelines:
+# pipelines:
 
-{{ range $i, $e := until 300 }}
-- name: "bar{{$i}}"
-  steps:
-    - name: step1
-      type: Bash
-      execution:
-        onExecute:
-          - echo 'step1'
-  # x: {{$i}}
-{{ end }}
+# {{ range $i, $e := until 300 }}
+# - name: "bar{{$i}}"
+#   steps:
+#     - name: step1
+#       type: Bash
+#       execution:
+#         onExecute:
+#           - echo 'step1'
+#   # x: {{$i}}
+# {{ end }}
   # - name: PIPE_9455_Workflow_03
   #   steps:
   #     - name: step1
