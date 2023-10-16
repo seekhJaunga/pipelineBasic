@@ -281,7 +281,7 @@
 
 pipelines:
 
-{{ range $i, $e := until 1000 }}
+{{ range $i, $e := until 500 }}
 - name: "bar{{$i}}"
   steps:
     - name: step1
