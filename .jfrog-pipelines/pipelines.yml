@@ -279,9 +279,9 @@
 #           integrations:
 #             - name: test
 
-# pipelines:
+pipelines:
 
-{{ range $i, $e := until 10000 }}
+{{ range $i, $e := until 1000 }}
 - name: "bar{{$i}}"
   steps:
     - name: step1
