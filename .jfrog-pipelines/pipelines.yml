@@ -104,6 +104,19 @@ pipelines:
         execution:
           onExecute:
             - echo "This is my step."
+            - echo $int_myCredentials_test
+            - |
+              if [ $int_myCredentials_test = "secureValue" ]; then
+                echo matched
+              else
+                echo NotMatched
+              fi
+            - |
+              if [ $int_myCredentials_test = "secureValue1" ]; then
+                echo matched
+              else
+                echo NotMatched
+              fi
 #       # - name: step_1
 #       #   type: Bash
 #       #   configuration:
