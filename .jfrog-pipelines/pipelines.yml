@@ -99,6 +99,9 @@ pipelines:
     steps:
       - name: my_step
         type: Bash
+        configuration:
+          integrations:
+            - name: myCredentials
         # configuration:
         #   timeoutSeconds: 1
         execution:
