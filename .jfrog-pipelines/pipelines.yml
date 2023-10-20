@@ -101,7 +101,7 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: myCredentials
+            - name: test
         # configuration:
         #   timeoutSeconds: 1
         execution:
@@ -115,7 +115,7 @@ pipelines:
                 echo NotMatched
               fi
             - |
-              if [ $int_myCredentials_test = "secureValue1" ]; then
+              if [ $val2 = "pass5New@123" ]; then
                 echo matched
               else
                 echo NotMatched
