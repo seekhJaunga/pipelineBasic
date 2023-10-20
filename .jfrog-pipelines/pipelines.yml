@@ -126,9 +126,6 @@ pipelines:
               else
                 echo NotMatched
               fi
-              
-
-              VALUE1
 #       # - name: step_1
 #       #   type: Bash
 #       #   configuration:
