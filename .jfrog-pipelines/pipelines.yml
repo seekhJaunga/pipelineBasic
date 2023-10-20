@@ -108,6 +108,7 @@ pipelines:
           onExecute:
             - echo "This is my step."
             - echo $int_myCredentials_test
+            - echo $int_test_val2
             - |
               if [ $int_myCredentials_test = "secureValue" ]; then
                 echo matched
@@ -115,7 +116,7 @@ pipelines:
                 echo NotMatched
               fi
             - |
-              if [ $val2 = "pass5New@123" ]; then
+              if [ $int_test_val2 = "pass5New@123" ]; then
                 echo matched
               else
                 echo NotMatched
