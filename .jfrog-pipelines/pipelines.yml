@@ -120,6 +120,15 @@ pipelines:
               else
                 echo NotMatched
               fi
+            - |
+              if [ $VALUE1 = "testing" ]; then
+                echo matched
+              else
+                echo NotMatched
+              fi
+              
+
+              VALUE1
 #       # - name: step_1
 #       #   type: Bash
 #       #   configuration:
