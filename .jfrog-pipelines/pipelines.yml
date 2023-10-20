@@ -75,7 +75,7 @@ pipelines:
     configuration:
       environmentVariables:
         readOnly:
-          # env: 
+          env: "PIPA"
 #             default: "singletest"
 #             values: ["singletest", "testing"]
 #             allowCustom: false
@@ -126,6 +126,7 @@ pipelines:
               else
                 echo NotMatched
               fi
+            - echo $env"hehe"
 #       # - name: step_1
 #       #   type: Bash
 #       #   configuration:
