@@ -1,12 +1,12 @@
-resources:
-  - name: resource_1
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/testing with space
-      buildOn:
-         releaseCreate: true
-         commit: false
+# resources:
+#   - name: resource_1
+#     type: GitRepo
+#     configuration:
+#       gitProvider: test
+#       path: seekhJaunga/testing with space
+#       buildOn:
+#          releaseCreate: true
+#          commit: false
   # - name: resource_4
   #   type: GitRepo
   #   configuration:
@@ -70,16 +70,16 @@ resources:
 #     configuration:
 #       property1: "jfrog"
 #       property2: "pipelines"
-pipelines:
-  - name: single_test
-    configuration:
-      environmentVariables:
-        readOnly:
+# pipelines:
+#   - name: single_test
+#     configuration:
+#       environmentVariables:
+#         readOnly:
           # env: "PIPA"
 #             default: "singletest"
 #             values: ["singletest", "testing"]
 #             allowCustom: false
-          env2: "test_p2"
+          # env2: "test_p2"
           # KEY1:
           #   description: Your key will be used as reference to your secret
           #   default: Your key will be used as reference to your secret
@@ -96,7 +96,7 @@ pipelines:
           #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
           #   allowCustom: false
           #   allowMultipleValues: false
-    steps:
+    # steps:
       # - name: my_step
       #   type: Bash
     #     configuration:
@@ -149,21 +149,21 @@ pipelines:
 #       #         else
 #       #           echo NotMatched
 #       #         fi
-      - name: trigger_1
-        type: Bash
-        configuration:
-          affinityGroup: trigger
-          timeoutSeconds: 5
-          inputResources:
+      # - name: trigger_1
+      #   type: Bash
+      #   configuration:
+      #     affinityGroup: trigger
+      #     timeoutSeconds: 5
+      #     inputResources:
             # - name: propertyBag_1
             # - name: resource_4
-            - name: resource_1
+            # - name: resource_1
           # outputResources:
           #   - name: myResource
           #   - name: myResource1
           #   - name: myResource2
-        execution:
-          onExecute:
+        # execution:
+        #   onExecute:
         #     - printenv
         #     - echo $env
         #     - echo $env2
@@ -172,13 +172,13 @@ pipelines:
             # - write_output myResource2 runNumber2=${run_number}
             # - echo $env3
             # - echo 
-            - echo $res_resource_1_path
+            # - echo $res_resource_1_path
       #       - echo $res_resource_3_path
       #       - write_output myResource runNumber=${run_number}
       #       - echo ${run_number}
       #       - echo "done"
-      - name: trigger_2
-        type: Bash
+      # - name: trigger_2
+      #   type: Bash
       #   configuration:
       #     timeoutSeconds: 5
           # inputResources:
@@ -193,13 +193,13 @@ pipelines:
           # inputSteps: 
           #   - name: trigger_1
             # - name: step_1
-        execution:
-          onExecute:
+        # execution:
+        #   onExecute:
         #     - printenv
         #     - echo ${#env3[@]}
         #     - echo ${env3[2]}
-            - echo $env
-            - echo $env2
+            # - echo $env
+            # - echo $env2
         #     - echo ${env3[0]}
             # - echo "Running second trigger done"
       #       # - $env3[0]
@@ -303,17 +303,17 @@ pipelines:
 #           integrations:
 #             - name: test
 
-# pipelines:
+pipelines:
 
-# {{ range $i, $e := until 5000 }}
-# - name: "bar{{$i}}"
-#   steps:
-#     - name: step1
-#       type: Bash
-#       execution:
-#         onExecute:
-#           - echo 'step1'
-# {{ end }}
+{{ range $i, $e := until 5000 }}
+- name: "bar{{$i}}"
+  steps:
+    - name: step1
+      type: Bash
+      execution:
+        onExecute:
+          - echo 'step1'
+{{ end }}
   # - name: PIPE_9455_Workflow_03
   #   steps:
   #     - name: step1
