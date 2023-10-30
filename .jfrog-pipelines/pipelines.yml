@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: test
-      path: seekhJaunga/Ekart
+      path: seekhJaunga/testing with space
       buildOn:
          releaseCreate: true
          commit: false
