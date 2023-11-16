@@ -70,16 +70,16 @@
 #     configuration:
 #       property1: "jfrog"
 #       property2: "pipelines"
-# pipelines:
-#   - name: single_test
-#     configuration:
-#       environmentVariables:
-#         readOnly:
+pipelines:
+  - name: single_test
+    configuration:
+      environmentVariables:
+        readOnly:
           # env: "PIPA"
 #             default: "singletest"
 #             values: ["singletest", "testing"]
 #             allowCustom: false
-          # env2: "test_p2"
+          env2: "test_p2"
           # KEY1:
           #   description: Your key will be used as reference to your secret
           #   default: Your key will be used as reference to your secret
@@ -96,25 +96,25 @@
           #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
           #   allowCustom: false
           #   allowMultipleValues: false
-    # steps:
-      # - name: my_step
-      #   type: Bash
-    #     configuration:
-    #       integrations:
-    #         - name: test
+    steps:
+      - name: my_step
+        type: Bash
+        configuration:
+          integrations:
+            - name: testpunya
         # configuration:
         #   timeoutSeconds: 1
-        # execution:
-        #   onExecute:
+        execution:
+          onExecute:
         #     - echo "This is my step."
         #     - echo $int_myCredentials_test
-        #     - echo $int_test_val2
-        #     - |
-        #       if [ $int_myCredentials_test = "secureValue" ]; then
-        #         echo matched
-        #       else
-        #         echo NotMatched
-        #       fi
+            - echo $int_testpunya_val
+            - |
+              if [ $int_testpunya_val = "secure" ]; then
+                echo matched
+              else
+                echo NotMatched
+              fi
         #     - |
         #       if [ $int_test_val2 = "pass5New@123" ]; then
         #         echo matched
@@ -303,17 +303,17 @@
 #           integrations:
 #             - name: test
 
-pipelines:
+# pipelines:
 
-{{ range $i, $e := until 5000 }}
-- name: "bar{{$i}}"
-  steps:
-    - name: step1
-      type: Bash
-      execution:
-        onExecute:
-          - echo 'step1'
-{{ end }}
+# {{ range $i, $e := until 5000 }}
+# - name: "bar{{$i}}"
+#   steps:
+#     - name: step1
+#       type: Bash
+#       execution:
+#         onExecute:
+#           - echo 'step1'
+# {{ end }}
   # - name: PIPE_9455_Workflow_03
   #   steps:
   #     - name: step1
