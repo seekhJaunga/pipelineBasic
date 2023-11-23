@@ -71,7 +71,7 @@
 #       property1: "jfrog"
 #       property2: "pipelines"
 pipelines:
-  - name: single_test
+  - name: single_test_p
     configuration:
       environmentVariables:
         readOnly:
