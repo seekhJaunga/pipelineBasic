@@ -128,6 +128,22 @@ pipelines:
         #         echo NotMatched
         #       fi
         #     - echo $env"hehe"
+      - name: my_step_2
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: my_step
+        execution:
+          onExecute:
+            - echo "This is my step."
+      - name: my_step_3
+        type: Bash
+        configuration:
+          inputSteps:
+            - name: my_step
+        execution:
+          onExecute:
+            - echo "This is my step."
 #       # - name: step_1
 #       #   type: Bash
 #       #   configuration:
