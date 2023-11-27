@@ -73,7 +73,7 @@
 pipelines:
   - name: single_test_p
     configuration:
-      nodePool: dummy_np_2
+      # nodePool: dummy_np_2
       environmentVariables:
         readOnly:
           # env: "PIPA"
