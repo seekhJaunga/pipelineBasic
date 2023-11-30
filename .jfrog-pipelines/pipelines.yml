@@ -6,7 +6,7 @@ resources:
       path: seekhJaunga/Ekart
       buildOn:
          releaseCreate: true
-         commit: false
+         commit: true
   # - name: myBuildInfo
   #   type: BuildInfo
   #   configuration:
