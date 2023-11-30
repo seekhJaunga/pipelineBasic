@@ -7,6 +7,12 @@ resources:
       buildOn:
          releaseCreate: true
          commit: false
+  - name: myBuildInfo
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art
+      buildName: SampleApp
+      buildNumber: 1 
   # - name: resource_4
   #   type: GitRepo
   #   configuration:
@@ -104,7 +110,7 @@ pipelines:
           #inherits all the tags from bash
           failOnScan: true                     # default true
           inputResources:
-            - name: resource_1         # required
+            - name: myBuildInfo         # required
               trigger: false
         execution:
           onStart:
