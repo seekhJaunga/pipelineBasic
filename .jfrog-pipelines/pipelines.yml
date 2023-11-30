@@ -1,12 +1,12 @@
-# resources:
-#   - name: resource_1
-#     type: GitRepo
-#     configuration:
-#       gitProvider: test
-#       path: seekhJaunga/testing with space
-#       buildOn:
-#          releaseCreate: true
-#          commit: false
+resources:
+  - name: resource_1
+    type: GitRepo
+    configuration:
+      gitProvider: test
+      path: seekhJaunga/Ekart
+      buildOn:
+         releaseCreate: true
+         commit: false
   # - name: resource_4
   #   type: GitRepo
   #   configuration:
@@ -98,6 +98,24 @@ pipelines:
           #   allowCustom: false
           #   allowMultipleValues: false
     steps:
+      - name: scan
+        type: XrayScan
+        configuration:
+          #inherits all the tags from bash
+          failOnScan: true                     # default true
+          inputResources:
+            - name: resource_1         # required
+              trigger: false
+        execution:
+          onStart:
+            - echo "Preparing for work..."
+            - echo "Prepping build environment"
+          onSuccess:
+            - echo "Job well done!"
+          onFailure:
+            - echo "uh oh, something went wrong"
+          onComplete: #always
+            - echo "Cleaning up some stuff"
       - name: my_step
         type: Bash
         # configuration:
