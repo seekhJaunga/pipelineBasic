@@ -5,8 +5,8 @@ resources:
       gitProvider: test
       path: seekhJaunga/pipelineBasic
       buildOn:
-         releaseCreate: false
          commit: true
+         branchCreate: true
   # - name: myBuildInfo
   #   type: BuildInfo
   #   configuration:
