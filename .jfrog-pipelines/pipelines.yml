@@ -135,7 +135,7 @@ pipelines:
         execution:
           onExecute:
             - echo "This is my step."
-        #     - echo $int_myCredentials_test
+            - echo $int_myCredentials_test
             # - echo $int_testpunya_val
             # - |
             #   if [ $int_testpunya_val = "secure" ]; then
