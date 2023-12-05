@@ -1,5 +1,5 @@
 resources:
-  - name: resource_1
+  - name: resource_2
     type: GitRepo
     configuration:
       gitProvider: test
@@ -125,7 +125,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: resource_1         # required
+            - name: resource_2        # required
         # configuration:
         #   integrations:
         #     - name: testpunya
