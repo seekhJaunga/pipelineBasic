@@ -384,14 +384,14 @@ resources:
       sourceArtifactory: punyaTest
 
 pipelines:
-  name: xray_pipeline
-  steps:
-    - name: xray
-      type: XrayScan
-      configuration:
-        inputResources:
-          - name: testScan
-      execution:
-        onExecute:
-          - echo "scan complete"
+  - name: xray_pipeline
+    steps:
+      - name: xray
+        type: XrayScan
+        configuration:
+          inputResources:
+            - name: testScan
+        execution:
+          onExecute:
+            - echo "scan complete"
         
