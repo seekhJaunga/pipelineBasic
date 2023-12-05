@@ -1,11 +1,15 @@
-resources:
-  - name: resource_2
-    type: GitRepo
-    configuration:
-      gitProvider: testpunya
-      path: seekhJaunga/pipelineBasic
-      buildOn:
-         branchCreate: false
+# resources:
+#   - name: resource_2
+#     type: GitRepo
+#     configuration:
+#       gitProvider: testpunya
+#       path: seekhJaunga/pipelineBasic
+#       buildOn:
+#          branchCreate: false
+#   - name: testScan
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: punyaTest
          # commit: false
   # - name: myBuildInfo
   #   type: BuildInfo
@@ -76,17 +80,17 @@ resources:
 #     configuration:
 #       property1: "jfrog"
 #       property2: "pipelines"
-pipelines:
-  - name: single_test_p
-    configuration:
+# pipelines:
+#   - name: single_test_p
+#     configuration:
       # nodePool: dummy_np_2
-      environmentVariables:
-        readOnly:
+      # environmentVariables:
+      #   readOnly:
           # env: "PIPA"
 #             default: "singletest"
 #             values: ["singletest", "testing"]
 #             allowCustom: false
-          env2: "test_p2"
+          # env2: "test_p2"
           # KEY1:
           #   description: Your key will be used as reference to your secret
           #   default: Your key will be used as reference to your secret
@@ -103,7 +107,7 @@ pipelines:
           #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
           #   allowCustom: false
           #   allowMultipleValues: false
-    steps:
+    # steps:
       # - name: scan
       #   type: XrayScan
       #   configuration:
@@ -122,19 +126,19 @@ pipelines:
       #       - echo "uh oh, something went wrong"
       #     onComplete: #always
       #       - echo "Cleaning up some stuff"
-      - name: my_step
-        type: Bash
-        configuration:
-          inputResources:
-            - name: resource_2        # required
+      # - name: my_step
+      #   type: Bash
+      #   configuration:
+      #     inputResources:
+      #       - name: resource_2        # required
         # configuration:
         #   integrations:
         #     - name: testpunya
         # configuration:
         #   timeoutSeconds: 1
-        execution:
-          onExecute:
-            - echo "This is my step."
+        # execution:
+        #   onExecute:
+        #     - echo "This is my step."
             # - echo $int_myCredentials_test
             # - echo $int_testpunya_val
             # - |
@@ -156,14 +160,14 @@ pipelines:
         #         echo NotMatched
         #       fi
         #     - echo $env"hehe"
-      - name: my_step_2
-        type: Bash
-        configuration:
-          inputSteps:
-            - name: my_step
-        execution:
-          onExecute:
-            - echo "This is my step."
+      # - name: my_step_2
+      #   type: Bash
+      #   configuration:
+      #     inputSteps:
+      #       - name: my_step
+      #   execution:
+      #     onExecute:
+            # - echo "This is my step."
       # - name: my_step_3
       #   type: Bash
       #   configuration:
@@ -365,3 +369,24 @@ pipelines:
   #       execution:
   #         onExecute:
   #           - echo 'step1'
+
+resources:
+  # - name: resource_2
+  #   type: GitRepo
+  #   configuration:
+  #     gitProvider: testpunya
+  #     path: seekhJaunga/pipelineBasic
+  #     buildOn:
+  #        branchCreate: false
+  - name: testScan
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: punyaTest
+
+name: scanner_pipeline
+steps:
+  - name: xray
+    type: XrayScan
+    configuration:
+      inputResources:
+        - name: testScan
