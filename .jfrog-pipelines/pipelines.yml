@@ -383,10 +383,11 @@ resources:
     configuration:
       sourceArtifactory: punyaTest
 
-name: xray_pipeline
-steps:
-  - name: xray
-    type: XrayScan
-    configuration:
-      inputResources:
-        - name: testScan
+pipelines:
+  name: xray_pipeline
+  steps:
+    - name: xray
+      type: XrayScan
+      configuration:
+        inputResources:
+          - name: testScan
