@@ -391,7 +391,7 @@ pipelines:
         configuration:
           inputResources:
             - name: testScan
-        execution:
-          onExecute:
-            - echo "scan complete"
+        # execution:
+        #   onExecute:
+        #     - echo "scan complete"
         
