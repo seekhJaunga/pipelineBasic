@@ -6,7 +6,6 @@ resources:
       path: seekhJaunga/pipelineBasic
       buildOn:
          branchCreate: false
-         commit: false
   # - name: myBuildInfo
   #   type: BuildInfo
   #   configuration:
