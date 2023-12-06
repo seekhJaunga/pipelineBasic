@@ -393,7 +393,7 @@ pipelines:
             - name: resource_2        # required
             - name: testScan
         execution:
-          onExecute:
+          onStart:
             - task: jfrog/pipelines-task@v0.0.1
               repository: pipelines-tasks-virtual
               id: my-awesome-task
@@ -409,4 +409,7 @@ pipelines:
           affinityGroup: trigger
           outputResources:
             - name: resource_2
+        execution:
+          onExecute:
+            - echo hehe
         
