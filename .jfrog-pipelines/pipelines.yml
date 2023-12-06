@@ -406,11 +406,11 @@ pipelines:
       - name: trigger_new
         type: NpmBuild
         configuration:
-          integration:
+          integrations:
             - name: punyaTest
           inputResources:
             - name: resource_2
         execution:
-          onExecute:
+          onStart:
             - echo hehe
         
