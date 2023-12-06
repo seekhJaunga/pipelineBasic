@@ -404,10 +404,11 @@ pipelines:
             - echo "scan complete"
             
       - name: trigger_new
-        type: Bash
+        type: NpmBuild
         configuration:
-          affinityGroup: trigger
-          outputResources:
+          integration:
+            - name: punyaTest
+          inputResources:
             - name: resource_2
         execution:
           onExecute:
