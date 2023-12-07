@@ -387,11 +387,12 @@ resources:
 
 pipelines:
   - name: xray_pipeline
+    configuration:
+      jfrogCliVersion: 2
     steps:
       - name: xray
         type: XrayScan
         configuration:
-          jfrogCliVersion: 2
           inputResources:
             - name: testScan1
         execution:
