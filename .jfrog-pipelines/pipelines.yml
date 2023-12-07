@@ -405,8 +405,9 @@ pipelines:
             #     failOnScan: false
             - echo "scan complete"
           onSuccess:
-            - jfrog --repo-path
-            - jfrog --project
+            # - jfrog --repo-path
+            # - jfrog --project
+            - jfrog --server-id
             
       # - name: trigger_new
       #   type: NpmBuild
