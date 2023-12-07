@@ -395,6 +395,7 @@ pipelines:
             - name: testScan1
         execution:
           onStart:
+            - jfrog --version
             # - task: jfrog/pipelines-task@v0.0.1
             #   repository: pipelines-tasks-virtual
             #   id: my-awesome-task
