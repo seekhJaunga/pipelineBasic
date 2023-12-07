@@ -378,10 +378,12 @@ resources:
       path: seekhJaunga/pipelineBasic
       buildOn:
          branchCreate: false
-  - name: testScan
+  - name: testScan1
     type: BuildInfo
     configuration:
       sourceArtifactory: punyaTest
+      buildName: docker-local-build
+      buildNumber: 360018
 
 pipelines:
   - name: xray_pipeline
@@ -390,27 +392,26 @@ pipelines:
         type: XrayScan
         configuration:
           inputResources:
-            - name: resource_2        # required
-            - name: testScan
+            - name: testScan1
         execution:
           onStart:
-            - task: jfrog/pipelines-task@v0.0.1
-              repository: pipelines-tasks-virtual
-              id: my-awesome-task
-              input:
-                buildInfoResource: testScan
-                outputResources: resource_2
-                failOnScan: false
+            # - task: jfrog/pipelines-task@v0.0.1
+            #   repository: pipelines-tasks-virtual
+            #   id: my-awesome-task
+            #   input:
+            #     buildInfoResource: testScan
+            #     outputResources: resource_2
+            #     failOnScan: false
             - echo "scan complete"
             
-      - name: trigger_new
-        type: NpmBuild
-        configuration:
-          integrations:
-            - name: punyaTest
-          inputResources:
-            - name: resource_2
-        execution:
-          onStart:
-            - echo hehe
+      # - name: trigger_new
+      #   type: NpmBuild
+      #   configuration:
+      #     integrations:
+      #       - name: punyaTest
+      #     inputResources:
+      #       - name: resource_2
+      #   execution:
+      #     onStart:
+      #       - echo hehe
         
