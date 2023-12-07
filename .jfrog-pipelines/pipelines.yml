@@ -396,6 +396,7 @@ pipelines:
         execution:
           onStart:
             - jfrog --version
+            - jfrog --project
             # - task: jfrog/pipelines-task@v0.0.1
             #   repository: pipelines-tasks-virtual
             #   id: my-awesome-task
