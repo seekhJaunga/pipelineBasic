@@ -407,7 +407,7 @@ pipelines:
           onSuccess:
             # - jfrog --repo-path
             # - jfrog --project
-            - jf bs --project
+            - jfrog --project "pipe"
             
       # - name: trigger_new
       #   type: NpmBuild
