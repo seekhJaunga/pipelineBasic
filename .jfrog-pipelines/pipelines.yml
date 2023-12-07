@@ -391,6 +391,7 @@ pipelines:
       - name: xray
         type: XrayScan
         configuration:
+          jfrogCliVersion: 2
           inputResources:
             - name: testScan1
         execution:
@@ -404,10 +405,6 @@ pipelines:
             #     outputResources: resource_2
             #     failOnScan: false
             - echo "scan complete"
-          onSuccess:
-            # - jfrog --repo-path
-            # - jfrog --project
-            - jf bs --project "pipe"
             
       # - name: trigger_new
       #   type: NpmBuild
