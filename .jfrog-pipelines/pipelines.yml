@@ -314,28 +314,28 @@
   #             - if [ "$S_Bash_3852_001_4" != "yes" ]; then return 1; fi
   #             - echo "done"
   
-pipelines:
-  - name: PIPE_9455_Workflow_03
-    steps:
-      - name: step1
-        type: Bash
-        execution:
-          onExecute:
-            - echo 'step1'
-      - name: step2
-        type: Bash
-        configuration:
-          allowFailure: true
-          inputSteps:
-          - name: step1
-            status:
-              - success
-              - error
-              - failure
-        execution:
-          onExecute:
-            - echo 'success'
-            - exit 1
+# pipelines:
+#   - name: PIPE_9455_Workflow_03
+#     steps:
+#       - name: step1
+#         type: Bash
+#         execution:
+#           onExecute:
+#             - echo 'step1'
+#       - name: step2
+#         type: Bash
+#         configuration:
+#           allowFailure: true
+#           inputSteps:
+#           - name: step1
+#             status:
+#               - success
+#               - error
+#               - failure
+#         execution:
+#           onExecute:
+#             - echo 'success'
+#             - exit 1
 
 
 # pipelines: 
@@ -415,4 +415,60 @@ pipelines:
       #   execution:
       #     onStart:
       #       - echo hehe
-        
+
+
+  pipelines:
+    - name: S_Bash_3852_001
+      configuration:
+        environmentVariables:
+          readOnly:
+            pipevar1: 1
+            pipevar2: 2
+      steps:
+        - name: S_Bash_3852_001_1
+          type: Bash
+          configuration:
+            environmentVariables:
+              S_Bash_3852_001_1: "yes"
+            affinityGroup: 'group'
+          execution:
+            onExecute:
+              - if [ "$S_Bash_3852_001_1" != "yes" ]; then return 1; fi
+              - echo "done"
+        - name: S_Bash_3852_001_2
+          type: Bash
+          configuration:
+            environmentVariables:
+              S_Bash_3852_001_2: 'yes'
+            affinityGroup: 'group'
+            inputSteps:
+              - name: S_Bash_3852_001_1
+          execution:
+            onExecute:
+              - if [ "$S_Bash_3852_001_2" != "yes" ]; then return 1; fi
+              - echo "done"
+        - name: S_Bash_3852_001_3
+          type: Bash
+          configuration:
+            environmentVariables:
+              S_Bash_3852_001_3: 'yes'
+            affinityGroup: 'group'
+            inputSteps:
+              - name: S_Bash_3852_001_1
+          execution:
+            onExecute:
+              - if [ "$S_Bash_3852_001_3" != "yes" ]; then return 1; fi
+              - echo "done"
+        - name: S_Bash_3852_001_4
+          type: Bash
+          configuration:
+            environmentVariables:
+              S_Bash_3852_001_4: 'yes'
+            affinityGroup: 'group'
+            inputSteps:
+              - name: S_Bash_3852_001_2
+              - name: S_Bash_3852_001_3
+          execution:
+            onExecute:
+              - if [ "$S_Bash_3852_001_4" != "yes" ]; then return 1; fi
+              - echo "done"
