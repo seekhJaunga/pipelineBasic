@@ -314,30 +314,30 @@
   #             - if [ "$S_Bash_3852_001_4" != "yes" ]; then return 1; fi
   #             - echo "done"
   
-# pipelines:
-#   - name: PIPE_9455_Workflow_03
-#     steps:
-#       - name: step1
-#         type: Bash
-#         execution:
-#           onExecute:
-#             - echo 'step1'
-#       - name: step2
-#         type: Bash
-#         configuration:
-#           allowFailure: true
-#           inputSteps:
-#           - name: step1
-#             status:
-#               - success
-#               - error
-#               - failure
-#               - timeout
-#               - canceled
-#         execution:
-#           onExecute:
-#             - echo 'success'
-#             - exit 1
+pipelines:
+  - name: PIPE_9455_Workflow_03
+    steps:
+      - name: step1
+        type: Bash
+        execution:
+          onExecute:
+            - echo 'step1'
+      - name: step2
+        type: Bash
+        configuration:
+          allowFailure: true
+          inputSteps:
+          - name: step1
+            status:
+              - success
+              - error
+              - failure
+              - timeout
+              - canceled
+        execution:
+          onExecute:
+            - echo 'success'
+            - exit 1
 
 
 # pipelines: 
@@ -370,34 +370,34 @@
   #         onExecute:
   #           - echo 'step1'
 
-resources:
-  - name: resource_2
-    type: GitRepo
-    configuration:
-      gitProvider: testpunya
-      path: seekhJaunga/pipelineBasic
-      buildOn:
-         branchCreate: false
-  - name: testScan1
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: punyaTest
-      buildName: docker-local-build
-      buildNumber: 360018
+# resources:
+#   - name: resource_2
+#     type: GitRepo
+#     configuration:
+#       gitProvider: testpunya
+#       path: seekhJaunga/pipelineBasic
+#       buildOn:
+#          branchCreate: false
+#   - name: testScan1
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: punyaTest
+#       buildName: docker-local-build
+#       buildNumber: 360018
 
-pipelines:
-  - name: xray_pipeline
-    configuration:
-      jfrogCliVersion: 2
-    steps:
-      - name: xray
-        type: XrayScan
-        configuration:
-          inputResources:
-            - name: testScan1
-        execution:
-          onStart:
-            - jfrog --version
+# pipelines:
+#   - name: xray_pipeline
+#     configuration:
+#       jfrogCliVersion: 2
+#     steps:
+#       - name: xray
+#         type: XrayScan
+#         configuration:
+#           inputResources:
+#             - name: testScan1
+#         execution:
+#           onStart:
+#             - jfrog --version
             # - task: jfrog/pipelines-task@v0.0.1
             #   repository: pipelines-tasks-virtual
             #   id: my-awesome-task
@@ -405,7 +405,7 @@ pipelines:
             #     buildInfoResource: testScan
             #     outputResources: resource_2
             #     failOnScan: false
-            - echo "scan complete"
+            # - echo "scan complete"
             
       # - name: trigger_new
       #   type: NpmBuild
