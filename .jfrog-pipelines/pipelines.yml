@@ -107,7 +107,7 @@ pipelines:
           #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
           #   allowCustom: false
           #   allowMultipleValues: false
-    # steps:
+    steps:
       # - name: scan
       #   type: XrayScan
       #   configuration:
