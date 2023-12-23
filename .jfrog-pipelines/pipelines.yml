@@ -141,6 +141,7 @@ pipelines:
         #     - echo "This is my step."
             # - echo $int_myCredentials_test
             - echo $int_testpunya_val
+            - echo $val
             # - |
             #   if [ $int_testpunya_val = "secure" ]; then
             #     echo matched
