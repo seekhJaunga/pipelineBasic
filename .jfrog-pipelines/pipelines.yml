@@ -81,7 +81,7 @@
 #       property1: "jfrog"
 #       property2: "pipelines"
 pipelines:
-#   - name: single_test_p
+  - name: single_test_p
 #     configuration:
       # nodePool: dummy_np_2
       # environmentVariables:
