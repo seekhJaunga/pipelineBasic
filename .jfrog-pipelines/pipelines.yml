@@ -80,8 +80,8 @@
 #     configuration:
 #       property1: "jfrog"
 #       property2: "pipelines"
-pipelines:
-  - name: single_test_p
+# pipelines:
+#   - name: single_test_p
 #     configuration:
       # nodePool: dummy_np_2
       # environmentVariables:
@@ -107,7 +107,7 @@ pipelines:
           #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
           #   allowCustom: false
           #   allowMultipleValues: false
-    steps:
+    # steps:
       # - name: scan
       #   type: XrayScan
       #   configuration:
@@ -126,22 +126,22 @@ pipelines:
       #       - echo "uh oh, something went wrong"
       #     onComplete: #always
       #       - echo "Cleaning up some stuff"
-      - name: my_step
-        type: Bash
+      # - name: my_step
+      #   type: Bash
       #   configuration:
       #     inputResources:
       #       - name: resource_2        # required
-        configuration:
-          integrations:
-            - name: testpunya
+        # configuration:
+        #   integrations:
+        #     - name: testpunya
         # configuration:
         #   timeoutSeconds: 1
-        execution:
-          onExecute:
+        # execution:
+        #   onExecute:
         #     - echo "This is my step."
             # - echo $int_myCredentials_test
-            - echo $int_testpunya_val
-            - echo $val
+            # - echo $int_testpunya_val
+            # - echo $val
             # - |
             #   if [ $int_testpunya_val = "secure" ]; then
             #     echo matched
