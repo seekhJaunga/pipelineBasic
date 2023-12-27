@@ -369,7 +369,7 @@ pipelines:
   #         onExecute:
   #           - echo 'step1'
 
-# resources:
+resources:
 #   - name: resource_2
 #     type: GitRepo
 #     configuration:
@@ -377,26 +377,26 @@ pipelines:
 #       path: seekhJaunga/pipelineBasic
 #       buildOn:
 #          branchCreate: false
-#   - name: testScan1
-#     type: BuildInfo
-#     configuration:
-#       sourceArtifactory: punyaTest
-#       buildName: docker-local-build
-#       buildNumber: 360018
+  - name: testScan1
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: test_integration
+      buildName: docker-local-build
+      buildNumber: 359014
 
-# pipelines:
-#   - name: xray_pipeline
-#     configuration:
-#       jfrogCliVersion: 2
-#     steps:
-#       - name: xray
-#         type: XrayScan
-#         configuration:
-#           inputResources:
-#             - name: testScan1
-#         execution:
-#           onStart:
-#             - jfrog --version
+pipelines:
+  - name: xray_pipeline
+    configuration:
+      jfrogCliVersion: 2
+    steps:
+      - name: xray
+        type: XrayScan
+        configuration:
+          inputResources:
+            - name: testScan1
+        execution:
+          onStart:
+            - jfrog --version
             # - task: jfrog/pipelines-task@v0.0.1
             #   repository: pipelines-tasks-virtual
             #   id: my-awesome-task
@@ -404,7 +404,7 @@ pipelines:
             #     buildInfoResource: testScan
             #     outputResources: resource_2
             #     failOnScan: false
-            # - echo "scan complete"
+            - echo "scan complete"
             
       # - name: trigger_new
       #   type: NpmBuild
