@@ -380,9 +380,9 @@ resources:
   - name: testScan1
     type: BuildInfo
     configuration:
-      sourceArtifactory: test_integration
-      buildName: docker-local-build
-      buildNumber: 359014
+      sourceArtifactory: s_artifactory
+      buildName: S_BuildInfoUrl_Bash_0003
+      buildNumber: 1
 
 pipelines:
   - name: xray_pipeline
