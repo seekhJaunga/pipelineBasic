@@ -374,7 +374,7 @@ resources:
   - name: resource_2
     type: GitRepo
     configuration:
-      gitProvider: testpunya
+      gitProvider: testGit
       path: seekhJaunga/pipelineBasic
       buildOn:
          branchCreate: false
