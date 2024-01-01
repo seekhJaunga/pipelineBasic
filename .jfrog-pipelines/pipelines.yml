@@ -381,8 +381,8 @@ resources:
     type: BuildInfo
     configuration:
       sourceArtifactory: art
-      buildName: S_BuildInfoUrl_Bash_0003
-      buildNumber: 1
+      buildName: test_signed_start
+      buildNumber: 5
 
 pipelines:
   - name: xray_pipeline
