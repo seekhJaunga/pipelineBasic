@@ -391,6 +391,7 @@ pipelines:
       jfrogCliVersion: 2
     steps:
       - name: xray
+      - type: Bash
         # type: XrayScan
         # configuration:
         #   inputResources:
