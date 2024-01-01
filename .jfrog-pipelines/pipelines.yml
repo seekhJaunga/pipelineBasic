@@ -381,8 +381,7 @@ resources:
   - name: testScan1
     type: BuildInfo
     configuration:
-      integrations: 
-        - name: testnew
+      sourceArtifactory: testAr
       buildName: test_signed_start
       buildNumber: 5
 
