@@ -369,14 +369,15 @@
   #         onExecute:
   #           - echo 'step1'
 
+    
 resources:
-#   - name: resource_2
-#     type: GitRepo
-#     configuration:
-#       gitProvider: testpunya
-#       path: seekhJaunga/pipelineBasic
-#       buildOn:
-#          branchCreate: false
+  - name: resource_2
+    type: GitRepo
+    configuration:
+      gitProvider: testpunya
+      path: seekhJaunga/pipelineBasic
+      buildOn:
+         branchCreate: false
   - name: testScan1
     type: BuildInfo
     configuration:
@@ -391,20 +392,20 @@ pipelines:
       jfrogCliVersion: 2
     steps:
       - name: xray
-        type: XrayScan
-        configuration:
-          inputResources:
-            - name: testScan1
+        # type: XrayScan
+        # configuration:
+        #   inputResources:
+        #     - name: testScan1
         execution:
           onStart:
             - jfrog --version
-            # - task: jfrog/pipelines-task@v0.0.1
-            #   repository: pipelines-tasks-virtual
-            #   id: my-awesome-task
-            #   input:
-            #     buildInfoResource: testScan
-            #     outputResources: resource_2
-            #     failOnScan: false
+            - task: jfrog/build-publish@v0.0.1
+              repository: pipelines-tasks-virtual
+              id: build-publish
+              input:
+                resourceName: resource_2 # input resource name which need a build publish
+                publishBuildInfo: "true"
+                retry: "true" 
             - echo "scan complete"
             
       # - name: trigger_new
