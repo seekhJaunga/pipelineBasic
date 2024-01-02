@@ -370,42 +370,65 @@
   #           - echo 'step1'
 
     
-resources:
-  - name: resource_2
-    type: GitRepo
-    configuration:
-      gitProvider: testGit
-      path: seekhJaunga/pipelineBasic
-      buildOn:
-         branchCreate: false
-  - name: testScan1
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: testAr
-      buildName: test_signed_start
-      buildNumber: 5
+# resources:
+#   - name: resource_2
+#     type: GitRepo
+#     configuration:
+#       gitProvider: testGit
+#       path: seekhJaunga/pipelineBasic
+#       buildOn:
+#          branchCreate: false
+#   - name: testScan1
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: testAr
+#       buildName: test_signed_start
+#       buildNumber: 5
 
-pipelines:
-  - name: xray_pipeline
-    configuration:
-      jfrogCliVersion: 2
-    steps:
-      - name: xray
-        type: Bash
+# pipelines:
+#   - name: xray_pipeline
+#     configuration:
+#       jfrogCliVersion: 2
+#     steps:
+#       - name: xray
+#         type: Bash
         # type: XrayScan
         # configuration:
         #   inputResources:
         #     - name: testScan1
+        # execution:
+          # onStart:
+          #   - jfrog --version
+          #   - task: jfrog/build-publish@v0.0.1
+          #     repository: pipelines-tasks-virtual
+          #     id: build-publish
+          #     input:
+          #       resourceName: resource_2 # input resource name which need a build publish
+          #       publishBuildInfo: "true"
+          #       retry: "true" 
+          #   - echo "scan complete"
+
+resources:
+  - name: testScan2
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: s_artifactory
+      buildName: docker-local-build
+      buildNumber: 359014
+
+pipelines:
+  - name: xray_pipeline_default
+    configuration:
+      jfrogCliVersion: 2.52.8
+    steps:
+      - name: xray
+        type: XrayScan
+        configuration:
+          inputResources:
+            - name: testScan2
         execution:
           onStart:
             - jfrog --version
-            - task: jfrog/build-publish@v0.0.1
-              repository: pipelines-tasks-virtual
-              id: build-publish
-              input:
-                resourceName: resource_2 # input resource name which need a build publish
-                publishBuildInfo: "true"
-                retry: "true" 
             - echo "scan complete"
             
       # - name: trigger_new
