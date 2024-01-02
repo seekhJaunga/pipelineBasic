@@ -409,7 +409,7 @@
           #   - echo "scan complete"
 
 resources:
-  - name: testScan2
+  - name: testScan1
     type: BuildInfo
     configuration:
       sourceArtifactory: s_artifactory
@@ -417,7 +417,7 @@ resources:
       buildNumber: 359014
 
 pipelines:
-  - name: xray_pipeline_default
+  - name: xray_pipeline
     configuration:
       jfrogCliVersion: 2.52.8
     steps:
@@ -425,7 +425,7 @@ pipelines:
         type: XrayScan
         configuration:
           inputResources:
-            - name: testScan2
+            - name: testScan1
         execution:
           onStart:
             - jfrog --version
