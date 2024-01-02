@@ -426,7 +426,7 @@ pipelines:
         configuration:
           inputResources:
             - name: testScan1
-          inputIntegrations:
+          integrations:
             - name: s_artifactory
         execution:
           onStart:
