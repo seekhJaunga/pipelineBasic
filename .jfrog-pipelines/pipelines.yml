@@ -430,6 +430,9 @@ pipelines:
           onStart:
             - jfrog --version
             - echo "scan complete"
+            - task: jfrog/setup-jfrog-cli@v0.1.0
+              input:
+                version: "2.52.8"
             
       # - name: trigger_new
       #   type: NpmBuild
