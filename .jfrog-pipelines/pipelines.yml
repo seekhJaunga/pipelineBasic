@@ -80,8 +80,8 @@
 #     configuration:
 #       property1: "jfrog"
 #       property2: "pipelines"
-# pipelines:
-#   - name: single_test_p
+pipelines:
+  - name: single_test_p
 #     configuration:
       # nodePool: dummy_np_2
       # environmentVariables:
@@ -107,7 +107,7 @@
           #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
           #   allowCustom: false
           #   allowMultipleValues: false
-    # steps:
+    steps:
       # - name: scan
       #   type: XrayScan
       #   configuration:
@@ -161,14 +161,14 @@
         #         echo NotMatched
         #       fi
         #     - echo $env"hehe"
-      # - name: my_step_2
-      #   type: Bash
-      #   configuration:
+      - name: my_step_2
+        type: Bash
+        # configuration:
       #     inputSteps:
       #       - name: my_step
-      #   execution:
-      #     onExecute:
-            # - echo "This is my step."
+        execution:
+          onExecute:
+            - echo "This is my step."
       # - name: my_step_3
       #   type: Bash
       #   configuration:
@@ -408,33 +408,33 @@
           #       retry: "true" 
           #   - echo "scan complete"
 
-resources:
-  - name: testScan1
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: s_artifactory
-      buildName: docker-local-build
-      buildNumber: 359014
+# resources:
+#   - name: testScan1
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: s_artifactory
+#       buildName: docker-local-build
+#       buildNumber: 359014
 
-pipelines:
-  - name: xray_pipeline
-    # configuration:
-    #   jfrogCliVersion: 2.52.8
-    steps:
-      - name: xray
-        type: XrayScan
-        configuration:
-          inputResources:
-            - name: testScan1
-          integrations:
-            - name: s_artifactory
-        execution:
-          onStart:
-            - jfrog --version
-            - echo "scan complete"
-            - task: jfrog/setup-jfrog-cli@v0.1.0
-              input:
-                version: "2.45.0"
+# pipelines:
+#   - name: xray_pipeline
+#     # configuration:
+#     #   jfrogCliVersion: 2.52.8
+#     steps:
+#       - name: xray
+#         type: XrayScan
+#         configuration:
+#           inputResources:
+#             - name: testScan1
+#           integrations:
+#             - name: s_artifactory
+#         execution:
+#           onStart:
+#             - jfrog --version
+#             - echo "scan complete"
+#             - task: jfrog/setup-jfrog-cli@v0.1.0
+#               input:
+#                 version: "2.45.0"
             
       # - name: trigger_new
       #   type: NpmBuild
