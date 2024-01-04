@@ -80,8 +80,8 @@
 #     configuration:
 #       property1: "jfrog"
 #       property2: "pipelines"
-pipelines:
-  - name: single_test_punya
+# pipelines:
+#   - name: single_test_punya
 #     configuration:
       # nodePool: dummy_np_2
       # environmentVariables:
@@ -107,7 +107,7 @@ pipelines:
           #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
           #   allowCustom: false
           #   allowMultipleValues: false
-    steps:
+    # steps:
       # - name: scan
       #   type: XrayScan
       #   configuration:
@@ -161,17 +161,17 @@ pipelines:
         #         echo NotMatched
         #       fi
         #     - echo $env"hehe"
-      - name: my_step_2
-        type: Bash
+      # - name: my_step_2
+      #   type: Bash
         # configuration:
         #   inputResources:
         #     - name: resource_2        # required
         # configuration:
       #     inputSteps:
       #       - name: my_step
-        execution:
-          onExecute:
-            - echo "This is my step."
+        # execution:
+        #   onExecute:
+        #     - echo "This is my step."
       # - name: my_step_3
       #   type: Bash
       #   configuration:
@@ -355,22 +355,22 @@ pipelines:
 
 # pipelines:
 
-# {{ range $i, $e := until 5000 }}
-# - name: "bar{{$i}}"
-#   steps:
-#     - name: step1
-#       type: Bash
-#       execution:
-#         onExecute:
-#           - echo 'step1'
-# {{ end }}
-  # - name: PIPE_9455_Workflow_03
-  #   steps:
-  #     - name: step1
-  #       type: Bash
-  #       execution:
-  #         onExecute:
-  #           - echo 'step1'
+{{ range $i, $e := until 5}}
+- name: "bar{{$i}}"
+  steps:
+    - name: step1
+      type: Bash
+      execution:
+        onExecute:
+          - echo 'step1'
+{{ end }}
+  - name: PIPE_9455_Workflow_03
+    steps:
+      - name: step1
+        type: Bash
+        execution:
+          onExecute:
+            - echo 'step1'
 
     
 # resources:
