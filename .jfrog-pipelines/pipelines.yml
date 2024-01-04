@@ -1,9 +1,9 @@
-# resources:
-#   - name: resource_2
-#     type: GitRepo
-#     configuration:
-#       gitProvider: testpunya
-#       path: seekhJaunga/pipelineBasic
+resources:
+  - name: resource_2
+    type: GitRepo
+    configuration:
+      gitProvider: newInt
+      path: seekhJaunga/pipelineBasic
 #       buildOn:
 #          branchCreate: false
 #   - name: testScan
@@ -163,6 +163,9 @@ pipelines:
         #     - echo $env"hehe"
       - name: my_step_2
         type: Bash
+        configuration:
+          inputResources:
+            - name: resource_2        # required
         # configuration:
       #     inputSteps:
       #       - name: my_step
