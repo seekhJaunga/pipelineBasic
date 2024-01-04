@@ -353,7 +353,7 @@
 #           integrations:
 #             - name: test
 
-# pipelines:
+pipelines:
 
 {{ range $i, $e := until 5}}
 - name: "bar{{$i}}"
@@ -364,6 +364,7 @@
         onExecute:
           - echo 'step1'
 {{ end }}
+
   # - name: PIPE_9455_Workflow_03
   #   steps:
   #     - name: step1
