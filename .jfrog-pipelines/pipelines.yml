@@ -365,13 +365,13 @@ pipelines:
           - echo 'step1'
 {{ end }}
 
-  # - name: PIPE_9455_Workflow_03
-  #   steps:
-  #     - name: step1
-  #       type: Bash
-  #       execution:
-  #         onExecute:
-  #           - echo 'step1'
+  - name: bar2
+    steps:
+      - name: step1
+        type: Bash
+        execution:
+          onExecute:
+            - echo 'step1'
 
     
 # resources:
