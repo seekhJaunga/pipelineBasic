@@ -359,7 +359,7 @@ pipelines:
 # - name: "bar{{$i}}"
 - name: 
   steps:
-    - name: "step{{$i/2}"
+    - name: 'step1'
       type: Bash
       # configuration:
         # environmentVariables:
