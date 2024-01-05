@@ -355,7 +355,7 @@
 
 pipelines:
 
-{{ range $i, $e := until 6}}
+{{ range $i, $e := until 8}}
 # - name: "bar{{$i}}"
 - name: 
   steps:
