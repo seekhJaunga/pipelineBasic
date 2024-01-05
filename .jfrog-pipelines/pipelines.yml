@@ -363,6 +363,7 @@ pipelines:
       execution:
         onExecute:
           - echo 'step1'
+          - echoInfo 'hehe'
 {{ end }}
 
 # - name: bar2
