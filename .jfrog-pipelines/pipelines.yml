@@ -358,7 +358,7 @@ pipelines:
 {{ range $i, $e := until 6}}
 - name: "bar{{$i}}"
   steps:
-    - name: step1
+    - name: "step{{${i/2}}"
       type: Bash
       # configuration:
         # environmentVariables:
