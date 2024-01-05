@@ -360,6 +360,9 @@ pipelines:
   steps:
     - name: step1
       type: Bash
+      configuration:
+        environmentVariables:
+          chec: hehe
       execution:
         onExecute:
           - echo 'step1'
