@@ -369,13 +369,13 @@ pipelines:
           - echoInfo 'hehe'
 {{ end }}
 
-# - name: bar2
-#   steps:
-#     - name: step1
-#       type: Bash
-#       execution:
-#         onExecute:
-#           - echo 'step1'
+- name: bar2
+  steps:
+    - name: step1
+      type: Bash
+      execution:
+        onExecute:
+          - echo 'step1'
 
     
 # resources:
