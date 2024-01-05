@@ -356,8 +356,8 @@
 pipelines:
 
 {{ range $i, $e := until 8}}
-# - name: "bar{{$i}}"
-- name: 
+- name: "bar{{$i}}"
+# - name: 
   steps:
     - name: 'step1'
       type: Bash
