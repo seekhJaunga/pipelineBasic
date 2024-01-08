@@ -1,11 +1,11 @@
-resources:
-  - name: resource_2
-    type: GitRepo
-    configuration:
-      gitProvider: test
-      path: seekhJaunga/pipelineBasic
-      buildOn:
-         branchCreate: false
+# resources:
+#   - name: resource_2
+#     type: GitRepo
+#     configuration:
+#       gitProvider: test
+#       path: seekhJaunga/pipelineBasic
+#       buildOn:
+#          branchCreate: false
 #   - name: testScan
 #     type: BuildInfo
 #     configuration:
@@ -355,8 +355,13 @@ resources:
 
 pipelines:
 
-{{ range $i, $e := until 5}}
+{{ range $i, $e := until 1}}
 - name: "bar{{$i}}"
+  configuration:
+    environmentVariables:
+      readOnly:
+        env1: 
+        env2: value2
 # - name: 
   steps:
     - name: 'step1'
