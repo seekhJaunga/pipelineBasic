@@ -1,11 +1,11 @@
-# resources:
-#   - name: resource_2
-#     type: GitRepo
-#     configuration:
-#       gitProvider: newInt
-#       path: seekhJaunga/pipelineBasic
-#       buildOn:
-#          branchCreate: false
+resources:
+  - name: resource_2
+    type: GitRepo
+    configuration:
+      gitProvider: newInt
+      path: seekhJaunga/pipelineBasic
+      buildOn:
+         branchCreate: false
 #   - name: testScan
 #     type: BuildInfo
 #     configuration:
@@ -361,6 +361,9 @@ pipelines:
   steps:
     - name: 'step1'
       type: Bash
+        configuration:
+          inputResources:
+            - name: resource_2
       # configuration:
         # environmentVariables:
         #   chec: hehe
