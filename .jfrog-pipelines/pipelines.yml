@@ -361,6 +361,8 @@ pipelines:
     environmentVariables:
       readOnly:
         env1: 
+            values: ["singletest", "testing"]
+            allowCustom: false
         env2: value2
 # - name: 
   steps:
