@@ -357,14 +357,14 @@ pipelines:
 
 {{ range $i, $e := until 5}}
 - name: "bar{{$i}}"
-  configuration:
-    environmentVariables:
-      readOnly:
-        env1:
-          default: "singletest1"
-          values: ["singletest", "testing"]
-          allowCustom: false
-        env2: value2
+  # configuration:
+  #   environmentVariables:
+  #     readOnly:
+  #       env1:
+  #         default: "singletest1"
+  #         values: ["singletest", "testing"]
+  #         allowCustom: false
+  #       env2: value2
 # - name: 
   steps:
     - name: 'step1'
