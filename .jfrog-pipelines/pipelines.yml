@@ -355,7 +355,7 @@
 
 pipelines:
 
-{{ range $i, $e := until 1}}
+{{ range $i, $e := until 5}}
 - name: "bar{{$i}}"
   configuration:
     environmentVariables:
