@@ -1,0 +1,11 @@
+pipelines:
+  - name: single_test_new
+    configuration:
+      environmentVariables:
+        readOnly:
+          env2: "test_p2"
+          env1: pipe_value1
+          env5:
+            default: pipe_value2
+            description: This is env2 description
+            secure: true
