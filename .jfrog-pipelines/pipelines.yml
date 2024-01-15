@@ -39,10 +39,10 @@ resources:
       # yyyy: 5
       # yyyyy: 5
       # yyyyyy: 5
-  # - name: myResource1
-  #   type: PropertyBag
-  #   configuration:
-  #     runNumber1: 0
+  - name: ''
+    type: PropertyBag
+    configuration:
+      runNumber1: 0
   #     x1: 5
       # xx1: 5
       # xxx: 5
