@@ -5,7 +5,7 @@ resources:
       runNumber: 0
       x: 5
 pipelines:
-  - name: single_test
+  - name: ''
     configuration:
       environmentVariables:
         readOnly:
