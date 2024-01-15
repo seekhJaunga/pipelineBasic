@@ -86,11 +86,11 @@ pipelines:
       # nodePool: dummy_np_2
       environmentVariables:
         readOnly:
-          env: "PIPA"
-            default: "singletest"
-            values: ["singletest", "testing"]
-            allowCustom: false
-          # env2: "test_p2"
+          # env: "PIPA"
+          #   default: "singletest"
+          #   values: ["singletest", "testing"]
+          #   allowCustom: false
+          env2: "test_p2"
           # KEY1:
           #   description: Your key will be used as reference to your secret
           #   default: Your key will be used as reference to your secret
