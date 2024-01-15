@@ -39,10 +39,12 @@ resources:
       # yyyy: 5
       # yyyyy: 5
       # yyyyyy: 5
+{{ range $i, $e := until 5}}
   - name: ''
     type: PropertyBag
     configuration:
       runNumber1: 0
+{{ end }}
   #     x1: 5
       # xx1: 5
       # xxx: 5
