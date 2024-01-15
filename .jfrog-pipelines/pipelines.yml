@@ -41,7 +41,7 @@ resources:
       # yyyyyy: 5
 {{ range $i, $e := until 5}}
   - name: "bar{{$i}}"
-    type: PropertyBag
+    type: PropertyBagd
     configuration:
       runNumber1: 0
 {{ end }}
