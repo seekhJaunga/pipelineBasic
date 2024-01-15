@@ -1,5 +1,5 @@
 resources:
-  - name: ''
+  - name: 'df fd'
     type: PropertyBag
     configuration:
       runNumber: 0
