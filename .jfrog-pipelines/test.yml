@@ -1,5 +1,11 @@
+resources:
+  - name: ''
+    type: PropertyBag
+    configuration:
+      runNumber: 0
+      x: 5
 pipelines:
-  - name: single_test_new
+  - name: single_test
     configuration:
       environmentVariables:
         readOnly:
@@ -9,3 +15,15 @@ pipelines:
             default: pipe_value2
             description: This is env2 description
             secure: true
+    steps:
+      - name: trigger_1
+        type: Bash
+        configuration:
+          outputResources:
+            - name: myResource
+        execution:
+          onExecute:
+            - printenv
+            - echo $env
+            - echo $env2
+            - write_output myResource runNumber=${run_number}
