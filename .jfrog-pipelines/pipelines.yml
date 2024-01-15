@@ -40,7 +40,7 @@ resources:
       # yyyyy: 5
       # yyyyyy: 5
 {{ range $i, $e := until 5}}
-  - name: ''
+  - name: "bar{{$i}}"
     type: PropertyBag
     configuration:
       runNumber1: 0
