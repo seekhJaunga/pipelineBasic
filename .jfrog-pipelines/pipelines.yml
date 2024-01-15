@@ -1,4 +1,4 @@
-# resources:
+resources:
 #   - name: resource_2
 #     type: GitRepo
 #     configuration:
