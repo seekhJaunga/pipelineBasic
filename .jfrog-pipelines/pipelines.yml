@@ -205,15 +205,15 @@ pipelines:
 #       #         fi
       - name: trigger_1
         type: Bash
-        configuration:
+        # configuration:
       #     affinityGroup: trigger
       #     timeoutSeconds: 5
       #     inputResources:
             # - name: propertyBag_1
             # - name: resource_4
             # - name: resource_1
-          outputResources:
-            - name: myResource
+          # outputResources:
+          #   - name: myResource
           #   - name: myResource1
           #   - name: myResource2
         execution:
