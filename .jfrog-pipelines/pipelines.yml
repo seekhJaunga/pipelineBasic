@@ -1,4 +1,4 @@
-resources:
+# resources:
 #   - name: resource_2
 #     type: GitRepo
 #     configuration:
@@ -21,12 +21,12 @@ resources:
   #   type: GitRepo
   #   configuration:
   #     gitProvider: test
-  #     path: seekhJaunga/Ekart
-  - name: myResource
-    type: PropertyBag
-    configuration:
-      runNumber: 0
-      x: 5
+  # #     path: seekhJaunga/Ekart
+  # - name: myResource
+  #   type: PropertyBag
+  #   configuration:
+  #     runNumber: 0
+  #     x: 5
   #     xx: 5
       # xxx: 5
       # xxxx: 5
@@ -39,12 +39,12 @@ resources:
       # yyyy: 5
       # yyyyy: 5
       # yyyyyy: 5
-{{ range $i, $e := until 5}}
-  - name: "bar{{$i}}"
-    type: PropertyBagd
-    configuration:
-      runNumber1: 0
-{{ end }}
+# {{ range $i, $e := until 5}}
+#   - name: "bar{{$i}}"
+#     type: PropertyBagd
+#     configuration:
+#       runNumber1: 0
+# {{ end }}
   #     x1: 5
       # xx1: 5
       # xxx: 5
