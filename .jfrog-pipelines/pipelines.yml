@@ -203,7 +203,7 @@ pipelines:
 #       #         else
 #       #           echo NotMatched
 #       #         fi
-      - name: trigger_1
+      - name: ''
         type: Bash
         # configuration:
       #     affinityGroup: trigger
