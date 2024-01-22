@@ -91,7 +91,6 @@ pipelines:
           env:
             default: 'singleTest'
             values:
-            values:
               - 'singleTest
               - 'new'
             allowCustom: false
