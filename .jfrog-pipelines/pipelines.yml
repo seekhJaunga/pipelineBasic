@@ -91,7 +91,7 @@ pipelines:
           env:
             default: 'singleTest'
             values:
-             - 'singleTest
+             - 'singleTest'
              - 'new'
             allowCustom: false
           env2: "test_p2"
