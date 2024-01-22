@@ -89,9 +89,11 @@ pipelines:
       environmentVariables:
         readOnly:
           env:
-            default: 'singletest'
-            values: ["singletest", "testing"]
-          #   allowCustom: false
+            default: 'singleTest'
+            values:
+              -  'singleTest
+              -  'new'
+            allowCustom: false
           env2: "test_p2"
           # KEY1:
           #   description: Your key will be used as reference to your secret
