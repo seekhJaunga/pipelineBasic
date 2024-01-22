@@ -88,7 +88,7 @@ pipelines:
       # nodePool: dummy_np_2
       environmentVariables:
         readOnly:
-          env: "PIPA"
+          env:
             default: 'singletest'
             values: ["singletest", "testing"]
           #   allowCustom: false
