@@ -88,9 +88,9 @@ pipelines:
       # nodePool: dummy_np_2
       environmentVariables:
         readOnly:
-          # env: "PIPA"
-          #   default: "singletest"
-          #   values: ["singletest", "testing"]
+          env: "PIPA"
+            default: 'singletest'
+            values: ["singletest", "testing"]
           #   allowCustom: false
           env2: "test_p2"
           # KEY1:
@@ -203,7 +203,7 @@ pipelines:
 #       #         else
 #       #           echo NotMatched
 #       #         fi
-      - name: ''
+      - name: Step1
         type: Bash
         # configuration:
       #     affinityGroup: trigger
