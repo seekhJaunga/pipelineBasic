@@ -2,13 +2,13 @@ resources:
   - name: prores
     type: PropertyBag
     configuration:
-      runNumber: 0
+      runNumber: 5
       x: 5
   - name: gitRes
     type: GitRepo
     configuration:
       gitProvider: finalTest
-      path: seekhJaunga/pipelineTest
+      path: seekhJaunga/pipelineBasic
       buildOn:
          branchCreate: false
          commit: false
