@@ -8,7 +8,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: finalTest
-      path: seekhJaunga/pipelineBasic
+      path: seekhJaunga/pipelineTest
       buildOn:
          branchCreate: false
          commit: false
