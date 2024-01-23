@@ -13,7 +13,7 @@ resources:
          branchCreate: false
          commit: false
 pipelines:
-  - name: ''
+  - name: newPip
     configuration:
       environmentVariables:
         readOnly:
