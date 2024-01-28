@@ -28,7 +28,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: gitRes
+            - name: 
           outputResources:
             - name: prores
         execution:
