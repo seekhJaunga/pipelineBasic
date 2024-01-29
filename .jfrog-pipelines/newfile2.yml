@@ -21,6 +21,10 @@ resources:
 pipelines:
   - name: newPip1
     configuration:
+      inputResources:
+        - name: gitRes1
+        - name: gitRes1
+        - name: prores1
       environmentVariables:
         readOnly:
           env2: "test_p2"
@@ -35,7 +39,6 @@ pipelines:
         configuration:
           inputResources:
             - name: gitRes1
-            - name: prores1
             # - name: dbp_build_info
           outputResources:
             - name: prores1
