@@ -371,7 +371,7 @@ pipelines:
         env2: value2
 - name: 
   steps:
-    - name: ''
+    - name: step1
       type: Bash
       # configuration:
       #   inputResources:
