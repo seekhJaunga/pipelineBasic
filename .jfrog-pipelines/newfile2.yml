@@ -1,50 +1,47 @@
-# resources:
-#   - name: prores1
-#     type: PropertyBag
-#     configuration:
-#       runNumber: 56
-#       x: 55
-#   - name: gitRes1
-#     type: GitRepo
-#     configuration:
-#       gitProvider: test
-#       path: seekhJaunga/pipelineBasic
-#       buildOn:
-#          branchCreate: false
-#          commit: false
-#   # - name: dbp_build_info
-#   #   type: BuildInfo
-#   #   configuration:
-#   #     sourceArtifactory: testing
-#   #     buildName: dbp_build
-#   #     buildNumber: 1   
-# pipelines:
-#   - name: newPip1
-#     configuration:
-#       inputResources:
-#         - name: gitRes1
-#         - name: gitRes1
-#         - name: prores1
-#       environmentVariables:
-#         readOnly:
-#           env2: "test_p2"
-#           env1: pipe_value1
-#           env5:
-#             default: pipe_value2
-#             description: This is env2 description
-#             secure: true
-#     steps:
-#       - name: trigger_1
-#         type: Bash
-#         configuration:
-#           inputResources:
-#             - name: gitRes1
-#             # - name: dbp_build_info
-#           outputResources:
-#             - name: prores1
-#         execution:
-#           onExecute:
-#             - printenv
-#             - echo $env
-#             - echo $env2
-#             - write_output myResource runNumber=${run_number}
+resources:
+  # - name: prores1
+  #   type: PropertyBag
+  #   configuration:
+  #     runNumber: 56
+  #     x: 55
+  - name: gitRes1
+    type: GitRepo
+    configuration:
+      gitProvider: test
+      path: seekhJaunga/pipelineBasic
+      buildOn:
+         branchCreate: false
+         commit: false
+  # - name: dbp_build_info
+  #   type: BuildInfo
+  #   configuration:
+  #     sourceArtifactory: testing
+  #     buildName: dbp_build
+  #     buildNumber: 1   
+pipelines:
+  - name: newPip1
+    configuration:
+      inputResources:
+        - name: gitRes1
+        - name: gitRes1
+      environmentVariables:
+        readOnly:
+          env2: "test_p2"
+          env1: pipe_value1
+          env5:
+            default: pipe_value2
+            description: This is env2 description
+            secure: true
+    steps:
+      - name: trigger_1
+        type: Bash
+        configuration:
+          inputResources:
+            - name: gitRes1
+            # - name: dbp_build_info
+        execution:
+          onExecute:
+            - printenv
+            - echo $env
+            - echo $env2
+            - write_output myResource runNumber=${run_number}
