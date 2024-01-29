@@ -1,10 +1,10 @@
 resources:
-  - name: prores
+  - name: prores1
     type: PropertyBag
     configuration:
       runNumber: 56
       x: 55
-  - name: gitRes
+  - name: gitRes1
     type: GitRepo
     configuration:
       gitProvider: finalTest
