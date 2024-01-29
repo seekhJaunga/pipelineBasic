@@ -34,11 +34,11 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: gitRes
-            - name: prores
+            - name: gitRes1
+            - name: prores1
             # - name: dbp_build_info
           outputResources:
-            - name: prores
+            - name: prores1
         execution:
           onExecute:
             - printenv
