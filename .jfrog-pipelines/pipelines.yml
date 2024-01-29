@@ -357,33 +357,33 @@
 #           integrations:
 #             - name: test
 
-pipelines:
+# pipelines:
 
-{{ range $i, $e := until 2}}
-- name: "bar{{$i}}"
-  configuration:
-    environmentVariables:
-      readOnly:
-        env1:
-          default: "singletest1"
-          values: ["singletest", "testing"]
-          allowCustom: false
-        env2: value2
-- name: 
-  steps:
-    - name: step1
-      type: Bash
-      # configuration:
-      #   inputResources:
-      #     - name: resource_2
-      configuration:
-        environmentVariables:
-          chec: hehe
-      execution:
-        onExecute:
-          - echo 'step1'
-          - echoInfo 'hehe'
-{{ end }}
+# {{ range $i, $e := until 2}}
+# - name: "bar{{$i}}"
+#   configuration:
+#     environmentVariables:
+#       readOnly:
+#         env1:
+#           default: "singletest1"
+#           values: ["singletest", "testing"]
+#           allowCustom: false
+#         env2: value2
+# - name: 
+#   steps:
+#     - name: step1
+#       type: Bash
+#       # configuration:
+#       #   inputResources:
+#       #     - name: resource_2
+#       configuration:
+#         environmentVariables:
+#           chec: hehe
+#       execution:
+#         onExecute:
+#           - echo 'step1'
+#           - echoInfo 'hehe'
+# {{ end }}
 
 # - name: bar2
 #   steps:
