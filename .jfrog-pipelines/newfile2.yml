@@ -18,6 +18,12 @@ resources:
     configuration:
       sourceArtifactory: int_default_artifactory
       buildName: dbp_build
+      buildNumber: 1
+  - name: dbp_build_info_new
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: int_default_artifactory_new
+      buildName: dbp_build
       buildNumber: 1   
 pipelines:
   - name: newPip1
@@ -42,6 +48,7 @@ pipelines:
             # - name: dbp_build_info
           integrations:
             - name: int_default_artifactory
+            - name: int_default_artifactory_new
         execution:
           onExecute:
             - printenv
