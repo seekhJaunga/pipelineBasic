@@ -4,7 +4,7 @@ resources:
   #   configuration:
   #     runNumber: 56
   #     x: 55
-  - name: gitRes
+  - name: gitRes1
     type: GitRepo
     configuration:
       gitProvider: finalTest
@@ -13,7 +13,7 @@ resources:
          branchCreate: false
          commit: false
 pipelines:
-  - name: newPip
+  - name: newPip1
     configuration:
       environmentVariables:
         readOnly:
@@ -28,7 +28,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: gitRes
+            - name: gitRes1
           # outputResources:
           #   - name: prores
         execution:
