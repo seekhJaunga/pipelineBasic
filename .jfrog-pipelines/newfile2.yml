@@ -13,12 +13,12 @@ resources:
          branchCreate: false
          commit: false
 
-  # - name: dbp_build_info
-  #   type: BuildInfo
-  #   configuration:
-  #     sourceArtifactory: testing
-  #     buildName: dbp_build
-  #     buildNumber: 1   
+  - name: dbp_build_info
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: int_default_artifactory
+      buildName: dbp_build
+      buildNumber: 1   
 pipelines:
   - name: newPip1
     configuration:
