@@ -21,7 +21,7 @@ resources:
   - name: dbp_build_info1
     type: BuildInfo
     configuration:
-      sourceArtifactory: int_default_artifactory
+      sourceArtifactory: artifactory
       buildName: dbp_build
       buildNumber: 1
 pipelines:
@@ -45,7 +45,7 @@ pipelines:
           outputResources:
             - name: prores
           integrations:
-            - name: int_default_artifactory
+            - name: artifactory
         execution:
           onExecute:
             - printenv
