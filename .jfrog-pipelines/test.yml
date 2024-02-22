@@ -41,7 +41,7 @@
 
 
 resources:
-  - name: gosvc_promoted_build_info
+  - name: gosvc_promoted_build_info1
     type: BuildInfo
     configuration:
       sourceArtifactory: s_artifactory
@@ -55,7 +55,7 @@ resources:
       version: '1'
 
 pipelines:
-  - name: demo_release_mgmt1
+  - name: demo_release_mgmt5
     steps:
       - name: bundle
         type: CreateReleaseBundle
@@ -66,7 +66,7 @@ pipelines:
           sign: false
           description: some random test description
           inputResources:
-            - name: gosvc_promoted_build_info
+            - name: gosvc_promoted_build_info1
               trigger: true
           outputResources:
             - name: S_CreateReleaseBundle_0001_output
