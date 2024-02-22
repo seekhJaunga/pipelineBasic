@@ -1,39 +1,78 @@
+# resources:
+#   # - name: prores
+#   #   type: PropertyBag
+#   #   configuration:
+#   #     runNumber: 56
+#   #     x: 55
+#   - name: gitRes1
+#     type: GitRepo
+#     configuration:
+#       gitProvider: finalTest
+#       path: seekhJaunga/pipelineBasic
+#       buildOn:
+#          branchCreate: false
+#          commit: false
+# pipelines:
+#   - name: newPip1
+#     configuration:
+#       environmentVariables:
+#         readOnly:
+#           env2: "test_p2"
+#           env1: pipe_value1
+#           env5:
+#             default: pipe_value2
+#             description: This is env2 description
+#             secure: true
+#     steps:
+#       - name: trigger_1
+#         type: Bash
+#         configuration:
+#           inputResources:
+#             - name: gitRes1
+#           # outputResources:
+#           #   - name: prores
+#         execution:
+#           onExecute:
+#             - printenv
+#             - echo $env
+#             - echo $env2
+#             # - write_output myResource runNumber=${run_number}
+
+
+
 resources:
-  # - name: prores
-  #   type: PropertyBag
-  #   configuration:
-  #     runNumber: 56
-  #     x: 55
-  - name: gitRes1
-    type: GitRepo
+  - name: gosvc_promoted_build_info
+    type: BuildInfo
     configuration:
-      gitProvider: finalTest
-      path: seekhJaunga/pipelineBasic
-      buildOn:
-         branchCreate: false
-         commit: false
+      sourceArtifactory: s_artifactory
+      buildName: svc_build
+      buildNumber: 1
+  - name: S_CreateReleaseBundle_0001_output
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: s_distribution
+      name: name
+      version: '1'
+
 pipelines:
-  - name: newPip1
-    configuration:
-      environmentVariables:
-        readOnly:
-          env2: "test_p2"
-          env1: pipe_value1
-          env5:
-            default: pipe_value2
-            description: This is env2 description
-            secure: true
+  - name: demo_release_mgmt
     steps:
-      - name: trigger_1
-        type: Bash
+      - name: bundle
+        type: CreateReleaseBundle
         configuration:
+          releaseBundleName: demo_rb
+          releaseBundleVersion: v1.0
+          dryRun: false
+          sign: false
+          description: some random test description
           inputResources:
-            - name: gitRes1
-          # outputResources:
-          #   - name: prores
-        execution:
-          onExecute:
-            - printenv
-            - echo $env
-            - echo $env2
-            # - write_output myResource runNumber=${run_number}
+            - name: gosvc_promoted_build_info
+              trigger: true
+          outputResources:
+            - name: S_CreateReleaseBundle_0001_output
+          releaseNotes:
+            syntax: markdown
+            content: |
+              ## Heading
+                * Bullet
+                * Points
