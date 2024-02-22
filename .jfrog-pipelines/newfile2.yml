@@ -40,14 +40,14 @@ pipelines:
           inputResources:
             - name: gitRes1
             # - name: dbp_build_info
+        integrations:
+          - name: int_default_artifactory
         execution:
           onExecute:
             - printenv
             - echo $env
             - echo $env2
             - write_output myResource runNumber=${run_number}
-        integrations:
-          - name: int_default_artifactory
   - name: newPip2
     configuration:
       inputResources:
