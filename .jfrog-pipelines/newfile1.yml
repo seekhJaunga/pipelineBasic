@@ -12,7 +12,7 @@ resources:
       buildOn:
          branchCreate: false
          commit: false
-  - name: dbp_build_info
+  - name: dbp_build_info3
     type: BuildInfo
     configuration:
       sourceArtifactory: testing
