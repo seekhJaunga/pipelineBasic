@@ -17,7 +17,13 @@ resources:
     configuration:
       sourceArtifactory: testing
       buildName: dbp_build
-      buildNumber: 1   
+      buildNumber: 1
+  - name: dbp_build_info1
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: int_default_artifactory
+      buildName: dbp_build
+      buildNumber: 1
 pipelines:
   - name: newPip
     configuration:
@@ -38,6 +44,8 @@ pipelines:
             - name: dbp_build_info
           outputResources:
             - name: prores
+          integrations:
+            - name: int_default_artifactory
         execution:
           onExecute:
             - printenv
