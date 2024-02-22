@@ -30,7 +30,7 @@ pipelines:
     configuration:
       inputResources:
         - name: gitRes1
-        # - name: gitRes1
+        - name: gitRes1
       environmentVariables:
         readOnly:
           env2: "test_p2"
