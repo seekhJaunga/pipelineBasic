@@ -13,7 +13,7 @@ resources:
          branchCreate: false
          commit: false
 
-  - name: dbp_build_info
+  - name: dbp_build_info4
     type: BuildInfo
     configuration:
       sourceArtifactory: artifactory
