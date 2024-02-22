@@ -7,11 +7,12 @@ resources:
   - name: gitRes1
     type: GitRepo
     configuration:
-      gitProvider: test
+      gitProvider: finalTest
       path: seekhJaunga/pipelineBasic
       buildOn:
          branchCreate: false
          commit: false
+
   # - name: dbp_build_info
   #   type: BuildInfo
   #   configuration:
@@ -23,7 +24,7 @@ pipelines:
     configuration:
       inputResources:
         - name: gitRes1
-        - name: gitRes1
+        # - name: gitRes1
       environmentVariables:
         readOnly:
           env2: "test_p2"
@@ -32,6 +33,8 @@ pipelines:
             default: pipe_value2
             description: This is env2 description
             secure: true
+      integrations:
+        - name: int_default_artifactory
     steps:
       - name: trigger_1
         type: Bash
