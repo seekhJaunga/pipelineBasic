@@ -16,7 +16,7 @@ resources:
   - name: dbp_build_info
     type: BuildInfo
     configuration:
-      sourceArtifactory: int_default_artifactory
+      sourceArtifactory: artifactory
       buildName: dbp_build
       buildNumber: 1
   - name: dbp_build_info_new
@@ -47,7 +47,7 @@ pipelines:
             - name: gitRes1
             # - name: dbp_build_info
           integrations:
-            - name: int_default_artifactory
+            - name: artifactory
             - name: int_default_artifactory_new
         execution:
           onExecute:
