@@ -55,7 +55,7 @@ resources:
       version: '1'
 
 pipelines:
-  - name: demo_release_mgmt1
+  - name: demo_release_mgmt2
     steps:
       - name: bundle
         type: CreateReleaseBundle
