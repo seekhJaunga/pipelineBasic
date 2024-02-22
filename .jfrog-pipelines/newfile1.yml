@@ -15,7 +15,7 @@ resources:
   - name: dbp_build_info3
     type: BuildInfo
     configuration:
-      sourceArtifactory: testing
+      sourceArtifactory: artifactory
       buildName: dbp_build
       buildNumber: 1
   - name: dbp_build_info1
