@@ -47,12 +47,12 @@ resources:
       sourceArtifactory: s_artifactory
       buildName: svc_build
       buildNumber: 1
-  - name: S_CreateReleaseBundle_0001_output
-    type: ReleaseBundle
-    configuration:
-      sourceDistribution: s_distribution
-      name: name
-      version: '1'
+  # - name: S_CreateReleaseBundle_0001_output
+  #   type: ReleaseBundle
+  #   configuration:
+  #     sourceDistribution: s_distribution
+  #     name: name
+  #     version: '1'
 
 pipelines:
   - name: demo_release_mgmt5
@@ -68,8 +68,8 @@ pipelines:
           inputResources:
             - name: gosvc_promoted_build_info1
               trigger: true
-          outputResources:
-            - name: S_CreateReleaseBundle_0001_output
+          # outputResources:
+          #   - name: S_CreateReleaseBundle_0001_output
           releaseNotes:
             syntax: markdown
             content: |
