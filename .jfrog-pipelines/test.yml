@@ -40,13 +40,13 @@
 
 
 
-resources:
-  - name: gosvc_promoted_build_info1
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: s_artifactory
-      buildName: svc_build
-      buildNumber: 1
+# resources:
+#   - name: gosvc_promoted_build_info1
+#     type: BuildInfo
+#     configuration:
+#       sourceArtifactory: s_artifactory
+#       buildName: svc_build
+#       buildNumber: 1
   # - name: S_CreateReleaseBundle_0001_output
   #   type: ReleaseBundle
   #   configuration:
@@ -54,25 +54,25 @@ resources:
   #     name: name
   #     version: '1'
 
-pipelines:
-  - name: demo_release_mgmt5
-    steps:
-      - name: bundle
-        type: CreateReleaseBundle
-        configuration:
-          releaseBundleName: demo_rb
-          releaseBundleVersion: v1.0
-          dryRun: false
-          sign: false
-          description: some random test description
-          inputResources:
-            - name: gosvc_promoted_build_info1
-              trigger: true
-          # outputResources:
-          #   - name: S_CreateReleaseBundle_0001_output
-          releaseNotes:
-            syntax: markdown
-            content: |
-              ## Heading
-                * Bullet
-                * Points
+# pipelines:
+#   - name: demo_release_mgmt5
+#     steps:
+#       - name: bundle
+#         type: CreateReleaseBundle
+#         configuration:
+#           releaseBundleName: demo_rb
+#           releaseBundleVersion: v1.0
+#           dryRun: false
+#           sign: false
+#           description: some random test description
+#           inputResources:
+#             - name: gosvc_promoted_build_info1
+#               trigger: true
+#           outputResources:
+#             - name: S_CreateReleaseBundle_0001_output
+#           releaseNotes:
+#             syntax: markdown
+#             content: |
+#               ## Heading
+#                 * Bullet
+#                 * Points
