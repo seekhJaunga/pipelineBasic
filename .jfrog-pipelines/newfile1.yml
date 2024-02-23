@@ -36,7 +36,8 @@ pipelines:
             description: This is env2 description
             secure: true
     steps:
-      - name: trigger_1
+{{ range $i, $e := until 7}}
+      - name: {{trigger{{$i}}}
         type: Bash
         configuration:
           inputResources:
@@ -51,4 +52,5 @@ pipelines:
             - printenv
             - echo $env
             - echo $env2
-            - write_output myResource runNumber=${run_number}
+            # - write_output myResource runNumber=${run_number}
+{{ end }}
