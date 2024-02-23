@@ -37,7 +37,7 @@ pipelines:
             secure: true
     steps:
 {{ range $i, $e := until 7}}
-      - name: {{trigger{{$i}}}
+      - name: "trigger{{$i}}"
         type: Bash
         configuration:
           inputResources:
