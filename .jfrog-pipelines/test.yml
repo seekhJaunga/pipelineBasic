@@ -28,7 +28,7 @@ pipelines:
       environmentVariables:
         readOnly:
           env2: '''test_p2 {BRANCH_NAME_HASH}'''
-          env1: pipe_value1
+          env1: pipe_value1.abc
           env5:
             default: pipe_value2
             description: This is env2 description
@@ -48,7 +48,7 @@ pipelines:
             - printenv
             - echo $env
             - echo $env2
-            # - write_output "env_params"
+            # - write_output "env_params" ""
             # - write_output myResource runNumber=${run_number}
 
 
