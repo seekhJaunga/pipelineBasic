@@ -12,6 +12,16 @@ resources:
       buildOn:
          branchCreate: false
          commit: false
+  - name: env_params
+    type: PropertyBag
+    configuration:
+      xsc_ci_config_branch_name: ''
+      d2c_server_name: ''
+      d2c_url: ''
+      d2c_job_extra_params: ''
+      cell_id: ''
+      docker_repo_name: ''
+      jf_msi: ''
 pipelines:
   - name: newPip1
     configuration:
@@ -29,6 +39,8 @@ pipelines:
         configuration:
           inputResources:
             - name: gitRes1
+          outputResources:
+            - name: env_params
           # outputResources:
           #   - name: prores
         execution:
@@ -36,6 +48,7 @@ pipelines:
             - printenv
             - echo $env
             - echo $env2
+            - write_output "env_params"
             # - write_output myResource runNumber=${run_number}
 
 
