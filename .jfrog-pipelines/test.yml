@@ -17,7 +17,7 @@ pipelines:
     configuration:
       environmentVariables:
         readOnly:
-          env2: '''test_p2'''
+          env2: '''test_p2{BRANCH_NAME_HASH}'''
           env1: pipe_value1
           env5:
             default: pipe_value2
