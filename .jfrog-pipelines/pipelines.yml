@@ -2,7 +2,7 @@ resources:
   - name: resource_2
     type: GitRepo
     configuration:
-      gitProvider: test
+      gitProvider: finalTest
       path: seekhJaunga/pipelineBasic
       buildOn:
          branchCreate: false
@@ -20,7 +20,7 @@ resources:
   - name: resource_4
     type: GitRepo
     configuration:
-      gitProvider: test
+      gitProvider: finalTest
       path: seekhJaunga/Ekart
 
 
@@ -30,12 +30,6 @@ pipelines:
       # nodePool: dummy_np_2
       environmentVariables:
         readOnly:
-          env:
-            default: ''
-            values:
-             - ''
-             - 'new'
-            allowCustom: false
           env2: "test_p2"
           KEY1:
             description: Your key will be used as reference to your secret
@@ -46,13 +40,13 @@ pipelines:
             default: '*****'
             secure: true
             allowCustom: true
-          env3:
-            defaultMultipleValues: ["r,andom_1"]
-            # default: "r,andom_2"
-            description: "testing"
-            values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
-            allowCustom: false
-            allowMultipleValues: false
+          # env3:
+          #   defaultMultipleValues: ["r,andom_1"]
+          #   # default: "r,andom_2"
+          #   description: "testing"
+          #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
+          #   allowCustom: false
+          #   allowMultipleValues: false
     steps:
       # - name: scan
       #   type: XrayScan
