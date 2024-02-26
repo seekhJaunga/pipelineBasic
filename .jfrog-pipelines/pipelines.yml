@@ -112,7 +112,6 @@ pipelines:
         configuration:
           inputResources:
             - name: resource_2        # required
-        configuration:
           inputSteps:
             - name: my_step
         execution:
