@@ -6,7 +6,7 @@ resources:
       path: seekhJaunga/pipelineBasic
       buildOn:
          branchCreate: false
-  - name: resource_ne
+  - name: resource_new
     type: GitRepo
     configuration:
       gitProvider: finalTest
