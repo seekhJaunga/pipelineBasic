@@ -3,7 +3,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: finalTest
-      path: seekhJaunga/pipelineBasic
+      path: seekhJaunga/Ekart
       buildOn:
          branchCreate: false
   - name: resource_new_7
@@ -73,7 +73,7 @@ pipelines:
 #       #       - echo "uh oh, something went wrong"
 #       #     onComplete: #always
 #       #       - echo "Cleaning up some stuff"
-      - name: my_step1
+      - name: my_step2
         type: Bash
         configuration:
           inputResources:
