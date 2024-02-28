@@ -206,24 +206,24 @@ pipelines:
 #             # - $env
 
 
-#   # pipelines:
-    - name: S_Bash_3852_001
-      configuration:
-        environmentVariables:
-          readOnly:
-            pipevar1: "1"
-            pipevar2: "2"
-      steps:
-        - name: S_Bash_3852_001_1
-          type: Bash,
-          configuration:
-            environmentVariables:
-              S_Bash_3852_001_1: "yes"
-            affinityGroup: 'group'
-          execution:
-            onExecute:
-              - if [ "$S_Bash_3852_001_1" != "yes" ]; then return 1; fi
-              - echo "done"
+# pipelines:
+  - name: S_Bash_3852_001
+    configuration:
+      environmentVariables:
+        readOnly:
+          pipevar1: "1"
+          pipevar2: "2"
+    steps:
+      - name: S_Bash_3852_001_1
+        type: Bash,
+        configuration:
+          environmentVariables:
+            S_Bash_3852_001_1: "yes"
+          affinityGroup: 'group'
+        execution:
+          onExecute:
+            - if [ "$S_Bash_3852_001_1" != "yes" ]; then return 1; fi
+            - echo "done"
 #   #             - echo $S_Bash_3852_001_1
 #   #             - echo $pipevar1
 #   #       - name: S_Bash_3852_001_2
