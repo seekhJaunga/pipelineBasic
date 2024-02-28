@@ -3,10 +3,10 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: finalTest
-      path: seekhJaunga/Ekart
+      path: seekhJaunga/pipelineBasic
       buildOn:
          branchCreate: false
-  - name: resource_new_7
+  - name: resource_new_8
     type: GitRepo
     configuration:
       gitProvider: finalTest
@@ -207,7 +207,7 @@ pipelines:
 
 
 # pipelines:
-  - name: S_Bash_3852_001
+  - name: S_Bash_3852_001_new
     configuration:
       environmentVariables:
         readOnly:
