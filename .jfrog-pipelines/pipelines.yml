@@ -2,7 +2,7 @@ resources:
   - name: resource_2
     type: GitRepo
     configuration:
-      gitProvider: extention
+      gitProvider: deepikaTestBBS
       path: PIP/pipelines-tasks
       branches:
         include: feature/PIPE-15621
