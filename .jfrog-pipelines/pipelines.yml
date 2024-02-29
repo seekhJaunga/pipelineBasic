@@ -1,5 +1,5 @@
 resources:
-  - name: resource_2
+  - name: resource_3
     type: GitRepo
     configuration:
       gitProvider: deepikaTestBBS
