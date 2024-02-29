@@ -2,7 +2,7 @@ resources:
   - name: resource_2
     type: GitRepo
     configuration:
-      gitProvider: punyaBitbucket
+      gitProvider: extention
       path: PIP/pipelines-tasks
       branches:
         include: feature/PIPE-15621
