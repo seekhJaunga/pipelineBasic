@@ -79,7 +79,7 @@ pipelines:
         type: Bash
         configuration:
           inputResources:
-            - name: resource_2        # required
+            - name: resource_3        # required
         # configuration:
         #   integrations:
         #     - name: testpunya
