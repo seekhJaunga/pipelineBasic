@@ -1,9 +1,9 @@
-resources:
-  - name: EXT_S_SYC_AU_0007_fileSpec
-    type: FileSpec
-    configuration:
-      sourceArtifactory: s_artifactory
-      pattern: "test-automation-generic-local/test.txt"
+# resources:
+#   - name: EXT_S_SYC_AU_0007_fileSpec
+#     type: FileSpec
+#     configuration:
+#       sourceArtifactory: s_artifactory
+#       pattern: "test-automation-generic-local/test.txt"
 pipelines:
   - name: EXT_S_SYC_AU_0007
     steps:
@@ -12,7 +12,7 @@ pipelines:
         configuration:
           targetPath: "test-automation-generic-local/EXT_S_SYC_AU_0007"
           forceXrayScan: true
-          integrations:
-            - name: s_artifactory
+          # integrations:
+          #   - name: s_artifactory
           inputResources:
             - name: EXT_S_SYC_AU_0007_fileSpec
