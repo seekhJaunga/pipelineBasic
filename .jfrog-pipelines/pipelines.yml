@@ -1,13 +1,13 @@
-resources:
-  - name: resource_3
-    type: GitRepo
-    configuration:
-      gitProvider: deepikaTestBBS
-      path: PIP/pipelines-tasks
-      branches:
-        include: feature/PIPE-15621
-      buildOn:
-         commit: true
+# resources:
+#   - name: resource_3
+#     type: GitRepo
+#     configuration:
+#       gitProvider: deepikaTestBBS
+#       path: PIP/pipelines-tasks
+#       branches:
+#         include: feature/PIPE-15621
+#       buildOn:
+#          commit: true
   # - name: resource_new_9
   #   type: GitRepo
   #   configuration:
@@ -33,22 +33,25 @@ resources:
 #       path: seekhJaunga/Ekart
 
 
-pipelines:
-  - name: single_test_punya
-    configuration:
-      # nodePool: dummy_np_2
-      environmentVariables:
-        readOnly:
-          env2: "test_p2"
-          KEY1:
-            description: Your key will be used as reference to your secret
-            default: Your key will be used as reference to your secret
-            allowCustom: true
-          VALUE1:
-            description: Insert your secret value
-            default: '*****'
-            secure: true
-            allowCustom: true
+# pipelines:
+#   - name: single_test_punya
+#     configuration:
+#       # nodePool: dummy_np_2
+#       environmentVariables:
+#         readOnly:
+#           env2: "test_p2"
+#           KEY1:
+#             description: Your key will be used as reference to your secret
+#             default: Your key will be used as reference to your secret
+#             allowCustom: true
+#           VALUE1:
+#             description: Insert your secret value
+#             default: '*****'
+#             secure: true
+#             allowCustom: true
+
+
+            
           # env3:
           #   defaultMultipleValues: ["r,andom_1"]
           #   # default: "r,andom_2"
@@ -56,7 +59,7 @@ pipelines:
           #   values: ["r,andom_1", "r,andom_2", "r,andom_3", "r,andom_4"]
           #   allowCustom: false
           #   allowMultipleValues: false
-    steps:
+    # steps:
 #       # - name: scan
 #       #   type: XrayScan
 #       #   configuration:
@@ -75,20 +78,20 @@ pipelines:
 #       #       - echo "uh oh, something went wrong"
 #       #     onComplete: #always
 #       #       - echo "Cleaning up some stuff"
-      - name: my_step2
-        type: Bash
-        configuration:
-          inputResources:
-            - name: resource_3        # required
+      # - name: my_step2
+      #   type: Bash
+      #   configuration:
+      #     inputResources:
+      #       - name: resource_3        # required
         # configuration:
         #   integrations:
         #     - name: testpunya
         # configuration:
         #   timeoutSeconds: 1
-        execution:
-          onExecute:
-            - echo "This is my step."
-            - echo $int_myCredentials_test
+        # execution:
+        #   onExecute:
+        #     - echo "This is my step."
+        #     - echo $int_myCredentials_test
             # - echo $int_testpunya_val
             # - echo $val
 #             # - |
