@@ -1,5 +1,5 @@
 resources:
-  - name: EXT_S_SYC_AU_0007_fileSpec
+  - name: EXT_S_SYC_AU_0007_fileSpec1
     type: FileSpec
     configuration:
       sourceArtifactory: s_artifactory
@@ -15,7 +15,7 @@ pipelines:
           integrations:
             - name: s_artifactory
           inputResources:
-            - name: EXT_S_SYC_AU_0007_fileSpec
+            - name: EXT_S_SYC_AU_0007_fileSpec1
         execution:
           onExecute:
             - echo hehe
