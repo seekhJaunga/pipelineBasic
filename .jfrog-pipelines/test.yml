@@ -16,3 +16,6 @@ pipelines:
             - name: s_artifactory
           inputResources:
             - name: EXT_S_SYC_AU_0007_fileSpec
+        execution:
+          onExecute:
+            - echo hehe
