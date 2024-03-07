@@ -1,5 +1,5 @@
 resources:
-  - name: EXT_S_SYC_AU_0007_fileSpec1
+  - name: EXT_S_SYC_AU_0007_fileSpec2
     type: FileSpec
     configuration:
       sourceArtifactory: s_artifactory
