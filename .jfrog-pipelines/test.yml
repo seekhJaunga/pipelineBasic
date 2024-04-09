@@ -99,7 +99,7 @@ pipelines:
           {{ end }}
     steps:
       - name: trigger_mt_pipeline
-        type: TriggerPipeline
+        type: Bash
         # configuration:
         #   integrations:
         #     - name: devf_embedded_pipelines
@@ -137,7 +137,7 @@ pipelines:
             allowCustom: true
     steps:
       - name: trigger_mt_pipeline
-        type: TriggerPipeline
+        type: Bash
         # configuration:
         #   integrations:
         #     - name: devf_embedded_pipelines
