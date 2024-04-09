@@ -1,13 +1,5 @@
 Applications:
-  - mt-rtfs
-DefaultApplication: "mt-rtfs"
-
-ServiceName: "RTFS"
-
-ConfigProject: "FEDERATION"
-
-ConfigRepo: "rtfs-config"
-
+  -name: "mt-rtfs"
 
 Environments:
   - Name: Development
@@ -30,3 +22,8 @@ Environments:
       - prod-2-euc1
     DevOpsProjectKey: sdprod
     IsDev: false
+
+DefaultApplication: "mt-rtfs"
+ServiceName: "RTFS"
+ConfigProject: "FEDERATION"
+ConfigRepo: "rtfs-config"
