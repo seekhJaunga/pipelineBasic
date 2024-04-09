@@ -26,8 +26,8 @@ template: true
 valuesFilePath: ./values.yml
 pipelines:
 {{ range $env := .Values.Environments }}
-{{ if or (eq "{{gitBranch}}" "master") (hasPrefix "{{ .Values.ConfigProject }}" "{{gitBranch}}") ($env.IsDev) }}
-  - name: {{ .Values.ServiceName.name }}_Multi_Tenancy_{{ $env.Name }}_Region_Release
+# {{ if or (eq "{{gitBranch}}" "master") (hasPrefix "{{ .Values.ConfigProject }}" "{{gitBranch}}") ($env.IsDev) }}
+  - name: {{ .Values.ServiceName }}_Multi_Tenancy_{{ $env.Name }}_Region_Release
     configuration:
       environmentVariables:
         readOnly:
@@ -122,7 +122,7 @@ pipelines:
           onFailure:
             - echo "Failed ${MT_CELL_TASK} ${ACTION} in region ${REGION}"
 
-  - name: {{ .Values.ServiceName.name }}_Multi_Tenancy_{{ $env.Name }}_AllRegions_Release
+  - name: {{ .Values.ServiceName }}_Multi_Tenancy_{{ $env.Name }}_AllRegions_Release
     configuration:
       environmentVariables:
         readOnly:
@@ -160,4 +160,4 @@ pipelines:
           onFailure:
             - echo "Failed ${MT_CELL_TASK} deploy in all regions"
 {{ end }}
-{{ end }}
+# {{ end }}
