@@ -22,8 +22,8 @@ pipelines:
           onExecute:
             - echo hehe
 
-template: true
-valuesFilePath : ./values.yml
+# template: true
+# valuesFilePath : ./values.yml
 
 pipelines:
 # {{ range $env := .Values.Environments }}
