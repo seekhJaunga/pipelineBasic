@@ -1,27 +1,27 @@
-# Applications:
-#   -name: "mt-rtfs"
+Applications:
+  -name: "mt-rtfs"
 
-# Environments:
-#   - Name: Development
-#     DefaultRegion: dev-aps1
-#     AdditionalRegions:
-#       - dev-euc1
-#       - dev-2-euc1
-#       - gcdev-euw1
-#     DevOpsProjectKey: sddev
-#     IsDev: true
-#   - Name: Staging
-#     DefaultRegion: stg-euc1
-#     AdditionalRegions:
-#       - stg-use1
-#     DevOpsProjectKey: sdstg
-#     IsDev: false
-#   - Name: Production
-#     DefaultRegion: prod-2-euw1
-#     AdditionalRegions:
-#       - prod-2-euc1
-#     DevOpsProjectKey: sdprod
-#     IsDev: false
+Environments:
+  - Name: Development
+    DefaultRegion: dev-aps1
+    AdditionalRegions:
+      - dev-euc1
+      - dev-2-euc1
+      - gcdev-euw1
+    DevOpsProjectKey: sddev
+    IsDev: true
+  - Name: Staging
+    DefaultRegion: stg-euc1
+    AdditionalRegions:
+      - stg-use1
+    DevOpsProjectKey: sdstg
+    IsDev: false
+  - Name: Production
+    DefaultRegion: prod-2-euw1
+    AdditionalRegions:
+      - prod-2-euc1
+    DevOpsProjectKey: sdprod
+    IsDev: false
 
 DefaultApplication: "mt-rtfs"
 ServiceName: "RTFS"
