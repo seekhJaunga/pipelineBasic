@@ -1,5 +1,5 @@
-Applications: "mt-rtfs"
-
+Applications:
+  - mt-rtfs
 DefaultApplication: "mt-rtfs"
 
 ServiceName: "RTFS"
