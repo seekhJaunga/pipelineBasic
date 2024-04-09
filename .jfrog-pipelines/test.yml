@@ -3,7 +3,7 @@ valuesFilePath: ./values.yml
 
 pipelines:
 {{ range $env := .Values.Environments }}
-  - name:  {{ .Values.ServiceName }}_Multi_Tenancy
+  - name:  {{ .Values.ServiceName }}_Multi_Tenancy_{{ $env.Name }}
     steps:
       - name: EXT_S_SYC_AU_0007
         type: Bash
