@@ -22,13 +22,6 @@ pipelines:
           onExecute:
             - echo hehe
 
-# template: true
-# valuesFilePath : ./values.yml
-
-# pipelines:
-# {{ range $env := .Values.Environments }}
-# {{ if or (eq "{{gitBranch}}" "main") (hasPrefix "{{ .Values.ConfigProject }}" "{{gitBranch}}") ($env.IsDev) }}
-  # - name: {{ .Values.ServiceName.name }}_Multi_Tenancy_{{ $env.Name }}_Region_Release
   - name : _Multi_Tenancy_Region_Release
     configuration:
       environmentVariables:
