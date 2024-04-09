@@ -23,7 +23,7 @@
 #             - echo hehe
 
 template: true
-valuesFilePath: ./values.yml
+valuesFilePath : ./values.yml
 
 pipelines:
 # {{ range $env := .Values.Environments }}
