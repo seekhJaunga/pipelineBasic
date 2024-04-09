@@ -27,7 +27,8 @@ valuesFilePath: ./values.yml
 pipelines:
 # {{ range $env := .Values.Environments }}
 # {{ if or (eq "{{gitBranch}}" "main") (hasPrefix "{{ .Values.ConfigProject }}" "{{gitBranch}}") ($env.IsDev) }}
-  - name: {{ .Values.ServiceName.name }}_Multi_Tenancy_{{ $env.Name }}_Region_Release
+  # - name: {{ .Values.ServiceName.name }}_Multi_Tenancy_{{ $env.Name }}_Region_Release
+  - name: {{ .Values.ServiceName.name }}_Multi_Tenancy_Region_Release
     configuration:
       environmentVariables:
         readOnly:
@@ -122,42 +123,42 @@ pipelines:
           onFailure:
             - echo "Failed ${MT_CELL_TASK} ${ACTION} in region ${REGION}"
 
-  - name: {{ .Values.ServiceName }}_Multi_Tenancy_{{ $env.Name }}_AllRegions_Release
-    configuration:
-      environmentVariables:
-        readOnly:
-          MT_CELL_TASK:
-            description: "Select Multi Tenancy Cell task"
-            default: "{{ .Values.DefaultApplication }}"
-            values:
-              - ""
-              {{ range $app := $.Values.Applications }}
-              - "{{ $app }}"
-              {{ end }}
-            allowCustom: true
-    steps:
-      - name: trigger_mt_pipeline
-        type: Bash
-        # configuration:
-        #   integrations:
-        #     - name: devf_embedded_pipelines
-        #   projectKey: {{ $env.DevOpsProjectKey }}
-        #   pipelineName: Multi_Tenancy_Cell_{{ $env.Name }}_Release_Pipe
-        #   stepName: step_1_prep_env
-        execution:
-          onStart:
-            # - |
-            #   if [ -z "${MT_CELL_TASK}" ]; then
-            #     echo "MT_CELL_TASK cannot be empty"
-            #     exit 1
-            #   fi
-            - echo "Triggering Multi_Tenancy_Cell_{{ $env.Name }}_Release_Pipe"
-            - echo "deploying ${MT_CELL_TASK} in all regions"
-            # - set_trigger_payload pipelineVariables "MT_CELL_TASK='${MT_CELL_TASK}'" "CONFIG_PROJECT='{{ .Values.ConfigProject }}'" "CONFIG_REPO='{{ .Values.ConfigRepo }}'"
-            # - export pipelines_poll_interval_seconds=30
-          onSuccess:
-            - echo "Successfully finished ${MT_CELL_TASK} deploy"
-          onFailure:
-            - echo "Failed ${MT_CELL_TASK} deploy in all regions"
+  # - name: {{ .Values.ServiceName }}_Multi_Tenancy_{{ $env.Name }}_AllRegions_Release
+  #   configuration:
+  #     environmentVariables:
+  #       readOnly:
+  #         MT_CELL_TASK:
+  #           description: "Select Multi Tenancy Cell task"
+  #           default: "{{ .Values.DefaultApplication }}"
+  #           values:
+  #             - ""
+  #             {{ range $app := $.Values.Applications }}
+  #             - "{{ $app }}"
+  #             {{ end }}
+  #           allowCustom: true
+  #   steps:
+  #     - name: trigger_mt_pipeline
+  #       type: Bash
+  #       # configuration:
+  #       #   integrations:
+  #       #     - name: devf_embedded_pipelines
+  #       #   projectKey: {{ $env.DevOpsProjectKey }}
+  #       #   pipelineName: Multi_Tenancy_Cell_{{ $env.Name }}_Release_Pipe
+  #       #   stepName: step_1_prep_env
+  #       execution:
+  #         onStart:
+  #           # - |
+  #           #   if [ -z "${MT_CELL_TASK}" ]; then
+  #           #     echo "MT_CELL_TASK cannot be empty"
+  #           #     exit 1
+  #           #   fi
+  #           - echo "Triggering Multi_Tenancy_Cell_{{ $env.Name }}_Release_Pipe"
+  #           - echo "deploying ${MT_CELL_TASK} in all regions"
+  #           # - set_trigger_payload pipelineVariables "MT_CELL_TASK='${MT_CELL_TASK}'" "CONFIG_PROJECT='{{ .Values.ConfigProject }}'" "CONFIG_REPO='{{ .Values.ConfigRepo }}'"
+  #           # - export pipelines_poll_interval_seconds=30
+  #         onSuccess:
+  #           - echo "Successfully finished ${MT_CELL_TASK} deploy"
+  #         onFailure:
+  #           - echo "Failed ${MT_CELL_TASK} deploy in all regions"
 # {{ end }}
 # {{ end }}
