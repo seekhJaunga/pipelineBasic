@@ -7,7 +7,7 @@
 template: true
 valuesFilePath: ./values.yml
 pipelines:
-  - name: {{ .Values.pipelineName}}_EXT_S_SYC_AU_0007
+  - name:  {{ .Values.ServiceName }}_Multi_Tenancy
     steps:
       - name: EXT_S_SYC_AU_0007
         type: Bash
