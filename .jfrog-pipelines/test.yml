@@ -22,7 +22,7 @@ pipelines:
           onExecute:
             - echo hehe
 
-  - name : {{ Values.ServiceName }}_Multi_Tenancy_Region_Release
+  - name : {{ .Values.ServiceName }}_Multi_Tenancy_Region_Release
     configuration:
       environmentVariables:
         readOnly:
