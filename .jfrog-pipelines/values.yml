@@ -1,8 +1,8 @@
-Applications:
-  - mt-rtfs
+# Applications:
+#   - mt-rtfs
 
-DefaultApplication:
-  - mt-rtfs
+# DefaultApplication:
+#   - mt-rtfs
 
 ServiceName: 
   - name: "RTFS"
