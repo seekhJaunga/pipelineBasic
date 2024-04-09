@@ -1,12 +1,8 @@
-# Applications:
-#   - mt-rtfs
+Applications: "mt-rtfs"
 
-# DefaultApplication:
-#   - mt-rtfs
+DefaultApplication: "mt-rtfs"
 
-# ServiceName: "RTFS"
-ServiceName:
-  name: "RTFS"
+ServiceName: "RTFS"
 
 ConfigProject: "FEDERATION"
 
