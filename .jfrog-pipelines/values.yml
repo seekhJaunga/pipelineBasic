@@ -2,3 +2,5 @@ justRandom:
   - "hehe"
 
 pipelineName: "testing"
+
+ServiceName: "RTFS"
