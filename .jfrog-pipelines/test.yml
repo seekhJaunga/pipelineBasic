@@ -6,21 +6,21 @@
 #       pattern: "test-automation-generic-local/test.txt"
 template: true
 valuesFilePath: ./values.yml
-pipelines:
-  - name:  {{ .Values.ServiceName }}_Multi_Tenancy
-    steps:
-      - name: EXT_S_SYC_AU_0007
-        type: Bash
-        # configuration:
-          # targetPath: "test-automation-generic-local/EXT_S_SYC_AU_0007"
-          # forceXrayScan: true
-          # integrations:
-          #   - name: s_artifactory
-          # inputResources:
-          #   - name: EXT_S_SYC_AU_0007_fileSpec2
-        execution:
-          onExecute:
-            - echo hehe
+# pipelines:
+#   - name:  {{ .Values.ServiceName }}_Multi_Tenancy
+#     steps:
+#       - name: EXT_S_SYC_AU_0007
+#         type: Bash
+#         # configuration:
+#           # targetPath: "test-automation-generic-local/EXT_S_SYC_AU_0007"
+#           # forceXrayScan: true
+#           # integrations:
+#           #   - name: s_artifactory
+#           # inputResources:
+#           #   - name: EXT_S_SYC_AU_0007_fileSpec2
+#         execution:
+#           onExecute:
+#             - echo hehe
 
 # template: true
 # valuesFilePath : ./values.yml
