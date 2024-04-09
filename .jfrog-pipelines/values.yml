@@ -4,8 +4,7 @@
 # DefaultApplication:
 #   - mt-rtfs
 
-ServiceName: 
-  - name: "RTFS"
+ServiceName: "RTFS"
 
 ConfigProject: "FEDERATION"
 
