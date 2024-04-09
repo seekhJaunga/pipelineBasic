@@ -95,24 +95,11 @@ pipelines:
           {{ end }}
     steps:
       - name: trigger_mt_pipeline
-        type: TriggerPipeline
-        configuration:
-          integrations:
-            - name: devf_embedded_pipelines
-          projectKey: {{ $env.DevOpsProjectKey }}
-          pipelineName: Multi_Tenancy_Cell_{{ $env.Name }}_Region_Release_Pipe
-          stepName: step_1_prep_env
+        type: Bash
         execution:
           onStart:
-            - |
-              if [ -z "${MT_CELL_TASK}" ] || [ -z "${REGION}" ]; then
-                echo "MT_CELL_TASK and REGION cannot be empty"
-                exit 1
-              fi
             - echo "Triggering Multi_Tenancy_Cell_{{ $env.Name }}_Region_Release_Pipe"
             - echo "${ACTION}ing ${MT_CELL_TASK} in region ${REGION}"
-            - set_trigger_payload pipelineVariables "MT_CELL_TASK='${MT_CELL_TASK}'" "MT_DEV_CELL='${MT_DEV_CELL}'" "ACTION='${ACTION}'" "REGION='${REGION}'" "GROUP='${GROUP}'" "NODES='${NODES}'" "HPA='${HPA}'" "CONFIG_PROJECT='{{ .Values.ConfigProject }}'" "CONFIG_REPO='{{ .Values.ConfigRepo }}'" "CONFIG_BRANCH='${CONFIG_BRANCH}'" "SAAS_CONFIGURATION_BRANCH='${SAAS_CONFIGURATION_BRANCH}'"
-            - export pipelines_poll_interval_seconds=5
           onSuccess:
             - echo "Successfully finished ${MT_CELL_TASK} ${ACTION} in region ${REGION}"
           onFailure:
@@ -133,24 +120,11 @@ pipelines:
             allowCustom: true
     steps:
       - name: trigger_mt_pipeline
-        type: TriggerPipeline
-        configuration:
-          integrations:
-            - name: devf_embedded_pipelines
-          projectKey: {{ $env.DevOpsProjectKey }}
-          pipelineName: Multi_Tenancy_Cell_{{ $env.Name }}_Release_Pipe
-          stepName: step_1_prep_env
+        type: Bash
         execution:
           onStart:
-            - |
-              if [ -z "${MT_CELL_TASK}" ]; then
-                echo "MT_CELL_TASK cannot be empty"
-                exit 1
-              fi
             - echo "Triggering Multi_Tenancy_Cell_{{ $env.Name }}_Release_Pipe"
             - echo "deploying ${MT_CELL_TASK} in all regions"
-            - set_trigger_payload pipelineVariables "MT_CELL_TASK='${MT_CELL_TASK}'" "CONFIG_PROJECT='{{ .Values.ConfigProject }}'" "CONFIG_REPO='{{ .Values.ConfigRepo }}'"
-            - export pipelines_poll_interval_seconds=30
           onSuccess:
             - echo "Successfully finished ${MT_CELL_TASK} deploy"
           onFailure:
