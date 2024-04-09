@@ -22,112 +22,112 @@ pipelines:
           onExecute:
             - echo hehe
 
-{{ range $env := .Values.Environments }}
-# valuesFilePath: ./values.yml
-  - name: {{ .Values.ServiceName }}_Multi_Tenancy_{{ $env.Name }}_Region_Release
-    configuration:
-      environmentVariables:
-        readOnly:
-          MT_CELL_TASK:
-            description: "Select Multi Tenancy Cell task"
-            default: "{{ .Values.DefaultApplication }}"
-            values:
-              - ""
-              {{ range $app := $.Values.Applications }}
-              - "{{ $app }}"
-              {{ end }}
-              {{ if $env.IsDev }}
-              - cell
-              {{ end }}
-            allowCustom: true
-          ACTION:
-            description: "Select action"
-            default: "deploy"
-            values:
-              - "deploy"
-              - "dryrun"
-              - "undeploy"
-            allowCustom: false
-          REGION:
-            description: "Select region"
-            default: "{{ $env.DefaultRegion }}"
-            values:
-              - "{{ $env.DefaultRegion }}"
-              {{ range $region := $env.AdditionalRegions }}
-              - "{{ $region }}"
-              {{ end }}
-            allowCustom: true
-          {{ if $env.IsDev }}
-          MT_DEV_CELL:
-            description: "Dev cell name, leave empty to use default"
-            default: ""
-          GROUP:
-            description: "[Mandatory] Select the Org group you belong to"
-            default: ARTIFACTORY
-            values:
-              - ARTIFACTORY
-            allowCustom: false
-          NODES:
-            description: "The environment will run on AMD Nodes by default. To run on ARM nodes, set NODES=ARM, ARM is only support on AWS"
-            default: "AMD"
-            values:
-              - "AMD"
-              - "ARM"
-            allowCustom: false
-          HPA:
-            description: "Enable HPA for MT Services. Optional"
-            default: "no"
-            values:
-              - "no"
-              - "yes"
-            allowCustom: false
-          CONFIG_BRANCH:
-            description: "{{ .Values.ServiceName }} config branch. If empty will use master"
-            default: "{{gitBranch}}"
-            values:
-              - ""
-            allowCustom: true
-          SAAS_CONFIGURATION_BRANCH:
-            description: "saas-configuration branch. If empty will use master"
-            default: ""
-            values:
-              - ""
-            allowCustom: true
-          {{ end }}
-    steps:
-      - name: trigger_mt_pipeline
-        type: Bash
-        execution:
-          onStart:
-            - echo "Triggering Multi_Tenancy_Cell_{{ $env.Name }}_Region_Release_Pipe"
-            - echo "${ACTION}ing ${MT_CELL_TASK} in region ${REGION}"
-          onSuccess:
-            - echo "Successfully finished ${MT_CELL_TASK} ${ACTION} in region ${REGION}"
-          onFailure:
-            - echo "Failed ${MT_CELL_TASK} ${ACTION} in region ${REGION}"
+# {{ range $env := .Values.Environments }}
+# # valuesFilePath: ./values.yml
+#   - name: {{ .Values.ServiceName }}_Multi_Tenancy_{{ $env.Name }}_Region_Release
+#     configuration:
+#       environmentVariables:
+#         readOnly:
+#           MT_CELL_TASK:
+#             description: "Select Multi Tenancy Cell task"
+#             default: "{{ .Values.DefaultApplication }}"
+#             values:
+#               - ""
+#               {{ range $app := $.Values.Applications }}
+#               - "{{ $app }}"
+#               {{ end }}
+#               {{ if $env.IsDev }}
+#               - cell
+#               {{ end }}
+#             allowCustom: true
+#           ACTION:
+#             description: "Select action"
+#             default: "deploy"
+#             values:
+#               - "deploy"
+#               - "dryrun"
+#               - "undeploy"
+#             allowCustom: false
+#           REGION:
+#             description: "Select region"
+#             default: "{{ $env.DefaultRegion }}"
+#             values:
+#               - "{{ $env.DefaultRegion }}"
+#               {{ range $region := $env.AdditionalRegions }}
+#               - "{{ $region }}"
+#               {{ end }}
+#             allowCustom: true
+#           {{ if $env.IsDev }}
+#           MT_DEV_CELL:
+#             description: "Dev cell name, leave empty to use default"
+#             default: ""
+#           GROUP:
+#             description: "[Mandatory] Select the Org group you belong to"
+#             default: ARTIFACTORY
+#             values:
+#               - ARTIFACTORY
+#             allowCustom: false
+#           NODES:
+#             description: "The environment will run on AMD Nodes by default. To run on ARM nodes, set NODES=ARM, ARM is only support on AWS"
+#             default: "AMD"
+#             values:
+#               - "AMD"
+#               - "ARM"
+#             allowCustom: false
+#           HPA:
+#             description: "Enable HPA for MT Services. Optional"
+#             default: "no"
+#             values:
+#               - "no"
+#               - "yes"
+#             allowCustom: false
+#           CONFIG_BRANCH:
+#             description: "{{ .Values.ServiceName }} config branch. If empty will use master"
+#             default: "{{gitBranch}}"
+#             values:
+#               - ""
+#             allowCustom: true
+#           SAAS_CONFIGURATION_BRANCH:
+#             description: "saas-configuration branch. If empty will use master"
+#             default: ""
+#             values:
+#               - ""
+#             allowCustom: true
+#           {{ end }}
+#     steps:
+#       - name: trigger_mt_pipeline
+#         type: Bash
+#         execution:
+#           onStart:
+#             - echo "Triggering Multi_Tenancy_Cell_{{ $env.Name }}_Region_Release_Pipe"
+#             - echo "${ACTION}ing ${MT_CELL_TASK} in region ${REGION}"
+#           onSuccess:
+#             - echo "Successfully finished ${MT_CELL_TASK} ${ACTION} in region ${REGION}"
+#           onFailure:
+#             - echo "Failed ${MT_CELL_TASK} ${ACTION} in region ${REGION}"
 
-  - name: RTFS_Multi_Tenancy_{{ $env.Name }}_AllRegions_Release
-    configuration:
-      environmentVariables:
-        readOnly:
-          MT_CELL_TASK:
-            description: "Select Multi Tenancy Cell task"
-            default: "{{ .Values.DefaultApplication }}"
-            values:
-              - ""
-              {{ range $app := $.Values.Applications }}
-              - "{{ $app }}"
-              {{ end }}
-            allowCustom: true
-    steps:
-      - name: trigger_mt_pipeline
-        type: Bash
-        execution:
-          onStart:
-            - echo "Triggering Multi_Tenancy_Cell_{{ $env.Name }}_Release_Pipe"
-            - echo "deploying ${MT_CELL_TASK} in all regions"
-          onSuccess:
-            - echo "Successfully finished ${MT_CELL_TASK} deploy"
-          onFailure:
-            - echo "Failed ${MT_CELL_TASK} deploy in all regions"
-{{ end }}
+#   - name: RTFS_Multi_Tenancy_{{ $env.Name }}_AllRegions_Release
+#     configuration:
+#       environmentVariables:
+#         readOnly:
+#           MT_CELL_TASK:
+#             description: "Select Multi Tenancy Cell task"
+#             default: "{{ .Values.DefaultApplication }}"
+#             values:
+#               - ""
+#               {{ range $app := $.Values.Applications }}
+#               - "{{ $app }}"
+#               {{ end }}
+#             allowCustom: true
+#     steps:
+#       - name: trigger_mt_pipeline
+#         type: Bash
+#         execution:
+#           onStart:
+#             - echo "Triggering Multi_Tenancy_Cell_{{ $env.Name }}_Release_Pipe"
+#             - echo "deploying ${MT_CELL_TASK} in all regions"
+#           onSuccess:
+#             - echo "Successfully finished ${MT_CELL_TASK} deploy"
+#           onFailure:
+#             - echo "Failed ${MT_CELL_TASK} deploy in all regions"
+# {{ end }}
