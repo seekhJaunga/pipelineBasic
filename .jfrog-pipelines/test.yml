@@ -24,6 +24,7 @@
 
 template: true
 valuesFilePath: ./values.yml
+
 pipelines:
 # {{ range $env := .Values.Environments }}
 # {{ if or (eq "{{gitBranch}}" "main") (hasPrefix "{{ .Values.ConfigProject }}" "{{gitBranch}}") ($env.IsDev) }}
@@ -161,4 +162,4 @@ pipelines:
   #         onFailure:
   #           - echo "Failed ${MT_CELL_TASK} deploy in all regions"
 # {{ end }}
-{{ end }}
+# {{ end }}
