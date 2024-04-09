@@ -155,5 +155,5 @@ pipelines:
   #           - echo "Successfully finished ${MT_CELL_TASK} deploy"
   #         onFailure:
   #           - echo "Failed ${MT_CELL_TASK} deploy in all regions"
-{{ end }}
+# {{ end }}
 # {{ end }}
